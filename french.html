@@ -10,18 +10,90 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Nunito', sans-serif; background: linear-gradient(to bottom, #0f172a, #1a1f3a); color: #e2e8f0; min-height: 100vh; }
+        .jp-font { font-family: 'Noto Sans JP', sans-serif; }
         
         /* Header */
         header { position: sticky; top: 0; z-index: 50; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         .header-content { max-width: 1280px; margin: 0 auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between; }
         .back-link { display: flex; align-items: center; gap: 0.5rem; color: #94a3b8; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; }
-        .back-link:hover { color: #f59e0b; }
+        .back-link:hover { color: #f9a8d4; }
         .header-title { font-size: 1.125rem; font-weight: bold; color: white; display: flex; align-items: center; gap: 0.75rem; }
+        .header-title .jp-font { font-size: 1.25rem; }
         .nav-tabs { display: none; gap: 0.25rem; }
         @media (min-width: 768px) { .nav-tabs { display: flex; flex-wrap: wrap; justify-content: flex-end;} }
         .tab-btn { padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; border: none; background: transparent; color: #94a3b8; cursor: pointer; transition: all 0.2s ease; }
         .tab-btn:hover { background: rgba(255, 255, 255, 0.08); color: white; }
-        .tab-btn.active { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .tab-btn.active { background: rgba(249, 168, 212, 0.2); color: #f9a8d4; }
+
+        /* --- Desktop vs Mobile Navigation Logic --- */
+
+        /* Hide hamburger by default (Desktop) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 100;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 767px) {
+            .menu-toggle {
+                display: flex; /* Show hamburger on mobile */
+            }
+
+            .nav-tabs {
+                display: none; /* Hide default navbar */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+                z-index: 60;
+            }
+
+            /* Show menu when button is clicked */
+            .nav-tabs.active {
+                display: flex;
+            }
+
+            .tab-btn {
+                width: 100%;
+                text-align: left;
+                padding: 1rem;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            /* Animate hamburger to 'X' when open */
+            .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        }
+
+        @media (min-width: 768px) {
+            .nav-tabs {
+                display: flex; /* Standard horizontal navbar for desktop */
+                gap: 0.25rem;
+            }
+        }
 
         /* Main Content */
         main { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; }
@@ -33,11 +105,14 @@
         .card { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; }
         .card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
         .card-title { font-size: 1.125rem; font-weight: bold; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-        .card-title.gold { color: #f59e0b; }
         .card-title.blue { color: #60a5fa; }
+        .card-title.orange { color: #fb923c; }
+        .card-title.pink { color: #f9a8d4; }
         .card-title.purple { color: #d8b4fe; }
         .card-title.green { color: #10b981; }
         .card-title.red { color: #f87171; }
+        .card-title.yellow { color: #facc15; }
+        .card-title.cyan { color: #22d3ee; }
 
         .vocab-table { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; overflow: hidden; margin-bottom: 1.5rem; }
         .vocab-header { background: rgba(255, 255, 255, 0.05); padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; }
@@ -45,17 +120,27 @@
         .vocab-item { display: flex; justify-content: space-between; align-items: center; padding: 0.625rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 14px; }
         .vocab-item:last-child { border-bottom: none; }
         .vocab-en { color: #94a3b8; }
-        .vocab-fr { font-weight: bold; color: white; }
+        .vocab-jp { font-weight: bold; color: white; font-family: 'Noto Sans JP', sans-serif; }
 
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+        
+        /* Character Grids */
+        .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.375rem; text-align: center; }
+        .grid-char { padding: 0.5rem; border-radius: 0.375rem; font-size: 1.1rem; font-weight: 500; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: white; transition: all 0.2s ease; font-family: 'Noto Sans JP', sans-serif; }
+        .grid-char:hover { background: rgba(59, 130, 246, 0.2); }
+        .grid-char.orange-bg { background: rgba(251, 146, 60, 0.1); border-color: rgba(251, 146, 60, 0.2); }
+        .grid-char.orange-bg:hover { background: rgba(251, 146, 60, 0.2); }
+        .grid-char.empty { opacity: 0; pointer-events: none; }
 
         /* Highlights & Alerts */
         .info-box { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1rem; font-size: 13px; line-height: 1.5; color: #cbd5e1; }
         .info-box.red { border-left-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
         .info-box.gold { border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
         .info-box.green { border-left-color: #10b981; background: rgba(16, 185, 129, 0.05); }
+        .info-box.purple { border-left-color: #a855f7; background: rgba(168, 85, 247, 0.05); }
+        .info-box.pink { border-left-color: #ec4899; background: rgba(236, 72, 153, 0.05); }
         .accent-text { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
 
         /* Vocabulary Menu */
@@ -63,30 +148,62 @@
         .vocab-btn { padding: 1rem; border-radius: 0.75rem; border: 2px solid; background: rgba(255, 255, 255, 0.05); color: white; cursor: pointer; font-weight: 600; text-align: center; transition: all 0.3s ease; font-size: 14px; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
         .vocab-btn span.icon { font-size: 1.5rem; }
         .vocab-btn:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.1); }
-        .vocab-btn.gold { border-color: rgba(245, 158, 11, 0.4); }
         .vocab-btn.blue { border-color: rgba(59, 130, 246, 0.4); }
-        .vocab-btn.purple { border-color: rgba(168, 85, 247, 0.4); }
-        .vocab-btn.green { border-color: rgba(16, 185, 129, 0.4); }
+        .vocab-btn.indigo { border-color: rgba(99, 102, 241, 0.4); }
+        .vocab-btn.emerald { border-color: rgba(16, 185, 129, 0.4); }
+        .vocab-btn.green { border-color: rgba(34, 197, 94, 0.4); }
         .vocab-btn.pink { border-color: rgba(236, 72, 153, 0.4); }
+        .vocab-btn.purple { border-color: rgba(168, 85, 247, 0.4); }
+        .vocab-btn.yellow { border-color: rgba(234, 179, 8, 0.4); }
         .vocab-btn.cyan { border-color: rgba(6, 182, 212, 0.4); }
-        .vocab-btn.orange { border-color: rgba(249, 115, 22, 0.4); }
         .vocab-btn.red { border-color: rgba(239, 68, 68, 0.4); }
+        .vocab-btn.orange { border-color: rgba(249, 115, 22, 0.4); }
+
+        /* Kanji Specific */
+        .kanji-intro { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .kanji-intro h2 { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .kanji-intro p { color: #94a3b8; font-size: 14px; }
+        .kanji-watermark { font-size: 4rem; opacity: 0.1; user-select: none; font-family: 'Noto Sans JP', sans-serif; }
+        .kanji-lesson { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; overflow: hidden; margin-bottom: 1.5rem; }
+        .kanji-lesson-header { background: rgba(255, 255, 255, 0.05); padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+        .kanji-lesson-header h3 { font-weight: bold; color: white; }
+        .kanji-chars { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 1rem; padding: 1.5rem; }
+        .kanji-char { display: flex; flex-direction: column; align-items: center; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.06); transition: all 0.2s ease; }
+        .kanji-char:hover { background: rgba(249, 168, 212, 0.1); border-color: rgba(249, 168, 212, 0.3); }
+        .kanji-symbol { font-size: 2.25rem; font-weight: bold; color: white; margin-bottom: 0.25rem; font-family: 'Noto Sans JP', sans-serif; }
+        .kanji-reading { font-size: 11px; color: #f9a8d4; font-weight: bold; margin-bottom: 0.25rem; font-family: 'Noto Sans JP', sans-serif; }
+        .kanji-meaning { font-size: 10px; color: #94a3b8; text-align: center; }
+
+        /* Custom Sentence Block */
+        .sentence-block { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem; padding: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; }
+        .sentence-part { text-align: center; flex: 1; min-width: 100px; }
+        .sentence-role { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.25rem; }
+        .sentence-word { background: #0f172a; padding: 0.75rem; border-radius: 0.25rem; font-size: 1.25rem; font-weight: bold; color: white; font-family: 'Noto Sans JP', sans-serif; border: 1px solid rgba(255,255,255,0.05); }
+        .sentence-plus { color: #f9a8d4; font-weight: bold; }
 
         footer { border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 4rem; padding: 2rem 1rem; text-align: center; color: #64748b; font-size: 14px; }
+        @media (max-width: 768px) { .grid-5 { grid-template-columns: repeat(4, 1fr); } }
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <a href="index.html" class="back-link"> ←  Back to Hub</a>
+            <a href="index.html" class="back-link">← Back to Hub</a>
             <div class="header-title">
                 <span>🥐</span>
-                <span>Français Study Guide</span>
+                <span>French Study Guide</span>
             </div>
-            <nav class="nav-tabs">
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-tabs" id="navTabs">
                 <button class="tab-btn active" onclick="switchTab('grammar')">Grammar</button>
                 <button class="tab-btn" onclick="switchTab('verbs')">Verbs</button>
-                <button class="tab-btn" onclick="switchTab('adjectives')">Description</button>
+                <button class="tab-btn" onclick="switchTab('adjectives')">Adjectives</button>
                 <button class="tab-btn" onclick="switchTab('adverbs')">Adverbs</button>
                 <button class="tab-btn" onclick="switchTab('vocabulary')">Vocabulary</button>
                 <button class="tab-btn" onclick="switchTab('phrases')">Phrases</button>
@@ -791,31 +908,47 @@
                     </div></div>
                 </div>
 
-                <div id="fr-time" class="grid-2 vocab-category" style="display: none;">
-                    <div class="vocab-table"><div class="vocab-header">Days & Months</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Monday</span><span class="vocab-fr">lundi</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Tuesday</span><span class="vocab-fr">mardi</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Wednesday</span><span class="vocab-fr">mercredi</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Thursday</span><span class="vocab-fr">jeudi</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Friday</span><span class="vocab-fr">vendredi</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Saturday</span><span class="vocab-fr">samedi</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Sunday</span><span class="vocab-fr">dimanche</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Jan / Feb / Mar</span><span class="vocab-fr">janvier / février / mars</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Apr / May / Jun</span><span class="vocab-fr">avril / mai / juin</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Jul / Aug / Sep</span><span class="vocab-fr">juillet / août / septembre</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Oct / Nov / Dec</span><span class="vocab-fr">octobre / novembre / décembre</span></div>
-                    </div></div>
-                    <div class="vocab-table"><div class="vocab-header">Time Expressions</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Today</span><span class="vocab-fr">aujourd'hui</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Yesterday</span><span class="vocab-fr">hier</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Tomorrow</span><span class="vocab-fr">demain</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Morning</span><span class="vocab-fr">le matin</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Afternoon</span><span class="vocab-fr">l'après-midi</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Evening</span><span class="vocab-fr">le soir</span></div>
-                        <div class="vocab-item"><span class="vocab-en">At night</span><span class="vocab-fr">la nuit</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Midnight / Noon</span><span class="vocab-fr">minuit / midi</span></div>
-                        <div class="vocab-item"><span class="vocab-en">This week</span><span class="vocab-fr">cette semaine</span></div>
-                    </div></div>
+                <div id="fr-time" class="vocab-grid grid-3 vocab-category" style="display: none;">
+                    <div class="vocab-table">
+                        <div class="vocab-header" style="color: #fbbf24;">Days & Months</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">Mon / Tue / Wed</span><span class="vocab-fr">lundi / mardi / mercredi</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Thu / Fri / Sat</span><span class="vocab-fr">jeudi / vendredi / samedi</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Sunday</span><span class="vocab-fr">dimanche</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Jan / Feb / Mar</span><span class="vocab-fr">janvier / fév. / mars</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Apr / May / Jun</span><span class="vocab-fr">avril / mai / juin</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Jul / Aug / Sep</span><span class="vocab-fr">juil. / août / sept.</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Oct / Nov / Dec</span><span class="vocab-fr">oct. / nov. / déc.</span></div>
+                        </div>
+                    </div>
+
+                    <div class="vocab-table">
+                        <div class="vocab-header" style="color: #f59e0b;">Time Expressions</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">Today / Yesterday</span><span class="vocab-fr">aujourd'hui / hier</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Tomorrow</span><span class="vocab-fr">demain</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Morning</span><span class="vocab-fr">le matin</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Afternoon</span><span class="vocab-fr">l'après-midi</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Evening / Night</span><span class="vocab-fr">le soir / la nuit</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Noon / Midnight</span><span class="vocab-fr">midi / minuit</span></div>
+                            <div class="vocab-item"><span class="vocab-en">This week</span><span class="vocab-fr">cette semaine</span></div>
+                        </div>
+                    </div>
+
+                    <div class="vocab-table">
+                        <div class="vocab-header" style="color: #60a5fa;">Weather (La Météo)</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">It is sunny</span><span class="vocab-fr">Il fait beau</span></div>
+                            <div class="vocab-item"><span class="vocab-en">It is hot / cold</span><span class="vocab-fr">Il fait chaud / froid</span></div>
+                            <div class="vocab-item"><span class="vocab-en">It is raining</span><span class="vocab-fr">Il pleut</span></div>
+                            <div class="vocab-item"><span class="vocab-en">It is snowing</span><span class="vocab-fr">Il neige</span></div>
+                            <div class="vocab-item"><span class="vocab-en">It is windy</span><span class="vocab-fr">Il y a du vent</span></div>
+                            <div class="vocab-item"><span class="vocab-en">It is cloudy</span><span class="vocab-fr">Il y a des nuages</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Storm / Fog</span><span class="vocab-fr">orage / brouillard</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Spring / Summer</span><span class="vocab-fr">printemps / été</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Autumn / Winter</span><span class="vocab-fr">automne / hiver</span></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="fr-travel" class="vocab-category" style="display: none;">
@@ -1193,6 +1326,32 @@
     </footer>
 
     <script>
+
+        // Mobile menu elements
+        const menuToggle = document.getElementById('menuToggle');
+        const navTabs = document.getElementById('navTabs');
+
+        // Toggle Menu on click
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navTabs.classList.toggle('active');
+        });
+
+        // Close menu automatically after selecting a tab (Mobile only)
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Handle Active State Styling
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+
+                // If on mobile, close the menu
+                if (window.innerWidth < 768) {
+                    menuToggle.classList.remove('active');
+                    navTabs.classList.remove('active');
+                }
+            });
+        });
+
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
@@ -1215,5 +1374,6 @@
             }
         });
     </script>
+
 </body>
 </html>
