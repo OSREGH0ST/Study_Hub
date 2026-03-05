@@ -25,6 +25,76 @@
         .tab-btn:hover { background: rgba(255, 255, 255, 0.08); color: white; }
         .tab-btn.active { background: rgba(249, 168, 212, 0.2); color: #f9a8d4; }
 
+        /* --- Desktop vs Mobile Navigation Logic --- */
+
+        /* Hide hamburger by default (Desktop) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 100;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 767px) {
+            .menu-toggle {
+                display: flex; /* Show hamburger on mobile */
+            }
+
+            .nav-tabs {
+                display: none; /* Hide default navbar */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+                z-index: 60;
+            }
+
+            /* Show menu when button is clicked */
+            .nav-tabs.active {
+                display: flex;
+            }
+
+            .tab-btn {
+                width: 100%;
+                text-align: left;
+                padding: 1rem;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            /* Animate hamburger to 'X' when open */
+            .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        }
+
+        @media (min-width: 768px) {
+            .nav-tabs {
+                display: flex; /* Standard horizontal navbar for desktop */
+                gap: 0.25rem;
+            }
+        }
+
         /* Main Content */
         main { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; }
         .tab-content { display: none; animation: fadeIn 0.3s ease; }
@@ -118,14 +188,20 @@
 <body>
     <header>
         <div class="header-content">
-            <a href="index.html" class="back-link"> ←  Back to Hub</a>
+            <a href="index.html" class="back-link">← Back to Hub</a>
             <div class="header-title">
-                <span>⛩️</span>
-                <span class="jp-font">日本語</span>
-                <span>Study Guide</span>
+                <span>🍙</span> 
+                <span>Japanese Study Guide</span>
             </div>
-            <nav class="nav-tabs">
-                <button class="tab-btn active" onclick="switchTab('writing')">Writing & Grammar</button>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-tabs" id="navTabs">
+                <button class="tab-btn active" onclick="switchTab('writing')">Writing</button>
                 <button class="tab-btn" onclick="switchTab('verbs')">Verbs</button>
                 <button class="tab-btn" onclick="switchTab('adjectives')">Adjectives</button>
                 <button class="tab-btn" onclick="switchTab('adverbs')">Adverbs</button>
@@ -1071,6 +1147,24 @@
             });
         }
 
+        // Toggle mobile menu visibility
+        const menuToggle = document.getElementById('menuToggle');
+        const navTabs = document.getElementById('navTabs');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navTabs.classList.toggle('active');
+        });
+
+        // Close menu when a navigation item is clicked
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    menuToggle.classList.remove('active');
+                    navTabs.classList.remove('active');
+                }
+            });
+        });
         // Tab and Vocab Switchers
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -1096,6 +1190,7 @@
                 showVocabCategory('jp-numbers');
             }
         });
+    
     </script>
 </body>
 </html>
