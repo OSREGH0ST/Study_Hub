@@ -3,127 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Hub</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Study Hub — Language Learning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
-        
-        body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #0f172a;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        .split-container {
-            display: flex;
-            flex-direction: row;
-            height: 100vh;
-            width: 100vw;
-        }
-
-        /* --- RESPONSIVE / MOBILE --- */
-        @media (max-width: 768px) {
-            .split-container {
-                flex-direction: column; /* Se apilan uno arriba del otro */
-            }
-            .flag-circle {
-                width: 80px !important;
-                height: 80px !important;
-                margin-bottom: 15px !important;
-            }
-            h2 {
-                font-size: 2.5rem !important;
-            }
-            .pane {
-                flex: 1 !important; /* Evita que crezcan demasiado al tocar en móvil */
-            }
-        }
-
-        .pane {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-        }
-
-        /* Efecto de expansión solo en pantallas grandes */
-        @media (min-width: 769px) {
-            .pane:hover { flex: 1.4; }
-        }
-
-        .jp-pane {
-            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), 
-                        url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .fr-pane {
-            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)), 
-                        url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .flag-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            border: 4px solid white;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.5s;
-        }
-
-        .jp-flag { background-image: url('https://flagcdn.com/w320/jp.png'); }
-        .fr-flag { background-image: url('https://flagcdn.com/w320/fr.png'); }
-
-        .btn-enter {
-            margin-top: 20px;
-            padding: 10px 25px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            color: white;
-            font-weight: 800;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito', sans-serif; background-color: #0f172a; overflow: hidden; }
+        .split-container { display: flex; height: 100vh; width: 100vw; }
+        .pane { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; text-decoration: none; transition: flex 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .pane:hover { flex: 1.45; }
+        .pane-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.7s ease; }
+        .pane:hover .pane-bg { transform: scale(1.05); }
+        .pane-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.2)); transition: opacity 0.5s ease; }
+        .pane:hover .pane-overlay { opacity: 0.8; }
+        .pane-content { position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2rem; animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .flag-circle { width: 120px; height: 120px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.3); background-size: cover; background-position: center; margin-bottom: 1.5rem; transition: all 0.5s ease; }
+        .pane-jp:hover .flag-circle { border-color: rgba(249, 168, 212, 0.7); box-shadow: 0 0 30px rgba(249, 168, 212, 0.5); }
+        .pane-fr:hover .flag-circle { border-color: rgba(245, 158, 11, 0.7); box-shadow: 0 0 30px rgba(245, 158, 11, 0.5); }
+        .pane-label { font-size: 10px; font-weight: bold; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 0.75rem; opacity: 0.7; }
+        .pane-jp .pane-label { color: #f9a8d4; }
+        .pane-fr .pane-label { color: #f59e0b; }
+        .pane-title { font-family: 'Crimson Pro', serif; font-size: 4rem; font-weight: bold; font-style: italic; color: white; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+        .pane-subtitle { font-size: 0.875rem; color: rgba(255, 255, 255, 0.5); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .pane-cta { opacity: 0; transition: all 0.3s ease; transform: translateY(8px); }
+        .pane:hover .pane-cta { opacity: 1; transform: translateY(0); }
+        .cta-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1.25rem; border-radius: 9999px; font-size: 12px; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(4px); transition: all 0.3s ease; }
+        .pane-jp .cta-pill { border-color: rgba(249, 168, 212, 0.4); color: #f9a8d4; }
+        .pane-fr .cta-pill { border-color: rgba(245, 158, 11, 0.4); color: #f59e0b; }
+        .pane-watermark { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); font-size: 120px; font-weight: bold; color: rgba(255, 255, 255, 0.03); user-select: none; pointer-events: none; line-height: 1; }
+        .pane-jp .pane-watermark { font-family: 'Noto Sans JP', sans-serif; }
+        .site-title { position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 20; text-align: center; pointer-events: none; }
+        .site-title p { font-size: 10px; font-weight: bold; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255, 255, 255, 0.3); }
+        .divider { position: absolute; right: 0; top: 0; bottom: 0; width: 1px; background-color: rgba(255, 255, 255, 0.1); display: none; }
+        @media (min-width: 768px) { .divider { display: block; } .pane-title { font-size: 3.5rem; } }
+        @media (max-width: 768px) { .split-container { flex-direction: column; } .pane, .pane:hover { flex: 1 !important; } .flag-circle { width: 80px; height: 80px; } .pane-title { font-size: 2.5rem; } .divider { display: none; } }
     </style>
 </head>
 <body>
-
-    <div class="center-divider"></div>
-
     <div class="split-container">
-        <a href="japanese.html" class="pane jp-pane">
-            <div class="overlay-content">
-                <div class="flag-circle jp-flag"></div>
-                <h2 class="text-5xl font-black italic tracking-tighter uppercase">Japanese</h2>
-                <center>
-                <p class="text-blue-200 mt-2 font-bold tracking-widest uppercase text-xs">日本語学習ガイド</p>
-                </center>
-                <div class="btn-enter">Start Learning</div>
+        <a href="japanese.html" class="pane pane-jp">
+            <div class="pane-bg" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop')"></div>
+            <div class="pane-overlay"></div>
+            <div class="pane-content">
+                <div class="flag-circle" style="background-image: url('https://flagcdn.com/w320/jp.png')"></div>
+                <p class="pane-label">日本語学習ガイド</p>
+                <h2 class="pane-title">Japanese</h2>
+                <p class="pane-subtitle">Study Guide</p>
+                <div class="pane-cta">
+                    <span class="cta-pill">Begin Studying →</span>
+                </div>
             </div>
+            <div class="pane-watermark">語</div>
+            <div class="divider"></div>
         </a>
 
-        <a href="french.html" class="pane fr-pane">
-            <div class="overlay-content">
-                <div class="flag-circle fr-flag"></div>
-                <h2 class="text-5xl font-black italic tracking-tighter uppercase">French</h2>
-                <p class="text-blue-200 mt-2 font-bold tracking-widest uppercase text-xs">Guide d'étude français</p>
-                <div class="btn-enter">Commencer</div>
+        <a href="french.html" class="pane pane-fr">
+            <div class="pane-bg" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop')"></div>
+            <div class="pane-overlay"></div>
+            <div class="pane-content">
+                <div class="flag-circle" style="background-image: url('https://flagcdn.com/w320/fr.png')"></div>
+                <p class="pane-label">Guide d'étude français</p>
+                <h2 class="pane-title">French</h2>
+                <p class="pane-subtitle">Study Guide</p>
+                <div class="pane-cta">
+                    <span class="cta-pill">Begin Studying →</span>
+                </div>
             </div>
+            <div class="pane-watermark">F</div>
         </a>
     </div>
 
+    <div class="site-title">
+        <p>Study Hub</p>
+    </div>
 </body>
 </html>
