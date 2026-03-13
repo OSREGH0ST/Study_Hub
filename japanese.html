@@ -4,186 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japanese Study Guide</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Nunito', sans-serif; background: linear-gradient(to bottom, #0f172a, #1a1f3a); color: #e2e8f0; min-height: 100vh; }
-        .jp-font { font-family: 'Noto Sans JP', sans-serif; }
-        
-        /* Header */
-        header { position: sticky; top: 0; z-index: 50; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .header-content { max-width: 1280px; margin: 0 auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between; }
-        .back-link { display: flex; align-items: center; gap: 0.5rem; color: #94a3b8; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; }
-        .back-link:hover { color: #f9a8d4; }
-        .header-title { font-size: 1.125rem; font-weight: bold; color: white; display: flex; align-items: center; gap: 0.75rem; }
-        .header-title .jp-font { font-size: 1.25rem; }
-        .nav-tabs { display: none; gap: 0.25rem; }
-        @media (min-width: 768px) { .nav-tabs { display: flex; flex-wrap: wrap; justify-content: flex-end;} }
-        .tab-btn { padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; border: none; background: transparent; color: #94a3b8; cursor: pointer; transition: all 0.2s ease; }
-        .tab-btn:hover { background: rgba(255, 255, 255, 0.08); color: white; }
-        .tab-btn.active { background: rgba(249, 168, 212, 0.2); color: #f9a8d4; }
-
-        /* --- Desktop vs Mobile Navigation Logic --- */
-
-        /* Hide hamburger by default (Desktop) */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 100;
-        }
-
-        .menu-toggle span {
-            width: 100%;
-            height: 3px;
-            background-color: white;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        @media (max-width: 767px) {
-            .menu-toggle {
-                display: flex; /* Show hamburger on mobile */
-            }
-
-            .nav-tabs {
-                display: none; /* Hide default navbar */
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(15, 23, 42, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 1rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-                z-index: 60;
-            }
-
-            /* Show menu when button is clicked */
-            .nav-tabs.active {
-                display: flex;
-            }
-
-            .tab-btn {
-                width: 100%;
-                text-align: left;
-                padding: 1rem;
-                font-size: 14px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-
-            /* Animate hamburger to 'X' when open */
-            .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-            .menu-toggle.active span:nth-child(2) { opacity: 0; }
-            .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-        }
-
-        @media (min-width: 768px) {
-            .nav-tabs {
-                display: flex; /* Standard horizontal navbar for desktop */
-                gap: 0.25rem;
-            }
-        }
-
-        /* Main Content */
-        main { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; }
-        .tab-content { display: none; animation: fadeIn 0.3s ease; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* Cards & Tables */
-        .card { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
-        .card-title { font-size: 1.125rem; font-weight: bold; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-        .card-title.blue { color: #60a5fa; }
-        .card-title.orange { color: #fb923c; }
-        .card-title.pink { color: #f9a8d4; }
-        .card-title.purple { color: #d8b4fe; }
-        .card-title.green { color: #10b981; }
-        .card-title.red { color: #f87171; }
-        .card-title.yellow { color: #facc15; }
-        .card-title.cyan { color: #22d3ee; }
-
-        .vocab-table { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; overflow: hidden; margin-bottom: 1.5rem; }
-        .vocab-header { background: rgba(255, 255, 255, 0.05); padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; }
-        .vocab-items { padding: 1rem; }
-        .vocab-item { display: flex; justify-content: space-between; align-items: center; padding: 0.625rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 14px; }
-        .vocab-item:last-child { border-bottom: none; }
-        .vocab-en { color: #94a3b8; }
-        .vocab-jp { font-weight: bold; color: white; font-family: 'Noto Sans JP', sans-serif; }
-
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-        
-        /* Character Grids */
-        .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.375rem; text-align: center; }
-        .grid-char { padding: 0.5rem; border-radius: 0.375rem; font-size: 1.1rem; font-weight: 500; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: white; transition: all 0.2s ease; font-family: 'Noto Sans JP', sans-serif; }
-        .grid-char:hover { background: rgba(59, 130, 246, 0.2); }
-        .grid-char.orange-bg { background: rgba(251, 146, 60, 0.1); border-color: rgba(251, 146, 60, 0.2); }
-        .grid-char.orange-bg:hover { background: rgba(251, 146, 60, 0.2); }
-        .grid-char.empty { opacity: 0; pointer-events: none; }
-
-        /* Highlights & Alerts */
-        .info-box { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1rem; font-size: 13px; line-height: 1.5; color: #cbd5e1; }
-        .info-box.red { border-left-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
-        .info-box.gold { border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
-        .info-box.green { border-left-color: #10b981; background: rgba(16, 185, 129, 0.05); }
-        .info-box.purple { border-left-color: #a855f7; background: rgba(168, 85, 247, 0.05); }
-        .info-box.pink { border-left-color: #ec4899; background: rgba(236, 72, 153, 0.05); }
-        .accent-text { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
-
-        /* Vocabulary Menu */
-        .vocab-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-        .vocab-btn { padding: 1rem; border-radius: 0.75rem; border: 2px solid; background: rgba(255, 255, 255, 0.05); color: white; cursor: pointer; font-weight: 600; text-align: center; transition: all 0.3s ease; font-size: 14px; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
-        .vocab-btn span.icon { font-size: 1.5rem; }
-        .vocab-btn:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.1); }
-        .vocab-btn.blue { border-color: rgba(59, 130, 246, 0.4); }
-        .vocab-btn.indigo { border-color: rgba(99, 102, 241, 0.4); }
-        .vocab-btn.emerald { border-color: rgba(16, 185, 129, 0.4); }
-        .vocab-btn.green { border-color: rgba(34, 197, 94, 0.4); }
-        .vocab-btn.pink { border-color: rgba(236, 72, 153, 0.4); }
-        .vocab-btn.purple { border-color: rgba(168, 85, 247, 0.4); }
-        .vocab-btn.yellow { border-color: rgba(234, 179, 8, 0.4); }
-        .vocab-btn.cyan { border-color: rgba(6, 182, 212, 0.4); }
-        .vocab-btn.red { border-color: rgba(239, 68, 68, 0.4); }
-        .vocab-btn.orange { border-color: rgba(249, 115, 22, 0.4); }
-
-        /* Kanji Specific */
-        .kanji-intro { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; }
-        .kanji-intro h2 { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
-        .kanji-intro p { color: #94a3b8; font-size: 14px; }
-        .kanji-watermark { font-size: 4rem; opacity: 0.1; user-select: none; font-family: 'Noto Sans JP', sans-serif; }
-        .kanji-lesson { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; overflow: hidden; margin-bottom: 1.5rem; }
-        .kanji-lesson-header { background: rgba(255, 255, 255, 0.05); padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-        .kanji-lesson-header h3 { font-weight: bold; color: white; }
-        .kanji-chars { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 1rem; padding: 1.5rem; }
-        .kanji-char { display: flex; flex-direction: column; align-items: center; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.06); transition: all 0.2s ease; }
-        .kanji-char:hover { background: rgba(249, 168, 212, 0.1); border-color: rgba(249, 168, 212, 0.3); }
-        .kanji-symbol { font-size: 2.25rem; font-weight: bold; color: white; margin-bottom: 0.25rem; font-family: 'Noto Sans JP', sans-serif; }
-        .kanji-reading { font-size: 11px; color: #f9a8d4; font-weight: bold; margin-bottom: 0.25rem; font-family: 'Noto Sans JP', sans-serif; }
-        .kanji-meaning { font-size: 10px; color: #94a3b8; text-align: center; }
-
-        /* Custom Sentence Block */
-        .sentence-block { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem; padding: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; }
-        .sentence-part { text-align: center; flex: 1; min-width: 100px; }
-        .sentence-role { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.25rem; }
-        .sentence-word { background: #0f172a; padding: 0.75rem; border-radius: 0.25rem; font-size: 1.25rem; font-weight: bold; color: white; font-family: 'Noto Sans JP', sans-serif; border: 1px solid rgba(255,255,255,0.05); }
-        .sentence-plus { color: #f9a8d4; font-weight: bold; }
-
-        footer { border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 4rem; padding: 2rem 1rem; text-align: center; color: #64748b; font-size: 14px; }
-        @media (max-width: 768px) { .grid-5 { grid-template-columns: repeat(4, 1fr); } }
-    </style>
 </head>
 <body>
     <header>
@@ -663,6 +488,7 @@
                 <button class="vocab-btn cyan" onclick="showVocabCategory('jp-professions')"><span class="icon">💼</span> Professions</button>
                 <button class="vocab-btn red" onclick="showVocabCategory('jp-body')"><span class="icon">👤</span> Body Parts</button>
                 <button class="vocab-btn orange" onclick="showVocabCategory('jp-clothing')"><span class="icon">👕</span> Clothing</button>
+                <button class="vocab-btn orange" onclick="showVocabCategory('jp-hobbies')"><span class="icon">🎨</span> Hobbies</button>
             </div>
 
             <div id="vocab-tables">
@@ -1033,6 +859,35 @@
                         </div>
                     </div></div>
                 </div>
+
+                <div id="jp-hobbies" class="vocab-grid vocab-category grid-2" style="display: none;">
+                    <div class="vocab-table">
+                        <div class="vocab-header" style="color: #f472b6;">Creative (クリエイティブ)</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">Reading</span><span class="vocab-fr jp-font">どくしょ (読書)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Writing</span><span class="vocab-fr jp-font">かくこと (書くこと)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Drawing</span><span class="vocab-fr jp-font">えをかくこと (絵を描くこと)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Painting</span><span class="vocab-fr jp-font">あぶらえ (油絵)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Playing an instrument</span><span class="vocab-fr jp-font">がっきをひくこと</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Singing</span><span class="vocab-fr jp-font">うたうこと (歌うこと)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Photography</span><span class="vocab-fr jp-font">しゃしん (写真)</span></div>
+                        </div>
+                    </div>
+
+                    <div class="vocab-table">
+                        <div class="vocab-header" style="color: #ec4899;">Activities (アクティビティ)</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">Swimming</span><span class="vocab-fr jp-font">すいえい (水泳)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Cooking</span><span class="vocab-fr jp-font">りょうり (料理)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Traveling</span><span class="vocab-fr jp-font">りょこう (旅行)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Watching movies</span><span class="vocab-fr jp-font">えいがかんしょう</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Listening to music</span><span class="vocab-fr jp-font">おんがくかんしょう</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Gardening</span><span class="vocab-fr jp-font">えんげい (園芸)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Video games</span><span class="vocab-fr jp-font">ゲームをすること</span></div>
+                        </div>
+                    </div>
+                </div> 
+                
             </div>
         </div>
 
@@ -1052,145 +907,5 @@
     <footer>
         <p>Japanese Study Guide — Study Hub Pro</p>
     </footer>
-
-    <script>
-        // Full Kanji Data from 1.zip
-        const kanjiData = [
-            { lesson: 1, title: "Pictographs 1", chars: [
-                {k: "山", r: "やま", m: "Mountain"}, {k: "川", r: "かわ", m: "River"}, {k: "田", r: "た", m: "Rice Field"}, {k: "日", r: "ひ / にち", m: "Sun/Day"}, {k: "月", r: "つき / げつ", m: "Moon/Month"}, 
-                {k: "火", r: "ひ / か", m: "Fire"}, {k: "水", r: "みず / すい", m: "Water"}, {k: "木", r: "き / もく", m: "Tree"}, {k: "金", r: "かね / きん", m: "Gold/Money"}, {k: "土", r: "つち / ど", m: "Soil/Earth"}
-            ]},
-            { lesson: 2, title: "Numbers", chars: [
-                {k: "一", r: "いち", m: "One"}, {k: "二", r: "に", m: "Two"}, {k: "三", r: "さん", m: "Three"}, {k: "四", r: "よん / し", m: "Four"}, {k: "五", r: "ご", m: "Five"}, 
-                {k: "六", r: "ろく", m: "Six"}, {k: "七", r: "なな / しち", m: "Seven"}, {k: "八", r: "はち", m: "Eight"}, {k: "九", r: "きゅう", m: "Nine"}, {k: "十", r: "じゅう", m: "Ten"}
-            ]},
-            { lesson: 3, title: "Numbers & Signs", chars: [
-                {k: "百", r: "ひゃく", m: "Hundred"}, {k: "千", r: "せん", m: "Thousand"}, {k: "万", r: "まん", m: "Ten Thousand"}, {k: "円", r: "えん", m: "Yen"}, {k: "年", r: "とし / ねん", m: "Year"}, 
-                {k: "上", r: "うえ", m: "Up/Above"}, {k: "下", r: "した", m: "Down/Below"}, {k: "中", r: "なか", m: "Middle/Inside"}, {k: "半", r: "はん", m: "Half"}, {k: "分", r: "ふん / ぶん", m: "Minute/Part"}
-            ]},
-            { lesson: 4, title: "Pictographs 2", chars: [
-                {k: "人", r: "ひと / じん", m: "Person"}, {k: "子", r: "こ", m: "Child"}, {k: "女", r: "おんな", m: "Woman"}, {k: "男", r: "おとこ", m: "Man"}, {k: "目", r: "め", m: "Eye"}, 
-                {k: "口", r: "くち", m: "Mouth"}, {k: "耳", r: "みみ", m: "Ear"}, {k: "手", r: "て", m: "Hand"}, {k: "足", r: "あし", m: "Leg/Foot"}, {k: "力", r: "ちから", m: "Power"}
-            ]},
-            { lesson: 5, title: "Pictographs 3", chars: [
-                {k: "父", r: "ちち", m: "Father"}, {k: "母", r: "はは", m: "Mother"}, {k: "先", r: "さき / せん", m: "Previous"}, {k: "生", r: "せい", m: "Life/Birth"}, {k: "学", r: "がく", m: "Study"}, 
-                {k: "校", r: "こう", m: "School"}, {k: "友", r: "とも", m: "Friend"}, {k: "本", r: "ほん", m: "Book"}, {k: "毎", r: "まい", m: "Every"}, {k: "何", r: "なに / なん", m: "What"}
-            ]},
-            { lesson: 6, title: "Directions", chars: [
-                {k: "前", r: "まえ", m: "Front/Before"}, {k: "後", r: "あと / うしろ", m: "Back/After"}, {k: "外", r: "そと / がい", m: "Outside"}, {k: "左", r: "ひだり", m: "Left"}, {k: "右", r: "みぎ", m: "Right"}, 
-                {k: "東", r: "ひがし", m: "East"}, {k: "西", r: "にし", m: "West"}, {k: "南", r: "みなみ", m: "South"}, {k: "北", r: "きた", m: "North"}, {k: "名", r: "な / めい", m: "Name"}
-            ]},
-            { lesson: 7, title: "Pictographs 4", chars: [
-                {k: "牛", r: "うし", m: "Cow"}, {k: "馬", r: "うま", m: "Horse"}, {k: "魚", r: "さかな", m: "Fish"}, {k: "貝", r: "かい", m: "Shellfish"}, {k: "雨", r: "あめ", m: "Rain"}, 
-                {k: "天", r: "てん", m: "Heaven"}, {k: "気", r: "き", m: "Spirit"}, {k: "車", r: "くるま", m: "Car"}, {k: "門", r: "もん", m: "Gate"}, {k: "午", r: "ご", m: "Noon"}
-            ]},
-            { lesson: 8, title: "Adjectives", chars: [
-                {k: "大", r: "おお(きい)", m: "Big"}, {k: "小", r: "ちい(さい)", m: "Small"}, {k: "高", r: "たか(い)", m: "High/Exp"}, {k: "安", r: "やす(い)", m: "Cheap"}, {k: "新", r: "あたら(しい)", m: "New"}, 
-                {k: "古", r: "ふる(い)", m: "Old"}, {k: "長", r: "なが(い)", m: "Long"}, {k: "多", r: "おお(い)", m: "Many"}, {k: "少", r: "すく(ない)", m: "Few"}, {k: "早", r: "はや(い)", m: "Early"}
-            ]},
-            { lesson: 9, title: "Verbs", chars: [
-                {k: "行", r: "い(く)", m: "Go"}, {k: "来", r: "く(る)", m: "Come"}, {k: "食", r: "た(べる)", m: "Eat"}, {k: "見", r: "み(る)", m: "See"}, {k: "入", r: "はい(る)", m: "Enter"}, 
-                {k: "出", r: "で(る)", m: "Exit"}, {k: "立", r: "た(つ)", m: "Stand"}, {k: "書", r: "か(く)", m: "Write"}, {k: "言", r: "い(う)", m: "Say"}, {k: "飲", r: "の(む)", m: "Drink"}
-            ]},
-            { lesson: 10, title: "Combinations 1", chars: [
-                {k: "話", r: "はな(す)", m: "Speak"}, {k: "読", r: "よ(む)", m: "Read"}, {k: "語", r: "ご", m: "Language"}, {k: "間", r: "あいだ", m: "Between"}, {k: "聞", r: "き(く)", m: "Listen"}, 
-                {k: "買", r: "か(う)", m: "Buy"}, {k: "休", r: "やす(む)", m: "Rest"}, {k: "時", r: "とき / じ", m: "Time"}, {k: "週", r: "しゅう", m: "Week"}, {k: "道", r: "みち", m: "Road"}
-            ]},
-            { lesson: 11, title: "Combinations 2", chars: [
-                {k: "今", r: "いま", m: "Now"}, {k: "会", r: "あ(う) / かい", m: "Meet"}, {k: "社", r: "しゃ", m: "Company"}, {k: "店", r: "みせ", m: "Shop"}, {k: "駅", r: "えき", m: "Station"}, 
-                {k: "花", r: "はな", m: "Flower"}, {k: "国", r: "くに", m: "Country"}, {k: "白", r: "しろ", m: "White"}, {k: "空", r: "そら", m: "Sky"}, {k: "電", r: "でん", m: "Electricity"}
-            ]},
-            { lesson: 12, title: "Adjectives & Verbs", chars: [
-                {k: "明", r: "あか(るい)", m: "Bright"}, {k: "暗", r: "くら(い)", m: "Dark"}, {k: "広", r: "ひろ(い)", m: "Wide"}, {k: "近", r: "ちか(い)", m: "Near"}, {k: "遠", r: "とお(い)", m: "Far"},
-                {k: "強", r: "つよ(い)", m: "Strong"}, {k: "弱", r: "よわ(い)", m: "Weak"}, {k: "重", r: "おも(い)", m: "Heavy"}, {k: "軽", r: "かる(い)", m: "Light"}, {k: "良", r: "よ(い)", m: "Good"}
-            ]},
-            { lesson: 13, title: "Action Verbs", chars: [
-                {k: "始", r: "はじ(める)", m: "To start"}, {k: "終", r: "お(わる)", m: "To end"}, {k: "使", r: "つか(う)", m: "To use"}, {k: "作", r: "つく(る)", m: "To make"}, {k: "持", r: "も(つ)", m: "To hold"},
-                {k: "待", r: "ま(つ)", m: "To wait"}, {k: "開", r: "あ(ける)", m: "To open"}, {k: "閉", r: "し(める)", m: "To close"}, {k: "帰", r: "かえ(る)", m: "To return"}, {k: "思", r: "おも(う)", m: "To think"}
-            ]},
-            { lesson: 14, title: "Movement & Daily Life", chars: [
-                {k: "走", r: "はし(る)", m: "To run"}, {k: "歩", r: "ある(く)", m: "To walk"}, {k: "起", r: "お(きる)", m: "To wake up"}, {k: "寝", r: "ね(る)", m: "To sleep"}, {k: "働", r: "はたら(く)", m: "To work"},
-                {k: "洗", r: "あら(う)", m: "To wash"}, {k: "借", r: "か(りる)", m: "To borrow"}, {k: "貸", r: "か(す)", m: "To lend"}, {k: "送", r: "おく(る)", m: "To send"}, {k: "教", r: "おし(える)", m: "To teach"}
-            ]},
-            { lesson: 15, title: "Social Actions", chars: [
-                {k: "習", r: "なら(う)", m: "To learn"}, {k: "勉", r: "べん(きょう)", m: "To study"}, {k: "強", r: "きょう", m: "Strong"}, {k: "忘", r: "わす(れる)", m: "To forget"}, {k: "有", r: "あ(る)", m: "To exist"},
-                {k: "住", r: "す(む)", m: "To reside"}, {k: "知", r: "し(る)", m: "To know"}, {k: "作", r: "つく(る)", m: "To make"}, {k: "使", r: "つか(う)", m: "To use"}, {k: "借", r: "か(りる)", m: "To borrow"}
-            ]}
-        ];
-
-        // Init Kanji UI
-        function initKanji() {
-            const container = document.getElementById('kanji-container');
-            kanjiData.forEach(lesson => {
-                const lessonDiv = document.createElement('div');
-                lessonDiv.className = 'kanji-lesson';
-                
-                const header = document.createElement('div');
-                header.className = 'kanji-lesson-header';
-                header.innerHTML = `<h3>Lesson ${lesson.lesson}: ${lesson.title}</h3>`;
-                lessonDiv.appendChild(header);
-                
-                const charsDiv = document.createElement('div');
-                charsDiv.className = 'kanji-chars';
-                lesson.chars.forEach(char => {
-                    const charDiv = document.createElement('div');
-                    charDiv.className = 'kanji-char';
-                    charDiv.innerHTML = `
-                        <div class="kanji-symbol">${char.k}</div>
-                        <div class="kanji-reading">${char.r}</div>
-                        <div class="kanji-meaning">${char.m}</div>
-                    `;
-                    charsDiv.appendChild(charDiv);
-                });
-                lessonDiv.appendChild(charsDiv);
-                container.appendChild(lessonDiv);
-            });
-        }
-
-        // Toggle mobile menu visibility
-        const menuToggle = document.getElementById('menuToggle');
-        const navTabs = document.getElementById('navTabs');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navTabs.classList.toggle('active');
-        });
-
-        // Close menu when a navigation item is clicked
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (window.innerWidth < 768) {
-                    menuToggle.classList.remove('active');
-                    navTabs.classList.remove('active');
-                }
-            });
-        });
-        // Tab and Vocab Switchers
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            if (tabId === 'kanji' && document.getElementById('kanji-container').children.length === 0) {
-                initKanji();
-            }
-            if (tabId === 'vocabulary') showVocabCategory('jp-numbers');
-        }
-
-        function showVocabCategory(category) {
-            document.querySelectorAll('.vocab-category').forEach(el => el.style.display = 'none');
-            const target = document.getElementById(category);
-            if(target) target.style.display = 'grid';
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (document.getElementById('vocabulary').classList.contains('active')) {
-                showVocabCategory('jp-numbers');
-            }
-        });
-    
-    </script>
 </body>
 </html>
