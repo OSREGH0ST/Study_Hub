@@ -4,186 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>French Study Guide</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Nunito', sans-serif; background: linear-gradient(to bottom, #0f172a, #1a1f3a); color: #e2e8f0; min-height: 100vh; }
-        .jp-font { font-family: 'Noto Sans JP', sans-serif; }
-        
-        /* Header */
-        header { position: sticky; top: 0; z-index: 50; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .header-content { max-width: 1280px; margin: 0 auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between; }
-        .back-link { display: flex; align-items: center; gap: 0.5rem; color: #94a3b8; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; }
-        .back-link:hover { color: #f9a8d4; }
-        .header-title { font-size: 1.125rem; font-weight: bold; color: white; display: flex; align-items: center; gap: 0.75rem; }
-        .header-title .jp-font { font-size: 1.25rem; }
-        .nav-tabs { display: none; gap: 0.25rem; }
-        @media (min-width: 768px) { .nav-tabs { display: flex; flex-wrap: wrap; justify-content: flex-end;} }
-        .tab-btn { padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; border: none; background: transparent; color: #94a3b8; cursor: pointer; transition: all 0.2s ease; }
-        .tab-btn:hover { background: rgba(255, 255, 255, 0.08); color: white; }
-        .tab-btn.active { background: rgba(249, 168, 212, 0.2); color: #f9a8d4; }
-
-        /* --- Desktop vs Mobile Navigation Logic --- */
-
-        /* Hide hamburger by default (Desktop) */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 100;
-        }
-
-        .menu-toggle span {
-            width: 100%;
-            height: 3px;
-            background-color: white;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        @media (max-width: 767px) {
-            .menu-toggle {
-                display: flex; /* Show hamburger on mobile */
-            }
-
-            .nav-tabs {
-                display: none; /* Hide default navbar */
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(15, 23, 42, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 1rem;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-                z-index: 60;
-            }
-
-            /* Show menu when button is clicked */
-            .nav-tabs.active {
-                display: flex;
-            }
-
-            .tab-btn {
-                width: 100%;
-                text-align: left;
-                padding: 1rem;
-                font-size: 14px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-
-            /* Animate hamburger to 'X' when open */
-            .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-            .menu-toggle.active span:nth-child(2) { opacity: 0; }
-            .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-        }
-
-        @media (min-width: 768px) {
-            .nav-tabs {
-                display: flex; /* Standard horizontal navbar for desktop */
-                gap: 0.25rem;
-            }
-        }
-
-        /* Main Content */
-        main { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; }
-        .tab-content { display: none; animation: fadeIn 0.3s ease; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* Cards & Tables */
-        .card { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
-        .card-title { font-size: 1.125rem; font-weight: bold; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-        .card-title.blue { color: #60a5fa; }
-        .card-title.orange { color: #fb923c; }
-        .card-title.pink { color: #f9a8d4; }
-        .card-title.purple { color: #d8b4fe; }
-        .card-title.green { color: #10b981; }
-        .card-title.red { color: #f87171; }
-        .card-title.yellow { color: #facc15; }
-        .card-title.cyan { color: #22d3ee; }
-
-        .vocab-table { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; overflow: hidden; margin-bottom: 1.5rem; }
-        .vocab-header { background: rgba(255, 255, 255, 0.05); padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; }
-        .vocab-items { padding: 1rem; }
-        .vocab-item { display: flex; justify-content: space-between; align-items: center; padding: 0.625rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 14px; }
-        .vocab-item:last-child { border-bottom: none; }
-        .vocab-en { color: #94a3b8; }
-        .vocab-jp { font-weight: bold; color: white; font-family: 'Noto Sans JP', sans-serif; }
-
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-        
-        /* Character Grids */
-        .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.375rem; text-align: center; }
-        .grid-char { padding: 0.5rem; border-radius: 0.375rem; font-size: 1.1rem; font-weight: 500; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: white; transition: all 0.2s ease; font-family: 'Noto Sans JP', sans-serif; }
-        .grid-char:hover { background: rgba(59, 130, 246, 0.2); }
-        .grid-char.orange-bg { background: rgba(251, 146, 60, 0.1); border-color: rgba(251, 146, 60, 0.2); }
-        .grid-char.orange-bg:hover { background: rgba(251, 146, 60, 0.2); }
-        .grid-char.empty { opacity: 0; pointer-events: none; }
-
-        /* Highlights & Alerts */
-        .info-box { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1rem; font-size: 13px; line-height: 1.5; color: #cbd5e1; }
-        .info-box.red { border-left-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
-        .info-box.gold { border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
-        .info-box.green { border-left-color: #10b981; background: rgba(16, 185, 129, 0.05); }
-        .info-box.purple { border-left-color: #a855f7; background: rgba(168, 85, 247, 0.05); }
-        .info-box.pink { border-left-color: #ec4899; background: rgba(236, 72, 153, 0.05); }
-        .accent-text { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
-
-        /* Vocabulary Menu */
-        .vocab-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-        .vocab-btn { padding: 1rem; border-radius: 0.75rem; border: 2px solid; background: rgba(255, 255, 255, 0.05); color: white; cursor: pointer; font-weight: 600; text-align: center; transition: all 0.3s ease; font-size: 14px; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
-        .vocab-btn span.icon { font-size: 1.5rem; }
-        .vocab-btn:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.1); }
-        .vocab-btn.blue { border-color: rgba(59, 130, 246, 0.4); }
-        .vocab-btn.indigo { border-color: rgba(99, 102, 241, 0.4); }
-        .vocab-btn.emerald { border-color: rgba(16, 185, 129, 0.4); }
-        .vocab-btn.green { border-color: rgba(34, 197, 94, 0.4); }
-        .vocab-btn.pink { border-color: rgba(236, 72, 153, 0.4); }
-        .vocab-btn.purple { border-color: rgba(168, 85, 247, 0.4); }
-        .vocab-btn.yellow { border-color: rgba(234, 179, 8, 0.4); }
-        .vocab-btn.cyan { border-color: rgba(6, 182, 212, 0.4); }
-        .vocab-btn.red { border-color: rgba(239, 68, 68, 0.4); }
-        .vocab-btn.orange { border-color: rgba(249, 115, 22, 0.4); }
-
-        /* Kanji Specific */
-        .kanji-intro { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; }
-        .kanji-intro h2 { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
-        .kanji-intro p { color: #94a3b8; font-size: 14px; }
-        .kanji-watermark { font-size: 4rem; opacity: 0.1; user-select: none; font-family: 'Noto Sans JP', sans-serif; }
-        .kanji-lesson { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; overflow: hidden; margin-bottom: 1.5rem; }
-        .kanji-lesson-header { background: rgba(255, 255, 255, 0.05); padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-        .kanji-lesson-header h3 { font-weight: bold; color: white; }
-        .kanji-chars { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 1rem; padding: 1.5rem; }
-        .kanji-char { display: flex; flex-direction: column; align-items: center; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.06); transition: all 0.2s ease; }
-        .kanji-char:hover { background: rgba(249, 168, 212, 0.1); border-color: rgba(249, 168, 212, 0.3); }
-        .kanji-symbol { font-size: 2.25rem; font-weight: bold; color: white; margin-bottom: 0.25rem; font-family: 'Noto Sans JP', sans-serif; }
-        .kanji-reading { font-size: 11px; color: #f9a8d4; font-weight: bold; margin-bottom: 0.25rem; font-family: 'Noto Sans JP', sans-serif; }
-        .kanji-meaning { font-size: 10px; color: #94a3b8; text-align: center; }
-
-        /* Custom Sentence Block */
-        .sentence-block { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem; padding: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; }
-        .sentence-part { text-align: center; flex: 1; min-width: 100px; }
-        .sentence-role { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.25rem; }
-        .sentence-word { background: #0f172a; padding: 0.75rem; border-radius: 0.25rem; font-size: 1.25rem; font-weight: bold; color: white; font-family: 'Noto Sans JP', sans-serif; border: 1px solid rgba(255,255,255,0.05); }
-        .sentence-plus { color: #f9a8d4; font-weight: bold; }
-
-        footer { border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 4rem; padding: 2rem 1rem; text-align: center; color: #64748b; font-size: 14px; }
-        @media (max-width: 768px) { .grid-5 { grid-template-columns: repeat(4, 1fr); } }
-    </style>
 </head>
 <body>
     <header>
@@ -398,326 +223,416 @@
 
         <div id="verbs" class="tab-content">
             
-            <div class="card">
-                <h3 class="card-title gold">Present Tense (Regular Verbs)</h3>
-                <div class="grid-3">
-                    <div class="vocab-table" style="margin: 0;">
-                        <div class="vocab-header" style="color: #60a5fa;">-ER (parler)</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">parle</span></div>
-                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">parles</span></div>
-                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">parle</span></div>
-                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">parlons</span></div>
-                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">parlez</span></div>
-                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">parlent</span></div>
+            <div class="inner-nav-tabs">
+                <button class="inner-tab-btn active" onclick="openSubTab(event, 'tab-present')">Le Présent</button>
+                <button class="inner-tab-btn" onclick="openSubTab(event, 'tab-passe')">Passé Composé</button>
+                <button class="inner-tab-btn" onclick="openSubTab(event, 'tab-futur')">Le Futur</button>
+                <button class="inner-tab-btn" onclick="openSubTab(event, 'tab-dict')">Verb Dictionary</button>
+            </div>
+
+            <div id="tab-present" class="inner-tab-content" style="display: block;">
+                <div class="card">
+                    <h3 class="card-title gold">Present Tense (Regular Verbs)</h3>
+                    <div class="grid-3">
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #60a5fa;">-ER (parler)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">parle</span></div>
+                                <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">parles</span></div>
+                                <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">parle</span></div>
+                                <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">parlons</span></div>
+                                <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">parlez</span></div>
+                                <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">parlent</span></div>
+                            </div>
+                        </div>
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #34d399;">-IR (finir)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">finis</span></div>
+                                <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">finis</span></div>
+                                <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">finit</span></div>
+                                <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">finissons</span></div>
+                                <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">finissez</span></div>
+                                <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">finissent</span></div>
+                            </div>
+                        </div>
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #c084fc;">-RE (vendre)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">vends</span></div>
+                                <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">vends</span></div>
+                                <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">vend</span></div>
+                                <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">vendons</span></div>
+                                <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">vendez</span></div>
+                                <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">vendent</span></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="vocab-table" style="margin: 0;">
-                        <div class="vocab-header" style="color: #34d399;">-IR (finir)</div>
+                </div>
+
+                <h3 class="card-title" style="margin-top: 2rem;">Core Irregular Verbs</h3>
+                <div class="vocab-grid grid-2">
+                    <div class="card">
+                        <div class="card-title gold"><span>✨</span><h4>être (to be)</h4></div>
                         <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">finis</span></div>
-                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">finis</span></div>
-                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">finit</span></div>
-                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">finissons</span></div>
-                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">finissez</span></div>
-                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">finissent</span></div>
+                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">suis</span></div>
+                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">es</span></div>
+                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">est</span></div>
+                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">sommes</span></div>
+                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">êtes</span></div>
+                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">sont</span></div>
                         </div>
                     </div>
-                    <div class="vocab-table" style="margin: 0;">
-                        <div class="vocab-header" style="color: #c084fc;">-RE (vendre)</div>
+
+                    <div class="card">
+                        <div class="card-title blue"><span>💎</span><h4>avoir (to have)</h4></div>
                         <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">vends</span></div>
-                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">vends</span></div>
-                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">vend</span></div>
-                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">vendons</span></div>
-                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">vendez</span></div>
-                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">vendent</span></div>
+                            <div class="vocab-item"><span class="vocab-en">j'</span><span class="vocab-fr">ai</span></div>
+                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">as</span></div>
+                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">a</span></div>
+                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">avons</span></div>
+                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">avez</span></div>
+                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">ont</span></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title green"><span>🚲</span><h4>aller (to go)</h4></div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">vais</span></div>
+                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">vas</span></div>
+                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">va</span></div>
+                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">allons</span></div>
+                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">allez</span></div>
+                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">vont</span></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title gold"><span>💪</span><h4>pouvoir (can/may)</h4></div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">peux</span></div>
+                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">peux</span></div>
+                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">peut</span></div>
+                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">pouvons</span></div>
+                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">pouvez</span></div>
+                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">peuvent</span></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title purple"><span>❤️</span><h4>vouloir (to want)</h4></div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">veux</span></div>
+                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">veux</span></div>
+                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">veut</span></div>
+                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">voulons</span></div>
+                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">voulez</span></div>
+                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">veulent</span></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title gold"><span>📝</span><h4>devoir (must/have to)</h4></div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">dois</span></div>
+                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">dois</span></div>
+                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">doit</span></div>
+                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">devons</span></div>
+                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">devez</span></div>
+                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">doivent</span></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title blue"><span>🛠️</span><h4>faire (to do/make)</h4></div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">fais</span></div>
+                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">fais</span></div>
+                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">fait</span></div>
+                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">faisons</span></div>
+                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">faites</span></div>
+                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">font</span></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title gold"><span>👋</span><h4>venir (to come)</h4></div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">viens</span></div>
+                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">viens</span></div>
+                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">vient</span></div>
+                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">venons</span></div>
+                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">venez</span></div>
+                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">viennent</span></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title purple"><span>🧠</span><h4>savoir (to know)</h4></div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">sais</span></div>
+                            <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">sais</span></div>
+                            <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">sait</span></div>
+                            <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">savons</span></div>
+                            <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">savez</span></div>
+                            <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">savent</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid-3">
+            <div id="tab-passe" class="inner-tab-content" style="display: none;">
+
                 <div class="card">
                     <h3 class="card-title red">Passé Composé (Recent Past)</h3>
-                    <p class="vocab-en" style="font-size: 13px; margin-bottom: 1rem;">Structure: avoir/être (present) + past participle</p>
-                    <div class="info-box red" style="margin: 0;">
-                        <p class="vocab-fr">J'ai mangé</p>
-                        <p class="vocab-en" style="font-size: 12px;">(I have eaten / I ate)</p>
-                        <br>
-                        <p class="vocab-fr">Elle est allée</p>
-                        <p class="vocab-en" style="font-size: 12px;">(She went)</p>
+                    <p class="vocab-en" style="font-size: 14px; margin-bottom: 1.5rem; text-align: center;">Structure: <strong>Subject + Auxiliary (Avoir/Être) + Past Participle</strong></p> 
+                    <div class="grid-2">
+                        <div class="info-box">
+                            <div class="accent-text" style="color: #60a5fa;">Auxiliary: AVOIR</div>
+                            <p style="margin-bottom: 0.5rem;">Used for 95% of verbs (the "default").</p>
+                            <div class="vocab-item"><span class="vocab-en">I ate</span><span class="vocab-fr">J'ai mangé</span></div>
+                            <div class="vocab-item"><span class="vocab-en">We finished</span><span class="vocab-fr">Nous avons fini</span></div>
+                        </div>
+                        <div class="info-box green">
+                            <div class="accent-text" style="color: #10b981;">Auxiliary: ÊTRE</div>
+                            <p style="margin-bottom: 0.5rem;">Used for <strong>Movement</strong> and <strong>Pronominal</strong> verbs.</p>
+                            <div class="vocab-item"><span class="vocab-en">She went (mvmt)</span><span class="vocab-fr">Elle est allée</span></div>
+                            <div class="vocab-item"><span class="vocab-en">They woke up (pron)</span><span class="vocab-fr">Ils se sont réveillés</span></div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="card">
-                    <h3 class="card-title blue">Le Futur Proche (Going to)</h3>
-                    <p class="vocab-en" style="font-size: 13px; margin-bottom: 1rem;">Structure: Aller (present) + Infinitive</p>
-                    <div class="info-box" style="margin: 0;">
-                        <p class="vocab-fr">Je vais manger</p>
-                        <p class="vocab-en" style="font-size: 12px;">(I am going to eat)</p>
-                        <br>
-                        <p class="vocab-fr">Nous allons partir</p>
-                        <p class="vocab-en" style="font-size: 12px;">(We are going to leave)</p>
+
+                    <h4 style="color: #fbbf24; margin: 2rem 0 1rem; border-bottom: 1px solid #3f3f46; padding-bottom: 0.5rem;">Le Participe Passé (Past Participles)</h4>
+                    
+                    <div class="grid-3">
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #cbd5e1;">-É (All -er verbs)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Manger</span><span class="vocab-fr">mangé</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Aller</span><span class="vocab-fr">allé</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Demander</span><span class="vocab-fr">Demandé</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Parler</span><span class="vocab-fr">Parlé</span></div>
+                            </div>
+                        </div>
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #cbd5e1;">-I (Most -ir verbs)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Finir</span><span class="vocab-fr">fini</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Choisir</span><span class="vocab-fr">choisi</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Comprendre</span><span class="vocab-fr">compris</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Prendre</span><span class="vocab-fr">pris</span></div>
+                            </div>
+                        </div>
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #cbd5e1;">-U & Autres (Irregulars)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Avoir</span><span class="vocab-fr">eu</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Boire</span><span class="vocab-fr">bu</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Lire</span><span class="vocab-fr">lu</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Voir</span><span class="vocab-fr">vu</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Faire</span><span class="vocab-fr">fait</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <h3 class="card-title purple">Le Futur Simple (Will)</h3>
-                    <p class="vocab-en" style="font-size: 13px; margin-bottom: 1rem;">Structure: Full Verb + Endings</p>
-                    <div class="info-box" style="margin: 0; border-left-color: #c084fc;">
-                        <p class="vocab-fr">Je mangerai</p>
-                        <p class="vocab-en" style="font-size: 12px;">(I will eat)</p>
-                        <br>
-                        <p class="vocab-fr">J'irai <span class="vocab-en" style="font-size: 10px;">(Irregular)</span></p>
-                        <p class="vocab-en" style="font-size: 12px;">(I will go)</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title">Jouer vs Faire</h3>
                 <div class="grid-2">
-                    <div class="info-box" style="margin: 0; background: rgba(59, 130, 246, 0.1);">
-                        <p class="vocab-fr" style="font-size: 1.1rem; color: #60a5fa; margin-bottom: 0.5rem;">Jouer à / au (Games & Team Sports)</p>
-                        <p class="vocab-en" style="font-size: 12px; margin-bottom: 0.5rem;">Used for sports played with a ball or board/video games.</p>
-                        <ul style="list-style: none; padding: 0; font-size: 14px;">
-                            <li><span class="vocab-fr">Jouer au foot</span> <span class="vocab-en">(à + le)</span></li>
-                            <li><span class="vocab-fr">Jouer aux cartes</span> <span class="vocab-en">(à + les)</span></li>
-                        </ul>
+                    <div class="card">
+                        <div class="card-title red">
+                            <span>✈️</span> 14 Verbs of Movement (Être)
+                        </div>
+                        <p class="vocab-en" style="font-size: 12px; margin-bottom: 1rem;">
+                            *Note: These verbs require gender/number agreement (e.g., allé vs. allée).
+                        </p>
+                        <div class="vocab-table">
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-fr">1. Aller</span><span class="vocab-en">To go</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">2. Venir</span><span class="vocab-en">To come</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">3. Entrer</span><span class="vocab-en">To enter</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">4. Sortir</span><span class="vocab-en">To go out</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">5. Arriver</span><span class="vocab-en">To arrive</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">6. Partir</span><span class="vocab-en">To leave</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">7. Monter</span><span class="vocab-en">To go up</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">8. Descendre</span><span class="vocab-en">To go down</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">9. Naître</span><span class="vocab-en">To be born</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">10. Mourir</span><span class="vocab-en">To die</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">11. Rester</span><span class="vocab-en">To stay</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">12. Tomber</span><span class="vocab-en">To fall</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">13. Retourner</span><span class="vocab-en">To return</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">14. Devenir</span><span class="vocab-en">To become</span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="info-box" style="margin: 0; border-left-color: #f97316; background: rgba(249, 115, 22, 0.1);">
-                        <p class="vocab-fr" style="font-size: 1.1rem; color: #fb923c; margin-bottom: 0.5rem;">Faire du / de la (Individual Activities)</p>
-                        <p class="vocab-en" style="font-size: 12px; margin-bottom: 0.5rem;">Used for hobbies, instruments, or non-ball activities.</p>
-                        <ul style="list-style: none; padding: 0; font-size: 14px;">
-                            <li><span class="vocab-fr">Faire du piano</span> <span class="vocab-en">(de + le)</span></li>
-                            <li><span class="vocab-fr">Faire de la gym</span> <span class="vocab-en">(de + la)</span></li>
-                        </ul>
+
+                    <div class="card">
+                        <div class="card-title purple">
+                            <span>🧘</span> 14 Essential Pronominal Verbs
+                        </div>
+                        <p class="vocab-en" style="font-size: 12px; margin-bottom: 1rem;">
+                            Reflexive actions always use <strong>être</strong> in Passé Composé.
+                        </p>
+                        <div class="vocab-table">
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-fr">1. Se réveiller</span><span class="vocab-en">To wake up</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">2. Se lever</span><span class="vocab-en">To get up</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">3. Se laver</span><span class="vocab-en">To wash oneself</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">4. S'habiller</span><span class="vocab-en">To get dressed</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">5. Se brosser</span><span class="vocab-en">To brush (teeth/hair)</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">6. Se raser</span><span class="vocab-en">To shave</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">7. Se doucher</span><span class="vocab-en">To shower</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">8. Se préparer</span><span class="vocab-en">To get ready</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">9. Se dépêcher</span><span class="vocab-en">To hurry</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">10. Se promener</span><span class="vocab-en">To take a walk</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">11. S'amuser</span><span class="vocab-en">To have fun</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">12. Se reposer</span><span class="vocab-en">To rest</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">13. S'endormir</span><span class="vocab-en">To fall asleep</span></div>
+                                <div class="vocab-item"><span class="vocab-fr">14. Se coucher</span><span class="vocab-en">To go to bed</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="tab-futur" class="inner-tab-content" style="display: none;">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 class="card-title blue">Le Futur Proche (Going to)</h3>
+                        <p class="vocab-en" style="font-size: 13px; margin-bottom: 1rem;">Structure: Aller (present) + Infinitive</p>
+                        <div class="info-box" style="margin: 0;">
+                            <p class="vocab-fr">Je vais manger</p>
+                            <p class="vocab-en" style="font-size: 12px;">(I am going to eat)</p>
+                            <br>
+                            <p class="vocab-fr">Nous allons partir</p>
+                            <p class="vocab-en" style="font-size: 12px;">(We are going to leave)</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title purple">Le Futur Simple (Will)</h3>
+                        <p class="vocab-en" style="font-size: 13px; margin-bottom: 1rem;">Structure: Full Verb + Endings</p>
+                        <div class="info-box" style="margin: 0; border-left-color: #c084fc;">
+                            <p class="vocab-fr">Je mangerai</p>
+                            <p class="vocab-en" style="font-size: 12px;">(I will eat)</p>
+                            <br>
+                            <p class="vocab-fr">J'irai <span class="vocab-en" style="font-size: 10px;">(Irregular)</span></p>
+                            <p class="vocab-en" style="font-size: 12px;">(I will go)</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <h3 class="card-title" style="margin-top: 2rem;">Core Irregular Verbs</h3>
-            <div class="vocab-grid grid-2">
-                <div class="card">
-                    <div class="card-title gold"><span>✨</span><h4>être (to be)</h4></div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">suis</span></div>
-                        <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">es</span></div>
-                        <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">est</span></div>
-                        <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">sommes</span></div>
-                        <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">êtes</span></div>
-                        <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">sont</span></div>
+            <div id="tab-dict" class="inner-tab-content" style="display: none;">
+                <h3 class="card-title" style="margin-top: 2rem;">Common Verb Dictionary</h3>
+                <div class="vocab-grid grid-2">
+                    <div class="vocab-table">
+                        <div class="vocab-header">Mouvement et Transport</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To go</span><span class="vocab-fr">Aller</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To come</span><span class="vocab-fr">Venir</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To return</span><span class="vocab-fr">Rentrer</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To walk</span><span class="vocab-fr">Marcher</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To run</span><span class="vocab-fr">Courir</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To leave</span><span class="vocab-fr">Partir</span></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-title blue"><span>💎</span><h4>avoir (to have)</h4></div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">j'</span><span class="vocab-fr">ai</span></div>
-                        <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">as</span></div>
-                        <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">a</span></div>
-                        <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">avons</span></div>
-                        <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">avez</span></div>
-                        <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">ont</span></div>
+                    <div class="vocab-table">
+                        <div class="vocab-header">Donner et Recevoir</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To give</span><span class="vocab-fr">Donner</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To receive</span><span class="vocab-fr">Recevoir</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To lend</span><span class="vocab-fr">Prêter</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To borrow</span><span class="vocab-fr">Emprunter</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To teach</span><span class="vocab-fr">Enseigner</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To learn</span><span class="vocab-fr">Apprendre</span></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-title green"><span>🚲</span><h4>aller (to go)</h4></div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">vais</span></div>
-                        <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">vas</span></div>
-                        <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">va</span></div>
-                        <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">allons</span></div>
-                        <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">allez</span></div>
-                        <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">vont</span></div>
+                    <div class="vocab-table">
+                        <div class="vocab-header">La Vie Quotidienne</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To wake up</span><span class="vocab-fr">Se réveiller</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To sleep</span><span class="vocab-fr">Dormir</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To work</span><span class="vocab-fr">Travailler</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To study</span><span class="vocab-fr">Étudier</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To rest</span><span class="vocab-fr">Se reposer</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To finish</span><span class="vocab-fr">Finir</span></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-title gold"><span>💪</span><h4>pouvoir (can/may)</h4></div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">peux</span></div>
-                        <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">peux</span></div>
-                        <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">peut</span></div>
-                        <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">pouvons</span></div>
-                        <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">pouvez</span></div>
-                        <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">peuvent</span></div>
+                    <div class="vocab-table">
+                        <div class="vocab-header">Activités</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To eat</span><span class="vocab-fr">Manger</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To drink</span><span class="vocab-fr">Boire</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To watch</span><span class="vocab-fr">Regarder</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To listen</span><span class="vocab-fr">Écouter</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To read</span><span class="vocab-fr">Lire</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To write</span><span class="vocab-fr">Écrire</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To buy</span><span class="vocab-fr">Acheter</span></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-title purple"><span>❤️</span><h4>vouloir (to want)</h4></div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">veux</span></div>
-                        <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">veux</span></div>
-                        <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">veut</span></div>
-                        <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">voulons</span></div>
-                        <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">voulez</span></div>
-                        <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">veulent</span></div>
+                    <div class="vocab-table">
+                        <div class="vocab-header">Social</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To meet</span><span class="vocab-fr">Rencontrer</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To speak</span><span class="vocab-fr">Parler</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To call</span><span class="vocab-fr">Appeler</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To take photo</span><span class="vocab-fr">Prendre</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To send</span><span class="vocab-fr">Envoyer</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To understand</span><span class="vocab-fr">Comprendre</span></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-title gold"><span>📝</span><h4>devoir (must/have to)</h4></div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">dois</span></div>
-                        <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">dois</span></div>
-                        <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">doit</span></div>
-                        <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">devons</span></div>
-                        <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">devez</span></div>
-                        <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">doivent</span></div>
+                    <div class="vocab-table">
+                        <div class="vocab-header">L'Existence</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To be</span><span class="vocab-fr">Être</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To have</span><span class="vocab-fr">Avoir</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To stay</span><span class="vocab-fr">Rester</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To cost</span><span class="vocab-fr">Coûter</span></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-title blue"><span>🛠️</span><h4>faire (to do/make)</h4></div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">fais</span></div>
-                        <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">fais</span></div>
-                        <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">fait</span></div>
-                        <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">faisons</span></div>
-                        <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">faites</span></div>
-                        <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">font</span></div>
+                    <div class="vocab-table">
+                        <div class="vocab-header">Cuisine et Cuisson</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To cook</span><span class="vocab-fr">Cuisiner</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To cut</span><span class="vocab-fr">Couper</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To boil</span><span class="vocab-fr">Bouillir</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To fry</span><span class="vocab-fr">Frire</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To bake</span><span class="vocab-fr">Cuire au four</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To mix</span><span class="vocab-fr">Mélanger</span></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-title gold"><span>👋</span><h4>venir (to come)</h4></div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">viens</span></div>
-                        <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">viens</span></div>
-                        <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">vient</span></div>
-                        <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">venons</span></div>
-                        <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">venez</span></div>
-                        <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">viennent</span></div>
+                    <div class="vocab-table">
+                        <div class="vocab-header">Ménage et Entretien</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To wash</span><span class="vocab-fr">Laver</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To clean</span><span class="vocab-fr">Nettoyer</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To dry</span><span class="vocab-fr">Sécher</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To iron</span><span class="vocab-fr">Repasser</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To repair</span><span class="vocab-fr">Réparer</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To throw away</span><span class="vocab-fr">Jeter</span></div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-title purple"><span>🧠</span><h4>savoir (to know)</h4></div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">je</span><span class="vocab-fr">sais</span></div>
-                        <div class="vocab-item"><span class="vocab-en">tu</span><span class="vocab-fr">sais</span></div>
-                        <div class="vocab-item"><span class="vocab-en">il/elle</span><span class="vocab-fr">sait</span></div>
-                        <div class="vocab-item"><span class="vocab-en">nous</span><span class="vocab-fr">savons</span></div>
-                        <div class="vocab-item"><span class="vocab-en">vous</span><span class="vocab-fr">savez</span></div>
-                        <div class="vocab-item"><span class="vocab-en">ils/elles</span><span class="vocab-fr">savent</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="card-title" style="margin-top: 2rem;">Common Verb Dictionary</h3>
-            <div class="vocab-grid grid-2">
-                <div class="vocab-table">
-                    <div class="vocab-header">Mouvement et Transport</div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To go</span><span class="vocab-fr">Aller</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To come</span><span class="vocab-fr">Venir</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To return</span><span class="vocab-fr">Rentrer</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To walk</span><span class="vocab-fr">Marcher</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To run</span><span class="vocab-fr">Courir</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To leave</span><span class="vocab-fr">Partir</span></div>
-                    </div>
-                </div>
-
-                <div class="vocab-table">
-                    <div class="vocab-header">Donner et Recevoir</div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To give</span><span class="vocab-fr">Donner</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To receive</span><span class="vocab-fr">Recevoir</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To lend</span><span class="vocab-fr">Prêter</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To borrow</span><span class="vocab-fr">Emprunter</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To teach</span><span class="vocab-fr">Enseigner</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To learn</span><span class="vocab-fr">Apprendre</span></div>
-                    </div>
-                </div>
-
-                <div class="vocab-table">
-                    <div class="vocab-header">La Vie Quotidienne</div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To wake up</span><span class="vocab-fr">Se réveiller</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To sleep</span><span class="vocab-fr">Dormir</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To work</span><span class="vocab-fr">Travailler</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To study</span><span class="vocab-fr">Étudier</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To rest</span><span class="vocab-fr">Se reposer</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To finish</span><span class="vocab-fr">Finir</span></div>
-                    </div>
-                </div>
-
-                <div class="vocab-table">
-                    <div class="vocab-header">Activités</div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To eat</span><span class="vocab-fr">Manger</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To drink</span><span class="vocab-fr">Boire</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To watch</span><span class="vocab-fr">Regarder</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To listen</span><span class="vocab-fr">Écouter</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To read</span><span class="vocab-fr">Lire</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To write</span><span class="vocab-fr">Écrire</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To buy</span><span class="vocab-fr">Acheter</span></div>
-                    </div>
-                </div>
-
-                <div class="vocab-table">
-                    <div class="vocab-header">Social</div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To meet</span><span class="vocab-fr">Rencontrer</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To speak</span><span class="vocab-fr">Parler</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To call</span><span class="vocab-fr">Appeler</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To take photo</span><span class="vocab-fr">Prendre</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To send</span><span class="vocab-fr">Envoyer</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To understand</span><span class="vocab-fr">Comprendre</span></div>
-                    </div>
-                </div>
-
-                <div class="vocab-table">
-                    <div class="vocab-header">L'Existence</div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To be</span><span class="vocab-fr">Être</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To have</span><span class="vocab-fr">Avoir</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To stay</span><span class="vocab-fr">Rester</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To cost</span><span class="vocab-fr">Coûter</span></div>
-                    </div>
-                </div>
-
-                <div class="vocab-table">
-                    <div class="vocab-header">Cuisine et Cuisson</div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To cook</span><span class="vocab-fr">Cuisiner</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To cut</span><span class="vocab-fr">Couper</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To boil</span><span class="vocab-fr">Bouillir</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To fry</span><span class="vocab-fr">Frire</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To bake</span><span class="vocab-fr">Cuire au four</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To mix</span><span class="vocab-fr">Mélanger</span></div>
-                    </div>
-                </div>
-
-                <div class="vocab-table">
-                    <div class="vocab-header">Ménage et Entretien</div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To wash</span><span class="vocab-fr">Laver</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To clean</span><span class="vocab-fr">Nettoyer</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To dry</span><span class="vocab-fr">Sécher</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To iron</span><span class="vocab-fr">Repasser</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To repair</span><span class="vocab-fr">Réparer</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To throw away</span><span class="vocab-fr">Jeter</span></div>
-                    </div>
-                </div>
-
-                <div class="vocab-table">
-                    <div class="vocab-header">États Physiques et Mentaux</div>
-                    <div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To think</span><span class="vocab-fr">Penser</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To remember</span><span class="vocab-fr">Se souvenir</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To forget</span><span class="vocab-fr">Oublier</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To hurt</span><span class="vocab-fr">Faire mal</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To feel</span><span class="vocab-fr">Sentir</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To relax</span><span class="vocab-fr">Se détendre</span></div>
+                    <div class="vocab-table">
+                        <div class="vocab-header">États Physiques et Mentaux</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To think</span><span class="vocab-fr">Penser</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To remember</span><span class="vocab-fr">Se souvenir</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To forget</span><span class="vocab-fr">Oublier</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To hurt</span><span class="vocab-fr">Faire mal</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To feel</span><span class="vocab-fr">Sentir</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To relax</span><span class="vocab-fr">Se détendre</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div id="adjectives" class="tab-content">
@@ -875,6 +790,7 @@
                 <button class="vocab-btn cyan" onclick="showVocabCategory('fr-professions')"><span class="icon">💼</span> Professions</button>
                 <button class="vocab-btn gold" onclick="showVocabCategory('fr-body')"><span class="icon">👤</span> Body Parts</button>
                 <button class="vocab-btn red" onclick="showVocabCategory('fr-clothing')"><span class="icon">👕</span> Clothing</button>
+                <button class="vocab-btn red" onclick="showVocabCategory('fr-hobbies')"><span class="icon">🎨</span> Hobbies</button>
             </div>
 
             <div id="vocab-tables">
@@ -1146,7 +1062,6 @@
                             <div class="vocab-item"><span class="vocab-en">Key</span><span class="vocab-fr">La clé</span></div>
                         </div>
                     </div>
-
                 </div>
 
                 <div id="fr-city" class="grid-3 vocab-category" style="display: none;">                    
@@ -1264,6 +1179,58 @@
                         <div class="vocab-item"><span class="vocab-en">Hat</span><span class="vocab-fr">chapeau</span></div>
                     </div></div>
                 </div>
+
+                <div id="fr-hobbies" class="vocab-grid vocab-category " style="display: none;">
+                    <div class="card">
+                    <h3 class="card-title">Jouer vs Faire</h3>
+                        <div class="grid-2">
+                            <div class="info-box" style="margin: 0; background: rgba(59, 130, 246, 0.1);">
+                                <p class="vocab-fr" style="font-size: 1.1rem; color: #60a5fa; margin-bottom: 0.5rem;">Jouer à / au (Games & Team Sports)</p>
+                                <p class="vocab-en" style="font-size: 12px; margin-bottom: 0.5rem;">Used for sports played with a ball or board/video games.</p>
+                                <ul style="list-style: none; padding: 0; font-size: 14px;">
+                                    <li><span class="vocab-fr">Jouer au foot</span> <span class="vocab-en">(à + le)</span></li>
+                                    <li><span class="vocab-fr">Jouer aux cartes</span> <span class="vocab-en">(à + les)</span></li>
+                                </ul>
+                            </div>
+                            <div class="info-box" style="margin: 0; border-left-color: #f97316; background: rgba(249, 115, 22, 0.1);">
+                                <p class="vocab-fr" style="font-size: 1.1rem; color: #fb923c; margin-bottom: 0.5rem;">Faire du / de la (Individual Activities)</p>
+                                <p class="vocab-en" style="font-size: 12px; margin-bottom: 0.5rem;">Used for hobbies, instruments, or non-ball activities.</p>
+                                <ul style="list-style: none; padding: 0; font-size: 14px;">
+                                    <li><span class="vocab-fr">Faire du piano</span> <span class="vocab-en">(de + le)</span></li>
+                                    <li><span class="vocab-fr">Faire de la gym</span> <span class="vocab-en">(de + la)</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="vocab-table">
+                            <div class="vocab-header" style="color: #fbbf24;">Loisirs Créatifs (Creative)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Reading</span><span class="vocab-fr">lire</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Writing</span><span class="vocab-fr">écrire</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Drawing</span><span class="vocab-fr">dessiner</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Painting</span><span class="vocab-fr">peindre</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Playing an instrument</span><span class="vocab-fr">jouer d'un instrument</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Singing</span><span class="vocab-fr">chanter</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Photography</span><span class="vocab-fr">la photographie</span></div>
+                            </div>
+                        </div>
+
+                        <div class="vocab-table">
+                            <div class="vocab-header" style="color: #f59e0b;">Activités et Sports (Active)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Swimming</span><span class="vocab-fr">nager</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Cooking</span><span class="vocab-fr">cuisiner</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Traveling</span><span class="vocab-fr">voyager</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Watching movies</span><span class="vocab-fr">regarder des films</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Listening to music</span><span class="vocab-fr">écouter de la musique</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Gardening</span><span class="vocab-fr">jardiner</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Playing video games</span><span class="vocab-fr">jouer aux jeux vidéo</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -1319,61 +1286,12 @@
                 </div></div>
             </div>
         </div>
+
     </main>
 
     <footer>
         <p>French Study Guide — Study Hub Pro</p>
     </footer>
-
-    <script>
-
-        // Mobile menu elements
-        const menuToggle = document.getElementById('menuToggle');
-        const navTabs = document.getElementById('navTabs');
-
-        // Toggle Menu on click
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navTabs.classList.toggle('active');
-        });
-
-        // Close menu automatically after selecting a tab (Mobile only)
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // Handle Active State Styling
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-
-                // If on mobile, close the menu
-                if (window.innerWidth < 768) {
-                    menuToggle.classList.remove('active');
-                    navTabs.classList.remove('active');
-                }
-            });
-        });
-
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            if (tabId === 'vocabulary') showVocabCategory('fr-numbers');
-        }
-
-        function showVocabCategory(category) {
-            document.querySelectorAll('.vocab-category').forEach(el => el.style.display = 'none');
-            const target = document.getElementById(category);
-            if(target) target.style.display = 'grid';
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (document.getElementById('vocabulary').classList.contains('active')) {
-                showVocabCategory('fr-numbers');
-            }
-        });
-    </script>
 
 </body>
 </html>
