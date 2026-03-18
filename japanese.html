@@ -219,112 +219,398 @@
 
         <div id="verbs" class="tab-content">
             
-            <div class="card">
-                <h3 class="card-title gold">Verb Tense Reference (Formal ~masu)</h3>
-                <div class="grid-4">
-                    <div class="info-box green" style="margin:0;"><p class="accent-text">Present (+)</p><p class="vocab-jp text-lg">~ます</p><p class="vocab-en text-xs mt-1">たべます (Eat)</p></div>
-                    <div class="info-box red" style="margin:0;"><p class="accent-text">Present (-)</p><p class="vocab-jp text-lg">~ません</p><p class="vocab-en text-xs mt-1">たべません (Don't eat)</p></div>
-                    <div class="info-box blue" style="margin:0;"><p class="accent-text">Past (+)</p><p class="vocab-jp text-lg">~ました</p><p class="vocab-en text-xs mt-1">たべました (Ate)</p></div>
-                    <div class="info-box orange" style="margin:0;"><p class="accent-text">Past (-)</p><p class="vocab-jp text-lg">~ませんでした</p><p class="vocab-en text-xs mt-1">たべませんでした</p></div>
+            <!-- Sub-Navigation for Verbs -->
+            <div class="inner-nav" style="display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px;">
+                <button class="inner-tab-btn active" onclick="openSubTab(event, 'verb-uses')">Uses & Cases</button>
+                <button class="inner-tab-btn" onclick="openSubTab(event, 'verb-masu')">~masu Form</button>
+                <button class="inner-tab-btn" onclick="openSubTab(event, 'verb-te')">~te Form</button>
+                <button class="inner-tab-btn" onclick="openSubTab(event, 'verb-dict')">Dictionary Form</button>
+                <button class="inner-tab-btn" onclick="openSubTab(event, 'verb-list')">Verb Dictionary</button>
+            </div>
+
+            <div id="verb-uses" class="inner-tab-content" style="display: block;">
+                <div class="card">
+                    <h3 class="card-title cyan">When to use which form?</h3>
+                    
+                    <div class="grid-2">
+                        <div class="info-box blue" style="margin: 0;">
+                            <p class="accent-text">~ます (Masu Form)</p>
+                            <p class="vocab-en text-xs mt-1"><b>Use case:</b> Polite, everyday conversation. You use this with teachers, strangers, and coworkers.</p>
+                            <p class="vocab-en text-xs mt-1"><i>Example: たべます (I eat / I will eat)</i></p>
+                        </div>
+                        <div class="info-box green" style="margin: 0;">
+                            <p class="accent-text">Dictionary Form</p>
+                            <p class="vocab-en text-xs mt-1"><b>Use case:</b> Casual conversation (with friends), finding words in the dictionary, and as a base for advanced grammar.</p>
+                            <p class="vocab-en text-xs mt-1"><i>Example: たべる (I eat / I will eat)</i></p>
+                        </div>
+                        <div class="info-box gold" style="margin: 0;">
+                            <p class="accent-text">~て (Te Form)</p>
+                            <p class="vocab-en text-xs mt-1"><b>Use case:</b> The "glue" form. Used to connect actions, ask for favors (~てください), or express ongoing actions (~ています).</p>
+                            <p class="vocab-en text-xs mt-1"><i>Example: たべて (Eat and...)</i></p>
+                        </div>
+                        <div class="info-box red" style="margin: 0;">
+                            <p class="accent-text">~ない (Nai Form)</p>
+                            <p class="vocab-en text-xs mt-1"><b>Use case:</b> The casual negative. Used with friends to say you won't do something, or with ~でください to say "Please don't".</p>
+                            <p class="vocab-en text-xs mt-1"><i>Example: たべない (I don't eat)</i></p>
+                        </div>
+                    </div>
                 </div>
-                <p class="vocab-en" style="font-size:11px; margin-top:1rem; font-style:italic;">* Note: These endings apply to all Verb Groups in their formal polite form.</p>
             </div>
 
-            <h3 class="card-title" style="margin-top: 2rem;">Full Verb List</h3>
-            <div class="grid-2">
-                <div class="vocab-table"><div class="vocab-header" style="color: #60a5fa;">Movement & Transport</div><div class="vocab-items">
-                    <div class="vocab-item"><span class="vocab-en">To go</span><span class="vocab-jp">いきます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To come</span><span class="vocab-jp">きます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To return home</span><span class="vocab-jp">かえります</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To walk</span><span class="vocab-jp">あるきます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To run</span><span class="vocab-jp">はしります</span></div>
-                </div></div>
+            <div id="verb-masu" class="inner-tab-content" style="display: none;">
+                
+                <!-- Basic Tenses -->
+                <div class="card">
+                    <h3 class="card-title gold">Verb Tense Reference (Formal ~masu)</h3>
+                    <div class="grid-4">
+                        <div class="info-box green" style="margin:0;"><p class="accent-text">Present (+)</p><p class="vocab-jp text-lg">~ます</p><p class="vocab-en text-xs mt-1">たべます (Eat)</p></div>
+                        <div class="info-box red" style="margin:0;"><p class="accent-text">Present (-)</p><p class="vocab-jp text-lg">~ません</p><p class="vocab-en text-xs mt-1">たべません (Don't eat)</p></div>
+                        <div class="info-box blue" style="margin:0;"><p class="accent-text">Past (+)</p><p class="vocab-jp text-lg">~ました</p><p class="vocab-en text-xs mt-1">たべました (Ate)</p></div>
+                        <div class="info-box orange" style="margin:0;"><p class="accent-text">Past (-)</p><p class="vocab-jp text-lg">~ませんでした</p><p class="vocab-en text-xs mt-1">たべませんでした</p></div>
+                    </div>
+                    <p class="vocab-en" style="font-size:11px; margin-top:1rem; font-style:italic;">* Note: These endings apply to all Verb Groups in their formal polite form.</p>
+                </div>
 
-                <div class="vocab-table"><div class="vocab-header" style="color: #fb923c;">Giving & Receiving</div><div class="vocab-items">
-                    <div class="vocab-item"><span class="vocab-en">To give</span><span class="vocab-jp">あげます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To receive</span><span class="vocab-jp">もらいます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To lend</span><span class="vocab-jp">かします</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To borrow</span><span class="vocab-jp">かります</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To teach</span><span class="vocab-jp">おしえます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To learn</span><span class="vocab-jp">ならいます</span></div>
-                </div></div>
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h3 class="card-title pink">Invitations & Proposals</h3>
+                    <p class="vocab-en" style="margin-bottom: 1rem;">Drop the <b>~ます</b> and add these endings to invite people to do things.</p>
+                    
+                    <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div class="info-box purple" style="margin: 0;">
+                            <p class="accent-text">Let's...</p>
+                            <p class="vocab-jp text-lg">~ましょう</p>
+                            <p class="vocab-en text-xs mt-1">いきましょう (Let's go)</p>
+                        </div>
+                        <div class="info-box cyan" style="margin: 0;">
+                            <p class="accent-text">Won't you...?</p>
+                            <p class="vocab-jp text-lg">~ませんか</p>
+                            <p class="vocab-en text-xs mt-1">のみませんか (Won't you drink?)</p>
+                        </div>
+                        <div class="info-box gold" style="margin: 0;">
+                            <p class="accent-text">Shall I/we...?</p>
+                            <p class="vocab-jp text-lg">~ましょうか</p>
+                            <p class="vocab-en text-xs mt-1">てつだいましょうか (Shall I help?)</p>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="vocab-table"><div class="vocab-header" style="color: #10b981;">Daily Life</div><div class="vocab-items">
-                    <div class="vocab-item"><span class="vocab-en">To wake up</span><span class="vocab-jp">おきます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To sleep</span><span class="vocab-jp">ねます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To work</span><span class="vocab-jp">はたらきます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To study</span><span class="vocab-jp">べんきょうします</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To take a break</span><span class="vocab-jp">やすみます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To end/finish</span><span class="vocab-jp">おわります</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header" style="color: #c084fc;">Activities</div><div class="vocab-items">
-                    <div class="vocab-item"><span class="vocab-en">To eat</span><span class="vocab-jp">たべます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To drink</span><span class="vocab-jp">のみます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To see/watch</span><span class="vocab-jp">みます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To listen/hear</span><span class="vocab-jp">ききます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To read</span><span class="vocab-jp">よみます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To write</span><span class="vocab-jp">かきます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To buy</span><span class="vocab-jp">かいます</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header" style="color: #f472b6;">Social</div><div class="vocab-items">
-                    <div class="vocab-item"><span class="vocab-en">To meet</span><span class="vocab-jp">あいます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To speak</span><span class="vocab-jp">はなします</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To call</span><span class="vocab-jp">かけます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To take (photo)</span><span class="vocab-jp">とります</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To send</span><span class="vocab-jp">おくります</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To understand</span><span class="vocab-jp">わかります</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header" style="color: #94a3b8;">Existence</div><div class="vocab-items">
-                    <div class="vocab-item"><span class="vocab-en">To exist (thing)</span><span class="vocab-jp">あります</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To exist (person)</span><span class="vocab-jp">います</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To have/possess</span><span class="vocab-jp">あります</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To take (time/money)</span><span class="vocab-jp">かかります</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header" style="color: #f87171;">Kitchen & Cooking</div><div class="vocab-items">
-                    <div class="vocab-item"><span class="vocab-en">To cook</span><span class="vocab-jp">りょうりします</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To cut</span><span class="vocab-jp">きります</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To boil</span><span class="vocab-jp">わかします</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To fry</span><span class="vocab-jp">あげます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To bake/grill</span><span class="vocab-jp">やきます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To stir/mix</span><span class="vocab-jp">まぜます</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header" style="color: #818cf8;">Household</div><div class="vocab-items">
-                    <div class="vocab-item"><span class="vocab-en">To wash</span><span class="vocab-jp">あらいます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To clean</span><span class="vocab-jp">そうじします</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To dry</span><span class="vocab-jp">かわかします</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To fold</span><span class="vocab-jp">たたみます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To fix</span><span class="vocab-jp">なおします</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To throw away</span><span class="vocab-jp">すてます</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header" style="color: #2dd4bf;">Mental States</div><div class="vocab-items">
-                    <div class="vocab-item"><span class="vocab-en">To hurt/ache</span><span class="vocab-jp">いたみます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To feel</span><span class="vocab-jp">かんじます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To think</span><span class="vocab-jp">おもいます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To remember</span><span class="vocab-jp">おぼえます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To forget</span><span class="vocab-jp">わすれます</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To relax</span><span class="vocab-jp">りらっくすします</span></div>
-                </div></div>
             </div>
+
+            <div id="verb-te" class="inner-tab-content" style="display: none;">
+                
+                <div class="card">
+                    <h3 class="card-title pink">Making the ~て (Te) Form from ~ます</h3>
+                    <p class="vocab-en" style="margin-bottom: 1rem;">Drop the <b>~ます</b> and look at the syllable right before it to know which ending to use.</p>
+                    
+                    <div class="vocab-table">
+                        <div class="vocab-header" style="color: #60a5fa;">Group 1: U-Verbs (The Rule-Breakers)</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>い, ち, り</b> (i, chi, ri)</span><span class="vocab-jp">→ <b>って</b> (tte) <i>*かいます → かって</i></span></div>
+                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>み, び, に</b> (mi, bi, ni)</span><span class="vocab-jp">→ <b>んで</b> (nde) <i>*のみます → のんで</i></span></div>
+                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>き</b> (ki)</span><span class="vocab-jp">→ <b>いて</b> (ite) <i>*かきます → かいて</i></span></div>
+                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>ぎ</b> (gi)</span><span class="vocab-jp">→ <b>いで</b> (ide) <i>*およぎます → およいで</i></span></div>
+                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>し</b> (shi)</span><span class="vocab-jp">→ <b>して</b> (shite) <i>*はなします → はなして</i></span></div>
+                        </div>
+                        <div class="info-box red" style="margin: 0.5rem; padding: 0.5rem;">
+                            <p class="vocab-en" style="font-size: 12px;"><b>⚠️ The One Exception:</b> いきます (To go) becomes <b>いって</b> (not いいて).</p>
+                        </div>
+                    </div>
+
+                    <div class="vocab-table" style="margin-top: 1rem;">
+                        <div class="vocab-header" style="color: #10b981;">Group 2: Ru-Verbs (The Easy Ones)</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">Just drop ~ます and add <b>て</b></span><span class="vocab-jp">たべます → <b>たべて</b> (tabete)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">Just drop ~ます and add <b>て</b></span><span class="vocab-jp">みます → <b>みて</b> (mite)</span></div>
+                        </div>
+                    </div>
+
+                    <div class="vocab-table" style="margin-top: 1rem;">
+                        <div class="vocab-header" style="color: #fb923c;">Group 3: Irregular Verbs</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">To do (します)</span><span class="vocab-jp">→ <b>して</b> (shite)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">To come (きます)</span><span class="vocab-jp">→ <b>きて</b> (kite)</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced ~TE Form Usages (Mega Grid) -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <h3 class="card-title gold">Why we need it: The ~て Power-Ups</h3>
+                    <p class="vocab-en" style="margin-bottom: 1rem;">The ~て form is "glue." You attach these helper words to it to create advanced grammar.</p>
+                    
+                    <div class="grid-2">
+                        <!-- Ongoing State / Action -->
+                        <div class="info-box blue" style="margin: 0;">
+                            <p class="accent-text">~ている (Ongoing Action / State)</p>
+                            <p class="vocab-en text-xs mt-1">1. Currently doing it. <br>2. A state resulting from a past action (e.g., being married).</p>
+                            <p class="vocab-jp text-sm mt-1">たべて います</p>
+                            <p class="vocab-en text-xs"><i>(I am eating right now)</i></p>
+                        </div>
+                        
+                        <!-- Intentional State -->
+                        <div class="info-box green" style="margin: 0;">
+                            <p class="accent-text">~てある (Intentional State)</p>
+                            <p class="vocab-en text-xs mt-1">Shows a state that exists because <b>someone intentionally did it</b> in the past (e.g., the window has been opened).</p>
+                            <p class="vocab-jp text-sm mt-1">かいて あります</p>
+                            <p class="vocab-en text-xs"><i>(It has been written [by someone])</i></p>
+                        </div>
+
+                        <!-- Requests -->
+                        <div class="info-box pink" style="margin: 0;">
+                            <p class="accent-text">~てください (Please do...)</p>
+                            <p class="vocab-en text-xs mt-1">The polite way to ask someone to do something.</p>
+                            <p class="vocab-jp text-sm mt-1">まって ください</p>
+                            <p class="vocab-en text-xs"><i>(Please wait)</i></p>
+                        </div>
+
+                        <!-- Sequence -->
+                        <div class="info-box orange" style="margin: 0;">
+                            <p class="accent-text">~てから (After doing...)</p>
+                            <p class="vocab-en text-xs mt-1">Used to say "Action A happens, <b>and then</b> Action B happens."</p>
+                            <p class="vocab-jp text-sm mt-1">たべて から、ねます</p>
+                            <p class="vocab-en text-xs"><i>(After I eat, I will sleep)</i></p>
+                        </div>
+
+                        <!-- Permission -->
+                        <div class="info-box cyan" style="margin: 0;">
+                            <p class="accent-text">~てもいいです (Permission)</p>
+                            <p class="vocab-en text-xs mt-1">Used to grant permission or ask "Is it okay if I...?"</p>
+                            <p class="vocab-jp text-sm mt-1">みても いいですか？</p>
+                            <p class="vocab-en text-xs"><i>(May I look?)</i></p>
+                        </div>
+
+                        <!-- Prohibition -->
+                        <div class="info-box red" style="margin: 0;">
+                            <p class="accent-text">~てはいけません (Prohibition)</p>
+                            <p class="vocab-en text-xs mt-1">A strong rule or prohibition. "You must not do this."</p>
+                            <p class="vocab-jp text-sm mt-1">のんで は いけません</p>
+                            <p class="vocab-en text-xs"><i>(You must not drink)</i></p>
+                        </div>
+
+                        <!-- Regret / Completion -->
+                        <div class="info-box purple" style="margin: 0; grid-column: 1 / -1;">
+                            <p class="accent-text">~てしまう / ~てしまいます (Oops / Finished)</p>
+                            <p class="vocab-en text-xs mt-1">Shows that you finished something completely, OR that you did something by accident and regret it.</p>
+                            <p class="vocab-jp text-sm mt-1">わすれて しまいました</p>
+                            <p class="vocab-en text-xs"><i>(I completely forgot / I accidentally forgot)</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="verb-dict" class="inner-tab-content" style="display: none;">
+                <div class="card">
+                    <h3 class="card-title purple">Dictionary Form (Casual Present)</h3>
+                    <p class="vocab-en" style="margin-bottom: 1rem;">This is the "original" form of the verb before you make it polite.</p>
+                    
+                    <div class="grid-2">
+                        <div class="info-box blue" style="margin: 0;">
+                            <p class="accent-text">From ~ます to Dictionary</p>
+                            <p class="vocab-en text-xs mt-1"><b>Group 1:</b> Change the 'i' sound before ~ます to an 'u' sound.</p>
+                            <p class="vocab-en text-xs mt-1"><i>のみます → のむ (nomu)</i></p>
+                            <p class="vocab-en text-xs mt-1"><i>かきます → かく (kaku)</i></p>
+                        </div>
+                        <div class="info-box green" style="margin: 0;">
+                            <p class="accent-text">From ~ます to Dictionary</p>
+                            <p class="vocab-en text-xs mt-1"><b>Group 2:</b> Drop ~ます and add る (ru).</p>
+                            <p class="vocab-en text-xs mt-1"><i>たべます → たべる (taberu)</i></p>
+                            <p class="vocab-en text-xs mt-1"><i>みます → みる (miru)</i></p>
+                        </div>
+                    </div>
+
+                    <div class="vocab-table" style="margin-top: 1rem;">
+                        <div class="vocab-header" style="color: #fb923c;">Irregulars</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item"><span class="vocab-en">します (To do)</span><span class="vocab-jp">→ <b>する</b> (suru)</span></div>
+                            <div class="vocab-item"><span class="vocab-en">きます (To come)</span><span class="vocab-jp">→ <b>くる</b> (kuru)</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. VERB DICTIONARY (Existing List) -->
+            <div id="verb-list" class="inner-tab-content" style="display: none;">
+                <h3 class="card-title" style="margin-top: 1rem;">Full Verb List</h3>
+                <div class="grid-2">
+                    <div class="vocab-table"><div class="vocab-header" style="color: #60a5fa;">Movement & Transport</div><div class="vocab-items">
+                        <div class="vocab-item"><span class="vocab-en">To go</span><span class="vocab-jp">いきます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To come</span><span class="vocab-jp">きます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To return home</span><span class="vocab-jp">かえります</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To walk</span><span class="vocab-jp">あるきます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To run</span><span class="vocab-jp">はしります</span></div>
+                    </div></div>
+
+                    <div class="vocab-table"><div class="vocab-header" style="color: #fb923c;">Giving & Receiving</div><div class="vocab-items">
+                        <div class="vocab-item"><span class="vocab-en">To give</span><span class="vocab-jp">あげます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To receive</span><span class="vocab-jp">もらいます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To lend</span><span class="vocab-jp">かします</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To borrow</span><span class="vocab-jp">かります</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To teach</span><span class="vocab-jp">おしえます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To learn</span><span class="vocab-jp">ならいます</span></div>
+                    </div></div>
+
+                    <div class="vocab-table"><div class="vocab-header" style="color: #10b981;">Daily Life</div><div class="vocab-items">
+                        <div class="vocab-item"><span class="vocab-en">To wake up</span><span class="vocab-jp">おきます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To sleep</span><span class="vocab-jp">ねます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To work</span><span class="vocab-jp">はたらきます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To study</span><span class="vocab-jp">べんきょうします</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To take a break</span><span class="vocab-jp">やすみます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To end/finish</span><span class="vocab-jp">おわります</span></div>
+                    </div></div>
+
+                    <div class="vocab-table"><div class="vocab-header" style="color: #c084fc;">Activities</div><div class="vocab-items">
+                        <div class="vocab-item"><span class="vocab-en">To eat</span><span class="vocab-jp">たべます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To drink</span><span class="vocab-jp">のみます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To see/watch</span><span class="vocab-jp">みます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To listen/hear</span><span class="vocab-jp">ききます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To read</span><span class="vocab-jp">よみます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To write</span><span class="vocab-jp">かきます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To buy</span><span class="vocab-jp">かいます</span></div>
+                    </div></div>
+
+                    <div class="vocab-table"><div class="vocab-header" style="color: #f472b6;">Social</div><div class="vocab-items">
+                        <div class="vocab-item"><span class="vocab-en">To meet</span><span class="vocab-jp">あいます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To speak</span><span class="vocab-jp">はなします</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To call</span><span class="vocab-jp">かけます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To take (photo)</span><span class="vocab-jp">とります</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To send</span><span class="vocab-jp">おくります</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To understand</span><span class="vocab-jp">わかります</span></div>
+                    </div></div>
+
+                    <div class="vocab-table"><div class="vocab-header" style="color: #94a3b8;">Existence</div><div class="vocab-items">
+                        <div class="vocab-item"><span class="vocab-en">To exist (thing)</span><span class="vocab-jp">あります</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To exist (person)</span><span class="vocab-jp">います</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To have/possess</span><span class="vocab-jp">あります</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To take (time/money)</span><span class="vocab-jp">かかります</span></div>
+                    </div></div>
+
+                    <div class="vocab-table"><div class="vocab-header" style="color: #f87171;">Kitchen & Cooking</div><div class="vocab-items">
+                        <div class="vocab-item"><span class="vocab-en">To cook</span><span class="vocab-jp">りょうりします</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To cut</span><span class="vocab-jp">きります</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To boil</span><span class="vocab-jp">わかします</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To fry</span><span class="vocab-jp">あげます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To bake/grill</span><span class="vocab-jp">やきます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To stir/mix</span><span class="vocab-jp">まぜます</span></div>
+                    </div></div>
+
+                    <div class="vocab-table"><div class="vocab-header" style="color: #818cf8;">Household</div><div class="vocab-items">
+                        <div class="vocab-item"><span class="vocab-en">To wash</span><span class="vocab-jp">あらいます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To clean</span><span class="vocab-jp">そうじします</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To dry</span><span class="vocab-jp">かわかします</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To fold</span><span class="vocab-jp">たたみます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To fix</span><span class="vocab-jp">なおします</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To throw away</span><span class="vocab-jp">すてます</span></div>
+                    </div></div>
+
+                    <div class="vocab-table"><div class="vocab-header" style="color: #2dd4bf;">Mental States</div><div class="vocab-items">
+                        <div class="vocab-item"><span class="vocab-en">To hurt/ache</span><span class="vocab-jp">いたみます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To feel</span><span class="vocab-jp">かんじます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To think</span><span class="vocab-jp">おもいます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To remember</span><span class="vocab-jp">おぼえます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To forget</span><span class="vocab-jp">わすれます</span></div>
+                        <div class="vocab-item"><span class="vocab-en">To relax</span><span class="vocab-jp">りらっくすします</span></div>
+                    </div></div>
+                </div>
+            </div>   
         </div>
 
         <div id="adjectives" class="tab-content">
+            <div class="card">
+                <div class="card-title cyan">
+                    <span class="jp-font">の</span> Possessive Pronouns
+                </div>
+                
+                <div class="info-box" style="border-left-color: #22d3ee; background: rgba(34, 211, 238, 0.05); margin-bottom: 1.5rem;">
+                    <div class="accent-text" style="color: #22d3ee;">The Rule</div>
+                    To say "Mine," "Yours," or "His," just add <strong>の (no)</strong> to any person. It never changes, no matter what object follows it!
+                </div>
+
+                <div class="grid-2">
+                    <!-- Singular Section -->
+                    <div class="vocab-table">
+                        <div class="vocab-header">Singular (One Person)</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item">
+                                <span class="vocab-en">My / Mine</span>
+                                <span class="vocab-jp">私の <small>(Watashi no)</small></span>
+                            </div>
+                            <div class="vocab-item">
+                                <span class="vocab-en">Your / Yours</span>
+                                <span class="vocab-jp">あなたの <small>(Anata no)</small></span>
+                            </div>
+                            <div class="vocab-item">
+                                <span class="vocab-en">His</span>
+                                <span class="vocab-jp">彼の <small>(Kare no)</small></span>
+                            </div>
+                            <div class="vocab-item">
+                                <span class="vocab-en">Her / Hers</span>
+                                <span class="vocab-jp">彼女の <small>(Kanojo no)</small></span>
+                            </div>
+                            <div class="vocab-item">
+                                <span class="vocab-en">Its</span>
+                                <span class="vocab-jp">それの / その <small>(Sore no / Sono)</small></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plural Section -->
+                    <div class="vocab-table">
+                        <div class="vocab-header">Plural (Multiple People)</div>
+                        <div class="vocab-items">
+                            <div class="vocab-item">
+                                <span class="vocab-en">Our / Ours</span>
+                                <span class="vocab-jp">私たちの <small>(Watashitachi no)</small></span>
+                            </div>
+                            <div class="vocab-item">
+                                <span class="vocab-en">Your (plural)</span>
+                                <span class="vocab-jp">あなたたちの <small>(Anatatachi no)</small></span>
+                            </div>
+                            <div class="vocab-item">
+                                <span class="vocab-en">Their (General/Male)</span>
+                                <span class="vocab-jp">彼らの <small>(Karera no)</small></span>
+                            </div>
+                            <div class="vocab-item">
+                                <span class="vocab-en">Their (Female)</span>
+                                <span class="vocab-jp">彼女らの <small>(Kanojora no)</small></span>
+                            </div>
+                            <div class="vocab-item">
+                                <span class="vocab-en">Who's?</span>
+                                <span class="vocab-jp">だれの？ <small>(Dare no?)</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box gold" style="margin-top: 1rem;">
+                    <strong>Quick Tip:</strong> In Japanese, if it's already obvious who you're talking about, they often leave the possessive out entirely to keep it "clean." 
+                </div>
+            </div>
             
             <div class="grid-2" style="margin-bottom: 1.5rem;">
+                <!-- Modifying Nouns Section -->
                 <div class="info-box gold" style="margin: 0;">
                     <p class="accent-text">Modifying Nouns</p>
-                    <p class="vocab-en" style="font-size: 13px;"><span style="color:#60a5fa;">I-Adjectives:</span> Attach directly BEFORE the noun. (<i>新しい車</i>)</p>
-                    <p class="vocab-en" style="font-size: 13px; margin-top: 0.5rem;"><span style="color:#10b981;">Na-Adjectives:</span> Add <b>な (na)</b> before the noun. (<i>静かな部屋</i>)</p>
+                    <p class="vocab-en" style="font-size: 13px;">
+                        <span style="color:#60a5fa;">I-Adjectives:</span> Attach directly BEFORE the noun. 
+                        <br><i>(あたらしい くるま)</i>
+                    </p>
+                    <p class="vocab-en" style="font-size: 13px; margin-top: 0.5rem;">
+                        <span style="color:#10b981;">Na-Adjectives:</span> Add <b>な (na)</b> before the noun. 
+                        <br><i>(しずかな へや)</i>
+                    </p>
                 </div>
+
+                <!-- Negative Form Section -->
                 <div class="info-box red" style="margin: 0;">
                     <p class="accent-text">Negative Form (Present)</p>
-                    <p class="vocab-en" style="font-size: 13px;"><b>I-Adjectives:</b> Drop い (i) add <b>くない (kunai)</b>. (<i>高くない</i>)</p>
-                    <p class="vocab-en" style="font-size: 13px; margin-top: 0.5rem;"><b>Na-Adjectives:</b> Drop な (na) add <b>じゃない (janai)</b>. (<i>元気じゃない</i>)</p>
+                    <p class="vocab-en" style="font-size: 13px;">
+                        <b>I-Adjectives:</b> Drop い (i) add <b>くない (kunai)</b>. 
+                        <br><i>(たかくない)</i>
+                    </p>
+                    <p class="vocab-en" style="font-size: 13px; margin-top: 0.5rem;">
+                        <b>Na-Adjectives:</b> Drop な (na) add <b>じゃない (janai)</b>. 
+                        <br><i>(げんき じゃない)</i>
+                    </p>
                 </div>
             </div>
 
