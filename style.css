@@ -1,244 +1,819 @@
+/* ============================================
+   TABLE OF CONTENTS
+   ============================================
+   1. Reset & Base Styles
+   2. Typography
+   3. Layout & Container
+   4. Header & Navigation
+      4.1 Header Base
+      4.2 Desktop Navigation
+      4.3 Mobile Navigation (Hamburger Menu)
+   5. Main Content & Tabs
+   6. Cards
+   7. Tables & Vocabulary Lists
+   8. Grid Systems
+      8.1 Standard Grids
+      8.2 Character Grids
+   9. Buttons
+   10. Info Boxes & Alerts
+   11. Kanji Components
+   12. Sentence Blocks
+   13. Inner Navigation (Book Tabs)
+   14. Footer
+   15. Animations
+   16. Responsive Breakpoints
+       16.1 Tablet & Below (max-width: 768px)
+       16.2 Desktop (min-width: 768px)
+   ============================================ */
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Nunito', sans-serif; background: linear-gradient(to bottom, #0f172a, #1a1f3a); color: #e2e8f0; min-height: 100vh; }
-    .jp-font { font-family: 'Noto Sans JP', sans-serif; }
-    
-    /* Header */
-    header { position: sticky; top: 0; z-index: 50; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-    .header-content { max-width: 1280px; margin: 0 auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between; }
-    .back-link { display: flex; align-items: center; gap: 0.5rem; color: #94a3b8; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s ease; }
-    .back-link:hover { color: #f9a8d4; }
-    .header-title { font-size: 1.125rem; font-weight: bold; color: white; display: flex; align-items: center; gap: 0.75rem; }
-    .header-title .jp-font { font-size: 1.25rem; }
-    .nav-tabs { display: none; gap: 0.25rem; }
-    @media (min-width: 768px) { .nav-tabs { display: flex; flex-wrap: wrap; justify-content: flex-end;} }
-    .tab-btn { padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; border: none; background: transparent; color: #94a3b8; cursor: pointer; transition: all 0.2s ease; }
-    .tab-btn:hover { background: rgba(255, 255, 255, 0.08); color: white; }
-    .tab-btn.active { background: rgba(249, 168, 212, 0.2); color: #f9a8d4; }
 
-    /* --- Desktop vs Mobile Navigation Logic --- */
+/* ============================================
+   1. RESET & BASE STYLES
+   ============================================ */
 
-    /* Hide hamburger by default (Desktop) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to bottom, #0f172a, #1a1f3a);
+    color: #e2e8f0;
+    min-height: 100vh;
+}
+
+
+/* ============================================
+   2. TYPOGRAPHY
+   ============================================ */
+
+.jp-font {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+/* ============================================
+   3. LAYOUT & CONTAINER
+   ============================================ */
+
+main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+
+/* ============================================
+   4. HEADER & NAVIGATION
+   ============================================ */
+
+/* --------------------------------------------
+   4.1 Header Base
+   -------------------------------------------- */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header-title .jp-font {
+    font-size: 1.25rem;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #f9a8d4;
+}
+
+/* --------------------------------------------
+   4.2 Desktop Navigation
+   -------------------------------------------- */
+
+.nav-tabs {
+    display: none;
+    gap: 0.25rem;
+}
+
+.tab-btn {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+.tab-btn.active {
+    background: rgba(249, 168, 212, 0.2);
+    color: #f9a8d4;
+}
+
+/* --------------------------------------------
+   4.3 Mobile Navigation (Hamburger Menu)
+   -------------------------------------------- */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger to X animation */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* ============================================
+   5. MAIN CONTENT & TABS
+   ============================================ */
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+/* ============================================
+   6. CARDS
+   ============================================ */
+
+.card {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Card Title Color Variants */
+.card-title.blue   { color: #60a5fa; }
+.card-title.orange { color: #fb923c; }
+.card-title.pink   { color: #f9a8d4; }
+.card-title.purple { color: #d8b4fe; }
+.card-title.green  { color: #10b981; }
+.card-title.red    { color: #f87171; }
+.card-title.yellow { color: #facc15; }
+.card-title.cyan   { color: #22d3ee; }
+
+
+/* ============================================
+   7. TABLES & VOCABULARY LISTS
+   ============================================ */
+
+.vocab-table {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.vocab-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+}
+
+.vocab-items {
+    padding: 1rem;
+}
+
+.vocab-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 14px;
+}
+
+.vocab-item:last-child {
+    border-bottom: none;
+}
+
+.vocab-en {
+    color: #94a3b8;
+}
+
+.vocab-jp {
+    font-weight: bold;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+/* ============================================
+   8. GRID SYSTEMS
+   ============================================ */
+
+/* --------------------------------------------
+   8.1 Standard Grids
+   -------------------------------------------- */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+/* --------------------------------------------
+   8.2 Character Grids
+   -------------------------------------------- */
+
+.grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.375rem;
+    text-align: center;
+}
+
+.grid-char {
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: white;
+    transition: all 0.2s ease;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.grid-char:hover {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.grid-char.orange-bg {
+    background: rgba(251, 146, 60, 0.1);
+    border-color: rgba(251, 146, 60, 0.2);
+}
+
+.grid-char.orange-bg:hover {
+    background: rgba(251, 146, 60, 0.2);
+}
+
+.grid-char.empty {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* ============================================
+   9. BUTTONS
+   ============================================ */
+
+.vocab-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.vocab-btn {
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 2px solid;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vocab-btn span.icon {
+    font-size: 1.5rem;
+}
+
+.vocab-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Button Color Variants */
+.vocab-btn.blue    { border-color: rgba(59, 130, 246, 0.4); }
+.vocab-btn.indigo  { border-color: rgba(99, 102, 241, 0.4); }
+.vocab-btn.emerald { border-color: rgba(16, 185, 129, 0.4); }
+.vocab-btn.green   { border-color: rgba(34, 197, 94, 0.4); }
+.vocab-btn.pink    { border-color: rgba(236, 72, 153, 0.4); }
+.vocab-btn.purple  { border-color: rgba(168, 85, 247, 0.4); }
+.vocab-btn.yellow  { border-color: rgba(234, 179, 8, 0.4); }
+.vocab-btn.cyan    { border-color: rgba(6, 182, 212, 0.4); }
+.vocab-btn.red     { border-color: rgba(239, 68, 68, 0.4); }
+.vocab-btn.orange  { border-color: rgba(249, 115, 22, 0.4); }
+.vocab-btn.gold    { border-color: rgba(234, 179, 8, 0.4); }
+
+/* ============================================
+   VOCAB MOBILE COLLAPSE SYSTEM
+   ============================================ */
+
+/* The compact "← Topics / Active: X" bar shown after selection on mobile */
+.vocab-picker-bar {
+    display: none; /* JS reveals this on mobile only */
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0.65rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.75rem;
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.vocab-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.07);
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.vocab-back-btn:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.vocab-picker-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f1f5f9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Desktop: always show the full grid, hide the bar */
+@media (min-width: 768px) {
+    .vocab-menu.is-collapsed {
+        display: grid !important; /* override JS collapse on desktop */
+    }
+    .vocab-picker-bar {
+        display: none !important;
+    }
+}
+
+
+/* ============================================
+   10. INFO BOXES & ALERTS
+   ============================================ */
+
+.info-box {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid #3b82f6;
+    padding: 1rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    margin-top: 1rem;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+/* Info Box Color Variants */
+.info-box.red    { border-left-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
+.info-box.gold   { border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
+.info-box.green  { border-left-color: #10b981; background: rgba(16, 185, 129, 0.05); }
+.info-box.purple { border-left-color: #a855f7; background: rgba(168, 85, 247, 0.05); }
+.info-box.pink   { border-left-color: #ec4899; background: rgba(236, 72, 153, 0.05); }
+
+.accent-text {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+
+/* ============================================
+   11. KANJI COMPONENTS
+   ============================================ */
+
+.kanji-intro {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kanji-intro h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.kanji-intro p {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.kanji-watermark {
+    font-size: 4rem;
+    opacity: 0.1;
+    user-select: none;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.kanji-lesson {
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.kanji-lesson-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.kanji-lesson-header h3 {
+    font-weight: bold;
+    color: white;
+}
+
+.kanji-chars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.kanji-char {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.2s ease;
+}
+
+.kanji-char:hover {
+    background: rgba(249, 168, 212, 0.1);
+    border-color: rgba(249, 168, 212, 0.3);
+}
+
+.kanji-symbol {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.25rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.kanji-reading {
+    font-size: 11px;
+    color: #f9a8d4;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.kanji-meaning {
+    font-size: 10px;
+    color: #94a3b8;
+    text-align: center;
+}
+
+
+/* ============================================
+   12. SENTENCE BLOCKS
+   ============================================ */
+
+.sentence-block {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.sentence-part {
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+}
+
+.sentence-role {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #94a3b8;
+    margin-bottom: 0.25rem;
+}
+
+.sentence-word {
+    background: #0f172a;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sentence-plus {
+    color: #f9a8d4;
+    font-weight: bold;
+}
+
+
+/* ============================================
+   13. INNER NAVIGATION (BOOK TABS)
+   ============================================ */
+
+.inner-nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #3f3f46;
+    overflow-x: auto;
+}
+
+.inner-tab-btn {
+    background: #27272a;
+    color: #a1a1aa;
+    border: 1px solid #3f3f46;
+    border-bottom: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: 600;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.inner-tab-btn:hover {
+    background: #3f3f46;
+    color: #e4e4e7;
+}
+
+.inner-tab-btn.active {
+    background: #18181b;
+    color: #fbbf24;
+    border-top: 3px solid #fbbf24;
+    border-left: 1px solid #3f3f46;
+    border-right: 1px solid #3f3f46;
+    margin-bottom: -2px;
+}
+
+.inner-tab-content {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+
+/* ============================================
+   14. FOOTER
+   ============================================ */
+
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 4rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* ============================================
+   15. ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================
+   16. RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* --------------------------------------------
+   16.1 Tablet & Below (max-width: 768px)
+   -------------------------------------------- */
+
+@media (max-width: 767px) {
+    /* Mobile Navigation */
     .menu-toggle {
-        display: none;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        z-index: 100;
-    }
-
-    .menu-toggle span {
-        width: 100%;
-        height: 3px;
-        background-color: white;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-    }
-
-    @media (max-width: 767px) {
-        .menu-toggle {
-            display: flex; /* Show hamburger on mobile */
-        }
-
-        .nav-tabs {
-            display: none; /* Hide default navbar */
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            z-index: 60;
-        }
-
-        /* Show menu when button is clicked */
-        .nav-tabs.active {
-            display: flex;
-        }
-
-        .tab-btn {
-            width: 100%;
-            text-align: left;
-            padding: 1rem;
-            font-size: 14px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Animate hamburger to 'X' when open */
-        .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-    }
-
-    @media (min-width: 768px) {
-        .nav-tabs {
-            display: flex; /* Standard horizontal navbar for desktop */
-            gap: 0.25rem;
-        }
-    }
-
-    /* Main Content */
-    main { max-width: 1280px; margin: 0 auto; padding: 2rem 1rem; }
-    .tab-content { display: none; animation: fadeIn 0.3s ease; }
-    .tab-content.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    /* Cards & Tables */
-    .card { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; transition: all 0.3s ease; }
-    .card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
-    .card-title { font-size: 1.125rem; font-weight: bold; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-    .card-title.blue { color: #60a5fa; }
-    .card-title.orange { color: #fb923c; }
-    .card-title.pink { color: #f9a8d4; }
-    .card-title.purple { color: #d8b4fe; }
-    .card-title.green { color: #10b981; }
-    .card-title.red { color: #f87171; }
-    .card-title.yellow { color: #facc15; }
-    .card-title.cyan { color: #22d3ee; }
-
-    .vocab-table { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; overflow: hidden; margin-bottom: 1.5rem; }
-    .vocab-header { background: rgba(255, 255, 255, 0.05); padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; }
-    .vocab-items { padding: 1rem; }
-    .vocab-item { display: flex; justify-content: space-between; align-items: center; padding: 0.625rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 14px; }
-    .vocab-item:last-child { border-bottom: none; }
-    .vocab-en { color: #94a3b8; }
-    .vocab-jp { font-weight: bold; color: white; font-family: 'Noto Sans JP', sans-serif; }
-
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-    
-    /* Character Grids */
-    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.375rem; text-align: center; }
-    .grid-char { padding: 0.5rem; border-radius: 0.375rem; font-size: 1.1rem; font-weight: 500; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: white; transition: all 0.2s ease; font-family: 'Noto Sans JP', sans-serif; }
-    .grid-char:hover { background: rgba(59, 130, 246, 0.2); }
-    .grid-char.orange-bg { background: rgba(251, 146, 60, 0.1); border-color: rgba(251, 146, 60, 0.2); }
-    .grid-char.orange-bg:hover { background: rgba(251, 146, 60, 0.2); }
-    .grid-char.empty { opacity: 0; pointer-events: none; }
-
-    /* Highlights & Alerts */
-    .info-box { background: rgba(255, 255, 255, 0.03); border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1rem; font-size: 13px; line-height: 1.5; color: #cbd5e1; }
-    .info-box.red { border-left-color: #ef4444; background: rgba(239, 68, 68, 0.05); }
-    .info-box.gold { border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
-    .info-box.green { border-left-color: #10b981; background: rgba(16, 185, 129, 0.05); }
-    .info-box.purple { border-left-color: #a855f7; background: rgba(168, 85, 247, 0.05); }
-    .info-box.pink { border-left-color: #ec4899; background: rgba(236, 72, 153, 0.05); }
-    .accent-text { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
-
-    /* Vocabulary Menu */
-    .vocab-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-    .vocab-btn { padding: 1rem; border-radius: 0.75rem; border: 2px solid; background: rgba(255, 255, 255, 0.05); color: white; cursor: pointer; font-weight: 600; text-align: center; transition: all 0.3s ease; font-size: 14px; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
-    .vocab-btn span.icon { font-size: 1.5rem; }
-    .vocab-btn:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.1); }
-    .vocab-btn.blue { border-color: rgba(59, 130, 246, 0.4); }
-    .vocab-btn.indigo { border-color: rgba(99, 102, 241, 0.4); }
-    .vocab-btn.emerald { border-color: rgba(16, 185, 129, 0.4); }
-    .vocab-btn.green { border-color: rgba(34, 197, 94, 0.4); }
-    .vocab-btn.pink { border-color: rgba(236, 72, 153, 0.4); }
-    .vocab-btn.purple { border-color: rgba(168, 85, 247, 0.4); }
-    .vocab-btn.yellow { border-color: rgba(234, 179, 8, 0.4); }
-    .vocab-btn.cyan { border-color: rgba(6, 182, 212, 0.4); }
-    .vocab-btn.red { border-color: rgba(239, 68, 68, 0.4); }
-    .vocab-btn.orange { border-color: rgba(249, 115, 22, 0.4); }
-    
-    /* Kanji Specific */
-    .kanji-intro { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; }
-    .kanji-intro h2 { font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem; }
-    .kanji-intro p { color: #94a3b8; font-size: 14px; }
-    .kanji-watermark { font-size: 4rem; opacity: 0.1; user-select: none; font-family: 'Noto Sans JP', sans-serif; }
-    .kanji-lesson { background: #1e293b; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; overflow: hidden; margin-bottom: 1.5rem; }
-    .kanji-lesson-header { background: rgba(255, 255, 255, 0.05); padding: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-    .kanji-lesson-header h3 { font-weight: bold; color: white; }
-    .kanji-chars { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 1rem; padding: 1.5rem; }
-    .kanji-char { display: flex; flex-direction: column; align-items: center; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.06); transition: all 0.2s ease; }
-    .kanji-char:hover { background: rgba(249, 168, 212, 0.1); border-color: rgba(249, 168, 212, 0.3); }
-    .kanji-symbol { font-size: 2.25rem; font-weight: bold; color: white; margin-bottom: 0.25rem; font-family: 'Noto Sans JP', sans-serif; }
-    .kanji-reading { font-size: 11px; color: #f9a8d4; font-weight: bold; margin-bottom: 0.25rem; font-family: 'Noto Sans JP', sans-serif; }
-    .kanji-meaning { font-size: 10px; color: #94a3b8; text-align: center; }
-
-    /* Custom Sentence Block */
-    .sentence-block { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.5rem; padding: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; }
-    .sentence-part { text-align: center; flex: 1; min-width: 100px; }
-    .sentence-role { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.25rem; }
-    .sentence-word { background: #0f172a; padding: 0.75rem; border-radius: 0.25rem; font-size: 1.25rem; font-weight: bold; color: white; font-family: 'Noto Sans JP', sans-serif; border: 1px solid rgba(255,255,255,0.05); }
-    .sentence-plus { color: #f9a8d4; font-weight: bold; }
-
-    footer { border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 4rem; padding: 2rem 1rem; text-align: center; color: #64748b; font-size: 14px; }
-    @media (max-width: 768px) { .grid-5 { grid-template-columns: repeat(4, 1fr); } }
-    /* Inner Nav Tabs (Book Separators) */
-    .inner-nav-tabs {
         display: flex;
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-        border-bottom: 2px solid #3f3f46; /* Matches the dark theme borders */
-        overflow-x: auto; /* Allows scrolling on mobile */
+    }
+
+    .nav-tabs {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        z-index: 60;
+    }
+
+    .nav-tabs.active {
+        display: flex;
+    }
+
+    .tab-btn {
+        width: 100%;
+        text-align: left;
+        padding: 1rem;
+        font-size: 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Character Grid - Force 5 columns */
+    .grid-5 {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 4px;
+    }
+
+    .grid-char {
+        padding: 6px 2px;
+        font-size: 0.9rem;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    /* Stack standard grids and menus vertically */
+    .grid-2,
+    .grid-3,
+    .vocab-menu {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Inner tabs - horizontal scroll */
+    .inner-nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
     }
 
     .inner-tab-btn {
-        background: #27272a; /* Slightly lighter than background */
-        color: #a1a1aa; /* Muted text */
-        border: 1px solid #3f3f46;
-        border-bottom: none;
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
-        font-family: inherit;
-        font-weight: 600;
-        border-radius: 8px 8px 0 0; /* Rounded top, flat bottom like a folder tab */
-        cursor: pointer;
-        transition: all 0.2s ease;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
+}
 
-    .inner-tab-btn:hover {
-        background: #3f3f46;
-        color: #e4e4e7;
-    }
+/* --------------------------------------------
+   16.2 Desktop (min-width: 768px)
+   -------------------------------------------- */
 
-    .inner-tab-btn.active {
-        background: #18181b; /* Matches main background to blend in */
-        color: #fbbf24; /* Gold accent for the active tab */
-        border-top: 3px solid #fbbf24;
-        border-left: 1px solid #3f3f46;
-        border-right: 1px solid #3f3f46;
-        margin-bottom: -2px; /* Pulls it over the border to create the connected tab effect */
+@media (min-width: 768px) {
+    .nav-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
-
-    /* Ensure inner tab content aligns correctly */
-    .inner-tab-content {
-        animation: fadeIn 0.3s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(5px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    /* Mobile Responsiveness for Verbs Section */
-    @media (max-width: 768px) {
-        /* Stack grid items vertically on small screens */
-        .grid-2, .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr; /* 1 column instead of 2 or 3 */
-            gap: 1rem;
-        }
-        
-        /* Ensure tabs don't squish; allow horizontal scrolling */
-        .inner-nav-tabs {
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-            padding-bottom: 5px; /* Space for scrollbar */
-        }
-
-        .inner-tab-btn {
-            white-space: nowrap; /* Prevents text inside tabs from wrapping */
-            flex-shrink: 0; /* Prevents tabs from shrinking */
-        }
-    }
+}

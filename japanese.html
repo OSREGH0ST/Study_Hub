@@ -777,6 +777,12 @@
                 <button class="vocab-btn orange" onclick="showVocabCategory('jp-hobbies')"><span class="icon">🎨</span> Hobbies</button>
             </div>
 
+            <!-- Mobile-only: compact "← Topics / Active category" bar (shown after a button is clicked) -->
+            <div id="vocab-picker-bar" class="vocab-picker-bar" style="display:none;">
+                <button class="vocab-back-btn" onclick="showVocabMenu()">← Topics</button>
+                <span class="vocab-picker-label"></span>
+            </div>
+
             <div id="vocab-tables">
                 
                 <div id="jp-numbers" class="vocab-category" style="display: none;">

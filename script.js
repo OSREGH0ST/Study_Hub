@@ -119,6 +119,12 @@ function switchTab(tabId) {
 
     // Default Vocab Logic
     if (tabId === 'vocabulary') {
+        // Reset mobile picker bar state on tab switch
+        const bar = document.getElementById('vocab-picker-bar');
+        const menu = document.querySelector('#vocabulary .vocab-menu');
+        if (bar) bar.style.display = 'none';
+        if (menu) menu.classList.remove('is-collapsed');
+
         if (document.getElementById('jp-numbers')) showVocabCategory('jp-numbers');
         else if (document.getElementById('fr-numbers')) showVocabCategory('fr-numbers');
     }
@@ -146,6 +152,36 @@ function showVocabCategory(category) {
     document.querySelectorAll('.vocab-category').forEach(el => el.style.display = 'none');
     const target = document.getElementById(category);
     if (target) target.style.display = 'grid';
+
+    // Mobile-only: collapse the button grid and show the compact picker bar
+    if (window.innerWidth < 768) {
+        const menu = document.querySelector('#vocabulary .vocab-menu');
+        const bar  = document.getElementById('vocab-picker-bar');
+        if (menu) menu.classList.add('is-collapsed');
+        if (bar) {
+            // Grab label from the clicked button (emoji + text)
+            const btn = document.querySelector(`.vocab-btn[onclick*="'${category}'"]`);
+            const label = btn ? btn.textContent.trim() : category;
+            const labelEl = bar.querySelector('.vocab-picker-label');
+            if (labelEl) labelEl.textContent = label;
+            bar.style.display = 'flex';
+        }
+        // Scroll to the content area so user sees it immediately
+        const tables = document.getElementById('vocab-tables');
+        if (tables) tables.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// Restore the full vocab menu (called by "← Topics" button on mobile)
+function showVocabMenu() {
+    const menu = document.querySelector('#vocabulary .vocab-menu');
+    const bar  = document.getElementById('vocab-picker-bar');
+    if (menu) menu.classList.remove('is-collapsed');
+    if (bar) bar.style.display = 'none';
+    // Clear displayed category so user sees the menu in isolation
+    document.querySelectorAll('.vocab-category').forEach(el => el.style.display = 'none');
+    // Scroll menu into view
+    if (menu) menu.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // Kanji List Builder

@@ -636,6 +636,46 @@
         </div>
 
         <div id="adjectives" class="tab-content">
+            <div class="card">
+                <div class="card-title pink"><span>👤</span>Possession</div>
+                <div class="info-box pink" style="margin-bottom: 1rem;">
+                    <strong>The Golden Rule:</strong> The word must match the <em>gender</em> and <em>number</em> of the noun that follows it.
+                </div>
+                
+                <div class="vocab-table">
+                    <div class="vocab-header">Subject | Masc. | Fem. | Plural</div>
+                    <div class="vocab-items">
+                        <div class="vocab-item">
+                            <span class="vocab-en">Je (My)</span>
+                            <span class="vocab-fr"><strong>mon / ma / mes</strong></span>
+                        </div>
+                        <div class="vocab-item">
+                            <span class="vocab-en">Tu (Your)</span>
+                            <span class="vocab-fr"><strong>ton / ta / tes</strong></span>
+                        </div>
+                        <div class="vocab-item">
+                            <span class="vocab-en">Il/Elle (His/Her)</span>
+                            <span class="vocab-fr"><strong>son / sa / ses</strong></span>
+                        </div>
+                        <div class="vocab-item">
+                            <span class="vocab-en">Nous (Our)</span>
+                            <span class="vocab-fr"><strong>notre / notre / nos</strong></span>
+                        </div>
+                        <div class="vocab-item">
+                            <span class="vocab-en">Vous (Your - formal)</span>
+                            <span class="vocab-fr"><strong>votre / votre / vos</strong></span>
+                        </div>
+                        <div class="vocab-item">
+                            <span class="vocab-en">Ils/Elles (Their)</span>
+                            <span class="vocab-fr"><strong>leur / leur / leurs</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box red">
+                    <strong>⚠️ The "Vowel Rule":</strong> If a feminine noun starts with a vowel (like <em>amie</em>), you <strong>must</strong> use the masculine form: <strong>Mon amie</strong> (not Ma amie). It just sounds better!
+                </div>
+            </div>
             <div class="grid-2" style="margin-bottom: 1.5rem;">
                 <div class="info-box gold" style="margin: 0;">
                     <p class="accent-text">Adjective Placement</p>
@@ -791,6 +831,12 @@
                 <button class="vocab-btn gold" onclick="showVocabCategory('fr-body')"><span class="icon">👤</span> Body Parts</button>
                 <button class="vocab-btn red" onclick="showVocabCategory('fr-clothing')"><span class="icon">👕</span> Clothing</button>
                 <button class="vocab-btn red" onclick="showVocabCategory('fr-hobbies')"><span class="icon">🎨</span> Hobbies</button>
+            </div>
+
+            <!-- Mobile-only: compact "← Topics / Active category" bar (shown after a button is clicked) -->
+            <div id="vocab-picker-bar" class="vocab-picker-bar" style="display:none;">
+                <button class="vocab-back-btn" onclick="showVocabMenu()">← Topics</button>
+                <span class="vocab-picker-label"></span>
             </div>
 
             <div id="vocab-tables">
