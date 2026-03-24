@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-lang="fr">
     <header>
         <div class="header-content">
             <a href="index.html" class="back-link">← Back to Hub</a>
@@ -32,6 +32,7 @@
                 <button class="tab-btn" onclick="switchTab('adverbs')">Adverbs</button>
                 <button class="tab-btn" onclick="switchTab('vocabulary')">Vocabulary</button>
                 <button class="tab-btn" onclick="switchTab('phrases')">Phrases</button>
+                <button class="tab-btn practice-tab-btn" onclick="switchTab('practice')">✏️ Practice</button>
             </nav>
         </div>
     </header>
@@ -1331,6 +1332,53 @@
                     <div class="vocab-item"><span class="vocab-en">Have a good day!</span><span class="vocab-fr">Bonne journée!</span></div>
                 </div></div>
             </div>
+        </div>
+
+        <!-- ==================== PRACTICE TAB ==================== -->
+        <div id="practice" class="tab-content">
+
+            <!-- HOME: Topic picker -->
+            <div id="practice-home">
+                <div class="practice-intro">
+                    <div class="practice-intro-icon">✏️</div>
+                    <h2 class="practice-intro-title">Practice Mode</h2>
+                    <p class="practice-intro-desc">Pick a topic below — AI will generate a quiz using only the content from this guide.</p>
+                </div>
+                <div id="practice-topic-grid" class="practice-topic-grid"></div>
+            </div>
+
+            <!-- QUIZ VIEW -->
+            <div id="practice-quiz-view" style="display:none;">
+                <div class="practice-quiz-header">
+                    <button class="practice-back-btn" onclick="backToPracticeHome()">← Topics</button>
+                    <span id="practice-quiz-topic-label" class="practice-quiz-topic-label"></span>
+                    <span id="practice-quiz-progress" class="practice-quiz-progress"></span>
+                </div>
+                <div id="practice-loading" class="practice-loading">
+                    <div class="practice-spinner"></div>
+                    <p>Generating your quiz…</p>
+                </div>
+                <div id="practice-error" class="practice-error" style="display:none;">
+                    <p>❌ Could not generate quiz. Check your connection and try again.</p>
+                    <button class="results-btn secondary" onclick="backToPracticeHome()">← Back to Topics</button>
+                </div>
+                <div id="quiz-question-area"></div>
+            </div>
+
+            <!-- RESULTS VIEW -->
+            <div id="practice-results-view" style="display:none;">
+                <div class="practice-results-card">
+                    <div id="results-emoji" class="results-emoji"></div>
+                    <h2 id="results-title" class="results-title"></h2>
+                    <p id="results-score" class="results-score"></p>
+                    <div id="results-breakdown" class="results-breakdown"></div>
+                    <div class="results-actions">
+                        <button class="results-btn primary" onclick="retryQuiz()">🔄 Try Again</button>
+                        <button class="results-btn secondary" onclick="backToPracticeHome()">📚 New Topic</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </main>
