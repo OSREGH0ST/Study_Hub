@@ -228,6 +228,7 @@
                 <button class="inner-tab-btn active" onclick="openSubTab(event, 'tab-present')">Le Présent</button>
                 <button class="inner-tab-btn" onclick="openSubTab(event, 'tab-passe')">Passé Composé</button>
                 <button class="inner-tab-btn" onclick="openSubTab(event, 'tab-futur')">Le Futur</button>
+                <button class="inner-tab-btn" onclick="openSubTab(event, 'tab-imperatif')">L'Impératif</button>
                 <button class="inner-tab-btn" onclick="openSubTab(event, 'tab-dict')">Verb Dictionary</button>
             </div>
 
@@ -518,6 +519,88 @@
                             <br>
                             <p class="vocab-fr">J'irai <span class="vocab-en" style="font-size: 10px;">(Irregular)</span></p>
                             <p class="vocab-en" style="font-size: 12px;">(I will go)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-imperatif" class="inner-tab-content" style="display: none;">
+                <div class="card">
+                    <h3 class="card-title red">L'Impératif (Commands & Requests)</h3>
+                    <p class="vocab-en" style="font-size: 14px; margin-bottom: 1.5rem; text-align: center;">Used to give orders, advice, or make requests. <strong>Drop the subject pronoun!</strong></p>
+                    
+                    <div class="grid-3">
+                        <div class="info-box blue" style="margin: 0;">
+                            <p class="accent-text">Only 3 Forms</p>
+                            <ul class="vocab-en" style="font-size: 13px; padding-left: 1rem;">
+                                <li><strong>Tu</strong> (Informal singular)</li>
+                                <li><strong>Nous</strong> (Let's...)</li>
+                                <li><strong>Vous</strong> (Formal or plural)</li>
+                            </ul>
+                        </div>
+                        <div class="info-box gold" style="margin: 0;">
+                            <p class="accent-text">The -ER Verb Rule</p>
+                            <p class="vocab-en" style="font-size: 13px;">For all -ER verbs (including <em>aller</em>), <strong>drop the 's'</strong> in the <em>tu</em> form.<br><br>Ex: <span class="vocab-fr">Parle !</span> (Not parles) <br><span class="vocab-fr">Va !</span> (Not vas)</p>
+                        </div>
+                        <div class="info-box red" style="margin: 0;">
+                            <p class="accent-text">Negative Commands</p>
+                            <p class="vocab-en" style="font-size: 13px;">Wrap the verb in <strong>ne ... pas</strong>.<br><br>Ex: <span class="vocab-fr">Ne regarde pas !</span> (Don't look!)<br><span class="vocab-fr">N'y va pas !</span> (Don't go there!)</p>
+                        </div>
+                    </div>
+
+                    <h4 style="color: #fbbf24; margin: 2rem 0 1rem; border-bottom: 1px solid #3f3f46; padding-bottom: 0.5rem;">Regular Formations (Present tense base)</h4>
+                    <div class="grid-3">
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #60a5fa;">Parler (To speak)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">(Tu) Speak!</span><span class="vocab-fr">Parle !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">(Nous) Let's!</span><span class="vocab-fr">Parlons !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">(Vous) Speak!</span><span class="vocab-fr">Parlez !</span></div>
+                            </div>
+                        </div>
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #34d399;">Finir (To finish)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">(Tu) Finish!</span><span class="vocab-fr">Finis !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">(Nous) Let's!</span><span class="vocab-fr">Finissons !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">(Vous) Finish!</span><span class="vocab-fr">Finissez !</span></div>
+                            </div>
+                        </div>
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #c084fc;">Prendre (To take)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">(Tu) Take!</span><span class="vocab-fr">Prends !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">(Nous) Let's!</span><span class="vocab-fr">Prenons !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">(Vous) Take!</span><span class="vocab-fr">Prenez !</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="color: #fbbf24; margin: 2rem 0 1rem; border-bottom: 1px solid #3f3f46; padding-bottom: 0.5rem;">Irregular Imperatives</h4>
+                    <div class="grid-3">
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #cbd5e1;">Être (To be)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Be! (tu)</span><span class="vocab-fr">Sois !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Let's be!</span><span class="vocab-fr">Soyons !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Be! (vous)</span><span class="vocab-fr">Soyez !</span></div>
+                            </div>
+                        </div>
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #cbd5e1;">Avoir (To have)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Have! (tu)</span><span class="vocab-fr">Aie !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Let's have!</span><span class="vocab-fr">Ayons !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Have! (vous)</span><span class="vocab-fr">Ayez !</span></div>
+                            </div>
+                        </div>
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #cbd5e1;">Savoir (To know)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Know! (tu)</span><span class="vocab-fr">Sache !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Let's know!</span><span class="vocab-fr">Sachons !</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Know! (vous)</span><span class="vocab-fr">Sachez !</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1216,15 +1299,62 @@
                     </div>
                 </div>
 
-                <div id="fr-clothing" class="grid-2 vocab-category" style="display: none;">
-                    <div class="vocab-table"><div class="vocab-header">Clothing</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Pants</span><span class="vocab-fr">pantalon</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Shirt / T-shirt</span><span class="vocab-fr">chemise / t-shirt</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Dress / Skirt</span><span class="vocab-fr">robe / jupe</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Coat / Jacket</span><span class="vocab-fr">manteau / veste</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Shoes / Socks</span><span class="vocab-fr">chaussures / chaussettes</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Hat</span><span class="vocab-fr">chapeau</span></div>
-                    </div></div>
+                <div id="fr-clothing" class="vocab-category" style="display: none;">
+                    <div class="card" style="margin-bottom: 1.5rem;">
+                        <h3 class="card-title purple">Porter vs Mettre</h3>
+                        <div class="grid-2">
+                            <div class="info-box blue" style="margin: 0; background: rgba(59, 130, 246, 0.1);">
+                                <p class="vocab-fr" style="font-size: 1.1rem; color: #60a5fa; margin-bottom: 0.5rem;">Porter (To wear)</p>
+                                <p class="vocab-en" style="font-size: 12px; margin-bottom: 0.5rem;">Describes the <strong>state</strong> of wearing something.</p>
+                                <p class="vocab-fr" style="font-size: 13px;"><em>"Je porte une chemise bleue."</em></p>
+                                <p class="vocab-en" style="font-size: 11px;">(I am wearing a blue shirt.)</p>
+                            </div>
+                            <div class="info-box green" style="margin: 0; border-left-color: #10b981; background: rgba(16, 185, 129, 0.1);">
+                                <p class="vocab-fr" style="font-size: 1.1rem; color: #34d399; margin-bottom: 0.5rem;">Mettre (To put on)</p>
+                                <p class="vocab-en" style="font-size: 12px; margin-bottom: 0.5rem;">Describes the <strong>action</strong> of getting dressed.</p>
+                                <p class="vocab-fr" style="font-size: 13px;"><em>"Je mets mon manteau."</em></p>
+                                <p class="vocab-en" style="font-size: 11px;">(I am putting on my coat.)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-3">
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header">Clothing (Vêtements)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Pants</span><span class="vocab-fr">le pantalon</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Shirt / T-shirt</span><span class="vocab-fr">la chemise / le t-shirt</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Dress / Skirt</span><span class="vocab-fr">la robe / la jupe</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Coat / Jacket</span><span class="vocab-fr">le manteau / la veste</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Shoes / Socks</span><span class="vocab-fr">les chaussures / chaussettes</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Hat</span><span class="vocab-fr">le chapeau</span></div>
+                            </div>
+                        </div>
+
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #facc15;">Materials (En / De)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Cotton</span><span class="vocab-fr">en coton</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Leather</span><span class="vocab-fr">en cuir</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Wool</span><span class="vocab-fr">en laine</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Silk</span><span class="vocab-fr">en soie</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Denim</span><span class="vocab-fr">en jean</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Gold / Silver</span><span class="vocab-fr">en or / en argent</span></div>
+                            </div>
+                        </div>
+
+                        <div class="vocab-table" style="margin: 0;">
+                            <div class="vocab-header" style="color: #f472b6;">Designs & Patterns (À)</div>
+                            <div class="vocab-items">
+                                <div class="vocab-item"><span class="vocab-en">Striped</span><span class="vocab-fr">à rayures</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Checkered</span><span class="vocab-fr">à carreaux</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Polka dot</span><span class="vocab-fr">à pois</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Floral</span><span class="vocab-fr">à fleurs</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Short-sleeved</span><span class="vocab-fr">à manches courtes</span></div>
+                                <div class="vocab-item"><span class="vocab-en">Solid (No pattern)</span><span class="vocab-fr">uni(e)</span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="fr-hobbies" class="vocab-grid vocab-category " style="display: none;">
@@ -1334,7 +1464,6 @@
             </div>
         </div>
 
-        <!-- ==================== PRACTICE TAB ==================== -->
         <div id="practice" class="tab-content">
 
             <!-- HOME: Topic picker -->
