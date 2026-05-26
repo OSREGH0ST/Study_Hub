@@ -1112,3 +1112,40 @@ footer {
     .quiz-card { padding: 1.25rem; }
     .quiz-q-text { font-size: 1rem; }
 }
+
+/* ============================================
+   17. ADDITIVE PATCH — Data-driven refactor
+   Append this block to the end of style.css
+   ============================================ */
+
+/* French vocabulary word spans — mirrors vocab-jp without JP font override */
+.vocab-fr {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Search input focus state */
+input[type="text"]:focus {
+    outline: none;
+    border-color: rgba(249, 168, 212, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(249, 168, 212, 0.1);
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Prevent layout shift while search results load */
+#fr-search-results,
+#jp-search-results {
+    min-height: 2rem;
+}
+
+/* card-title gold variant */
+.card-title.gold {
+    color: #fbbf24;
+}
+
+/* Additional info-box color variants used by renderer */
+.info-box.blue   { border-left-color: #3b82f6; background: rgba(59, 130, 246, 0.05); }
+.info-box.cyan   { border-left-color: #22d3ee; background: rgba(34, 211, 238, 0.05); }
+.info-box.orange { border-left-color: #fb923c; background: rgba(251, 146, 60, 0.05); }
+.info-box.indigo { border-left-color: #6366f1; background: rgba(99, 102, 241, 0.05); }
