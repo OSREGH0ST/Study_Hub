@@ -1,0 +1,566 @@
+{
+  "language": "french",
+  "tabs": {
+    "grammar": {
+      "sections": [
+        {
+          "type": "grid",
+          "cols": 2,
+          "children": [
+            {
+              "type": "card",
+              "title": "Definite & Indefinite Articles",
+              "color": "blue",
+              "groups": [
+                {
+                  "label": "Definite (The)",
+                  "labelColor": "#60a5fa",
+                  "items": [
+                    { "fr": "le", "en": "masc. sing." },
+                    { "fr": "la", "en": "fem. sing." },
+                    { "fr": "l'", "en": "before vowel" },
+                    { "fr": "les", "en": "plural" }
+                  ]
+                },
+                {
+                  "label": "Indefinite (A / Some)",
+                  "labelColor": "#f59e0b",
+                  "variant": "gold",
+                  "items": [
+                    { "fr": "un", "en": "masc. sing." },
+                    { "fr": "une", "en": "fem. sing." },
+                    { "fr": "des", "en": "plural" }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "vocab_table",
+              "title": "Personal Pronouns",
+              "color": "green",
+              "items": [
+                { "en": "I", "fr": "je" },
+                { "en": "You (informal)", "fr": "tu" },
+                { "en": "He / She", "fr": "il / elle" },
+                { "en": "We", "fr": "nous" },
+                { "en": "You (formal/plural)", "fr": "vous" },
+                { "en": "They (masc. / fem.)", "fr": "ils / elles" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "cols": 2,
+          "children": [
+            {
+              "type": "info_grid",
+              "title": "Demonstrative (This/That)",
+              "color": "purple",
+              "items": [
+                { "label": "Masculine", "labelColor": "#60a5fa", "fr": "ce", "example": "Ce livre" },
+                { "label": "Masc. + Vowel", "labelColor": "#818cf8", "fr": "cet", "example": "Cet homme" },
+                { "label": "Feminine", "labelColor": "#f472b6", "fr": "cette", "example": "Cette fleur" },
+                { "label": "Plural", "labelColor": "#c084fc", "fr": "ces", "example": "Ces enfants" }
+              ]
+            },
+            {
+              "type": "info_grid",
+              "title": "Partitives (Some/Any)",
+              "color": "green",
+              "variant": "green",
+              "items": [
+                { "label": "Masculine", "labelColor": "#34d399", "fr": "du", "example": "du café" },
+                { "label": "Feminine", "labelColor": "#2dd4bf", "fr": "de la", "example": "de la soupe" },
+                { "label": "Sing. + Vowel", "labelColor": "#22d3ee", "fr": "de l'", "example": "de l'eau" },
+                { "label": "Plural", "labelColor": "#4ade80", "fr": "des", "example": "des pommes" }
+              ],
+              "note": { "variant": "red", "text": "In negative sentences, all partitives become <b>de</b>. Ex: Je ne mange pas de pommes." }
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "cols": 2,
+          "children": [
+            {
+              "type": "card",
+              "title": "Basic Sentence Structure",
+              "color": "default",
+              "info_boxes": [
+                { "label": "Subject + Verb + Object + Adverbial", "fr": "Je parle français tous les jours.", "en": "(I speak French every day.)" },
+                { "label": "With Adjectives (Noun + Adjective)", "fr": "Le chat noir dort.", "en": "(The black cat sleeps.)" }
+              ]
+            },
+            {
+              "type": "static_island",
+              "id": "negation-sandwich-visual"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "title": "Les Mots Interrogatifs (WH Questions)",
+          "color": "blue",
+          "question_words": [
+            { "en": "Who", "fr": "Qui ?" },
+            { "en": "Where", "fr": "Où ?" },
+            { "en": "When", "fr": "Quand ?" },
+            { "en": "Why", "fr": "Pourquoi ?" },
+            { "en": "How", "fr": "Comment ?" },
+            { "en": "How many", "fr": "Combien ?" },
+            { "en": "What", "fr": "Que / Quoi ?", "note": "Use Que at the start of a sentence. Use Quoi after a preposition or at the end.", "fullWidth": true }
+          ],
+          "question_structures": [
+            { "label": "Yes/No Question", "fr": "Est-ce que...", "en": "Place at the start to form a question.", "example": "Est-ce que tu aimes le café ?", "variant": "gold" },
+            { "label": "What (Open Question)", "fr": "Qu'est-ce que...", "en": "Used to ask \"What\".", "example": "Qu'est-ce que tu manges ?", "variant": "red" }
+          ]
+        },
+        {
+          "type": "grid",
+          "cols": 2,
+          "children": [
+            {
+              "type": "card",
+              "title": "L'Existence (There is / There are)",
+              "color": "green",
+              "info_boxes": [
+                { "variant": "green", "label": "Affirmative", "fr": "Il y a...", "en": "Works for singular and plural.", "example": "Il y a un chat. / Il y a des chats." },
+                { "variant": "red", "label": "Negative", "fr": "Il n'y a pas de...", "en": "Articles ALWAYS become de/d'.", "example": "Il n'y a pas de chat." }
+              ]
+            },
+            {
+              "type": "card",
+              "title": "Obligation & Advice",
+              "color": "red",
+              "info_boxes": [
+                { "variant": "red", "label": "Must / Must Not (Infinitive)", "fr": "Il faut / Il ne faut pas", "example": "Il faut étudier. (One must study.)" },
+                { "variant": "gold", "label": "Should (Advice - Conjugated)", "fr": "Je devrais / Tu devrais", "example": "Tu devrais manger. (You should eat.)" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "title": "Direct & Indirect Object Pronouns (A2)",
+          "color": "purple",
+          "info_boxes": [
+            { "variant": "blue", "label": "Direct Object (COD) — replaces a noun directly", "fr": "me, te, le/la, nous, vous, les", "example": "Je le vois. (I see him/it.)" },
+            { "variant": "gold", "label": "Indirect Object (COI) — replaces à + noun", "fr": "me, te, lui, nous, vous, leur", "example": "Je lui parle. (I speak to him/her.)" }
+          ],
+          "note": { "variant": "red", "text": "Placement: Object pronoun goes BEFORE the conjugated verb. In negation: Je ne le vois pas." }
+        }
+      ]
+    },
+    "verbs": {
+      "sub_tabs": [
+        {
+          "id": "tab-present",
+          "label": "Le Présent",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Present Tense (Regular Verbs)",
+              "color": "gold",
+              "conjugation_tables": [
+                {
+                  "header": "-ER (parler)",
+                  "headerColor": "#60a5fa",
+                  "rows": [
+                    { "pronoun": "je", "form": "parle" },
+                    { "pronoun": "tu", "form": "parles" },
+                    { "pronoun": "il/elle", "form": "parle" },
+                    { "pronoun": "nous", "form": "parlons" },
+                    { "pronoun": "vous", "form": "parlez" },
+                    { "pronoun": "ils/elles", "form": "parlent" }
+                  ]
+                },
+                {
+                  "header": "-IR (finir)",
+                  "headerColor": "#34d399",
+                  "rows": [
+                    { "pronoun": "je", "form": "finis" },
+                    { "pronoun": "tu", "form": "finis" },
+                    { "pronoun": "il/elle", "form": "finit" },
+                    { "pronoun": "nous", "form": "finissons" },
+                    { "pronoun": "vous", "form": "finissez" },
+                    { "pronoun": "ils/elles", "form": "finissent" }
+                  ]
+                },
+                {
+                  "header": "-RE (vendre)",
+                  "headerColor": "#c084fc",
+                  "rows": [
+                    { "pronoun": "je", "form": "vends" },
+                    { "pronoun": "tu", "form": "vends" },
+                    { "pronoun": "il/elle", "form": "vend" },
+                    { "pronoun": "nous", "form": "vendons" },
+                    { "pronoun": "vous", "form": "vendez" },
+                    { "pronoun": "ils/elles", "form": "vendent" }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "irregular_verbs",
+              "title": "Core Irregular Verbs",
+              "cols": 2,
+              "verbs": [
+                { "fr": "être", "en": "to be", "icon": "✨", "color": "gold", "rows": [{"p":"je","f":"suis"},{"p":"tu","f":"es"},{"p":"il/elle","f":"est"},{"p":"nous","f":"sommes"},{"p":"vous","f":"êtes"},{"p":"ils/elles","f":"sont"}] },
+                { "fr": "avoir", "en": "to have", "icon": "💎", "color": "blue", "rows": [{"p":"j'","f":"ai"},{"p":"tu","f":"as"},{"p":"il/elle","f":"a"},{"p":"nous","f":"avons"},{"p":"vous","f":"avez"},{"p":"ils/elles","f":"ont"}] },
+                { "fr": "aller", "en": "to go", "icon": "🚲", "color": "green", "rows": [{"p":"je","f":"vais"},{"p":"tu","f":"vas"},{"p":"il/elle","f":"va"},{"p":"nous","f":"allons"},{"p":"vous","f":"allez"},{"p":"ils/elles","f":"vont"}] },
+                { "fr": "pouvoir", "en": "can/may", "icon": "💪", "color": "gold", "rows": [{"p":"je","f":"peux"},{"p":"tu","f":"peux"},{"p":"il/elle","f":"peut"},{"p":"nous","f":"pouvons"},{"p":"vous","f":"pouvez"},{"p":"ils/elles","f":"peuvent"}] },
+                { "fr": "vouloir", "en": "to want", "icon": "❤️", "color": "purple", "rows": [{"p":"je","f":"veux"},{"p":"tu","f":"veux"},{"p":"il/elle","f":"veut"},{"p":"nous","f":"voulons"},{"p":"vous","f":"voulez"},{"p":"ils/elles","f":"veulent"}] },
+                { "fr": "devoir", "en": "must/have to", "icon": "📝", "color": "gold", "rows": [{"p":"je","f":"dois"},{"p":"tu","f":"dois"},{"p":"il/elle","f":"doit"},{"p":"nous","f":"devons"},{"p":"vous","f":"devez"},{"p":"ils/elles","f":"doivent"}] },
+                { "fr": "faire", "en": "to do/make", "icon": "🛠️", "color": "blue", "rows": [{"p":"je","f":"fais"},{"p":"tu","f":"fais"},{"p":"il/elle","f":"fait"},{"p":"nous","f":"faisons"},{"p":"vous","f":"faites"},{"p":"ils/elles","f":"font"}] },
+                { "fr": "venir", "en": "to come", "icon": "👋", "color": "gold", "rows": [{"p":"je","f":"viens"},{"p":"tu","f":"viens"},{"p":"il/elle","f":"vient"},{"p":"nous","f":"venons"},{"p":"vous","f":"venez"},{"p":"ils/elles","f":"viennent"}] },
+                { "fr": "savoir", "en": "to know", "icon": "🧠", "color": "purple", "rows": [{"p":"je","f":"sais"},{"p":"tu","f":"sais"},{"p":"il/elle","f":"sait"},{"p":"nous","f":"savons"},{"p":"vous","f":"savez"},{"p":"ils/elles","f":"savent"}] }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tab-passe",
+          "label": "Passé Composé",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Passé Composé (Recent Past)",
+              "color": "red",
+              "subtitle": "Structure: Subject + Auxiliary (Avoir/Être) + Past Participle",
+              "info_boxes": [
+                { "variant": "blue", "label": "Auxiliary: AVOIR", "body": "Used for 95% of verbs (the \"default\").", "examples": [{"en":"I ate","fr":"J'ai mangé"},{"en":"We finished","fr":"Nous avons fini"}] },
+                { "variant": "green", "label": "Auxiliary: ÊTRE", "body": "Used for Movement and Pronominal verbs.", "examples": [{"en":"She went (mvmt)","fr":"Elle est allée"},{"en":"They woke up (pron)","fr":"Ils se sont réveillés"}] }
+              ],
+              "participe_tables": [
+                { "header": "-É (All -er verbs)", "items": [{"en":"Manger","fr":"mangé"},{"en":"Aller","fr":"allé"},{"en":"Demander","fr":"Demandé"},{"en":"Parler","fr":"Parlé"}] },
+                { "header": "-I (Most -ir verbs)", "items": [{"en":"Finir","fr":"fini"},{"en":"Choisir","fr":"choisi"},{"en":"Comprendre","fr":"compris"},{"en":"Prendre","fr":"pris"}] },
+                { "header": "-U & Autres (Irregulars)", "items": [{"en":"Avoir","fr":"eu"},{"en":"Boire","fr":"bu"},{"en":"Lire","fr":"lu"},{"en":"Voir","fr":"vu"},{"en":"Faire","fr":"fait"}] }
+              ]
+            },
+            {
+              "type": "grid",
+              "cols": 2,
+              "children": [
+                {
+                  "type": "vocab_table",
+                  "title": "14 Verbs of Movement (Être) ✈️",
+                  "color": "red",
+                  "note": "*Note: These verbs require gender/number agreement (e.g., allé vs. allée).",
+                  "items": [
+                    {"fr":"1. Aller","en":"To go"},{"fr":"2. Venir","en":"To come"},{"fr":"3. Entrer","en":"To enter"},
+                    {"fr":"4. Sortir","en":"To go out"},{"fr":"5. Arriver","en":"To arrive"},{"fr":"6. Partir","en":"To leave"},
+                    {"fr":"7. Monter","en":"To go up"},{"fr":"8. Descendre","en":"To go down"},{"fr":"9. Naître","en":"To be born"},
+                    {"fr":"10. Mourir","en":"To die"},{"fr":"11. Rester","en":"To stay"},{"fr":"12. Tomber","en":"To fall"},
+                    {"fr":"13. Retourner","en":"To return"},{"fr":"14. Devenir","en":"To become"}
+                  ]
+                },
+                {
+                  "type": "vocab_table",
+                  "title": "14 Essential Pronominal Verbs 🧘",
+                  "color": "purple",
+                  "note": "Reflexive actions always use être in Passé Composé.",
+                  "items": [
+                    {"fr":"1. Se réveiller","en":"To wake up"},{"fr":"2. Se lever","en":"To get up"},{"fr":"3. Se laver","en":"To wash oneself"},
+                    {"fr":"4. S'habiller","en":"To get dressed"},{"fr":"5. Se brosser","en":"To brush (teeth/hair)"},{"fr":"6. Se raser","en":"To shave"},
+                    {"fr":"7. Se doucher","en":"To shower"},{"fr":"8. Se préparer","en":"To get ready"},{"fr":"9. Se dépêcher","en":"To hurry"},
+                    {"fr":"10. Se promener","en":"To take a walk"},{"fr":"11. S'amuser","en":"To have fun"},{"fr":"12. Se reposer","en":"To rest"},
+                    {"fr":"13. S'endormir","en":"To fall asleep"},{"fr":"14. Se coucher","en":"To go to bed"}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tab-imparfait",
+          "label": "L'Imparfait",
+          "sections": [
+            {
+              "type": "card",
+              "title": "L'Imparfait (A2 — Ongoing Past)",
+              "color": "blue",
+              "subtitle": "Structure: nous-stem (present) + imparfait endings",
+              "info_boxes": [
+                { "variant": "blue", "label": "Use for...", "body": "Habitual/repeated past actions, background descriptions, ongoing states in the past, and interrupted actions." },
+                { "variant": "gold", "label": "Endings (same for ALL verbs)", "body": "-ais, -ais, -ait, -ions, -iez, -aient" }
+              ],
+              "conjugation_tables": [
+                {
+                  "header": "parler (nous parlons → parlai-)",
+                  "headerColor": "#60a5fa",
+                  "rows": [
+                    {"pronoun":"je","form":"parlais"},{"pronoun":"tu","form":"parlais"},{"pronoun":"il/elle","form":"parlait"},
+                    {"pronoun":"nous","form":"parlions"},{"pronoun":"vous","form":"parliez"},{"pronoun":"ils/elles","form":"parlaient"}
+                  ]
+                },
+                {
+                  "header": "être (special stem: ét-)",
+                  "headerColor": "#f59e0b",
+                  "rows": [
+                    {"pronoun":"je","form":"étais"},{"pronoun":"tu","form":"étais"},{"pronoun":"il/elle","form":"était"},
+                    {"pronoun":"nous","form":"étions"},{"pronoun":"vous","form":"étiez"},{"pronoun":"ils/elles","form":"étaient"}
+                  ]
+                }
+              ],
+              "note": { "variant": "red", "text": "Passé Composé vs Imparfait: Use PC for completed single events. Use Imparfait for ongoing background states. Example: Il pleuvait (Imp.) quand je suis sorti (PC)." }
+            }
+          ]
+        },
+        {
+          "id": "tab-futur",
+          "label": "Le Futur",
+          "sections": [
+            {
+              "type": "grid",
+              "cols": 2,
+              "children": [
+                {
+                  "type": "card",
+                  "title": "Le Futur Proche (Going to)",
+                  "color": "blue",
+                  "subtitle": "Structure: Aller (present) + Infinitive",
+                  "info_boxes": [
+                    { "variant": "default", "fr": "Je vais manger", "en": "(I am going to eat)" },
+                    { "variant": "default", "fr": "Nous allons partir", "en": "(We are going to leave)" }
+                  ]
+                },
+                {
+                  "type": "card",
+                  "title": "Le Futur Simple (Will)",
+                  "color": "purple",
+                  "subtitle": "Structure: Full Verb + Endings (-ai, -as, -a, -ons, -ez, -ont)",
+                  "info_boxes": [
+                    { "variant": "purple", "fr": "Je mangerai", "en": "(I will eat)" },
+                    { "variant": "purple", "fr": "J'irai (Irregular)", "en": "(I will go)" }
+                  ],
+                  "note": { "variant": "gold", "text": "Key Irregular Stems: être→ser-, avoir→aur-, aller→ir-, faire→fer-, pouvoir→pourr-, vouloir→voudr-, venir→viendr-" }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tab-dict",
+          "label": "Verb Dictionary",
+          "sections": [
+            {
+              "type": "vocab_grid",
+              "title": "Common Verb Dictionary",
+              "cols": 2,
+              "tables": [
+                { "header": "Mouvement et Transport", "items": [{"en":"To go","fr":"Aller"},{"en":"To come","fr":"Venir"},{"en":"To return","fr":"Rentrer"},{"en":"To walk","fr":"Marcher"},{"en":"To run","fr":"Courir"},{"en":"To leave","fr":"Partir"}] },
+                { "header": "Donner et Recevoir", "items": [{"en":"To give","fr":"Donner"},{"en":"To receive","fr":"Recevoir"},{"en":"To lend","fr":"Prêter"},{"en":"To borrow","fr":"Emprunter"},{"en":"To teach","fr":"Enseigner"},{"en":"To learn","fr":"Apprendre"}] },
+                { "header": "La Vie Quotidienne", "items": [{"en":"To wake up","fr":"Se réveiller"},{"en":"To sleep","fr":"Dormir"},{"en":"To work","fr":"Travailler"},{"en":"To study","fr":"Étudier"},{"en":"To rest","fr":"Se reposer"},{"en":"To finish","fr":"Finir"}] },
+                { "header": "Activités", "items": [{"en":"To eat","fr":"Manger"},{"en":"To drink","fr":"Boire"},{"en":"To watch","fr":"Regarder"},{"en":"To listen","fr":"Écouter"},{"en":"To read","fr":"Lire"},{"en":"To write","fr":"Écrire"},{"en":"To buy","fr":"Acheter"}] },
+                { "header": "Social", "items": [{"en":"To meet","fr":"Rencontrer"},{"en":"To speak","fr":"Parler"},{"en":"To call","fr":"Appeler"},{"en":"To take photo","fr":"Prendre"},{"en":"To send","fr":"Envoyer"},{"en":"To understand","fr":"Comprendre"}] },
+                { "header": "L'Existence", "items": [{"en":"To be","fr":"Être"},{"en":"To have","fr":"Avoir"},{"en":"To stay","fr":"Rester"},{"en":"To cost","fr":"Coûter"}] },
+                { "header": "Cuisine et Cuisson", "items": [{"en":"To cook","fr":"Cuisiner"},{"en":"To cut","fr":"Couper"},{"en":"To boil","fr":"Bouillir"},{"en":"To fry","fr":"Frire"},{"en":"To bake","fr":"Cuire au four"},{"en":"To mix","fr":"Mélanger"}] },
+                { "header": "Ménage et Entretien", "items": [{"en":"To wash","fr":"Laver"},{"en":"To clean","fr":"Nettoyer"},{"en":"To dry","fr":"Sécher"},{"en":"To iron","fr":"Repasser"},{"en":"To repair","fr":"Réparer"},{"en":"To throw away","fr":"Jeter"}] },
+                { "header": "États Physiques et Mentaux", "items": [{"en":"To think","fr":"Penser"},{"en":"To remember","fr":"Se souvenir"},{"en":"To forget","fr":"Oublier"},{"en":"To hurt","fr":"Faire mal"},{"en":"To feel","fr":"Sentir"},{"en":"To relax","fr":"Se détendre"}] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "adjectives": {
+      "sections": [
+        {
+          "type": "card",
+          "title": "Possession",
+          "color": "pink",
+          "note_top": { "variant": "pink", "text": "<b>The Golden Rule:</b> The word must match the <em>gender</em> and <em>number</em> of the noun that follows it." },
+          "table": {
+            "header": "Subject | Masc. | Fem. | Plural",
+            "items": [
+              { "en": "Je (My)", "fr": "mon / ma / mes" },
+              { "en": "Tu (Your)", "fr": "ton / ta / tes" },
+              { "en": "Il/Elle (His/Her)", "fr": "son / sa / ses" },
+              { "en": "Nous (Our)", "fr": "notre / notre / nos" },
+              { "en": "Vous (Your - formal)", "fr": "votre / votre / vos" },
+              { "en": "Ils/Elles (Their)", "fr": "leur / leur / leurs" }
+            ]
+          },
+          "note_bottom": { "variant": "red", "text": "⚠️ The \"Vowel Rule\": If a feminine noun starts with a vowel (like <em>amie</em>), you <strong>must</strong> use the masculine form: <strong>Mon amie</strong> (not Ma amie)." }
+        },
+        {
+          "type": "static_island",
+          "id": "bags-placement"
+        },
+        {
+          "type": "vocab_grid",
+          "cols": 3,
+          "tables": [
+            { "header": "Colors (Couleurs)", "items": [{"en":"White","fr":"blanc(he)"},{"en":"Black","fr":"noir(e)"},{"en":"Red","fr":"rouge"},{"en":"Blue","fr":"bleu(e)"},{"en":"Green","fr":"vert(e)"},{"en":"Yellow","fr":"jaune"},{"en":"Brown","fr":"marron"},{"en":"Gray","fr":"gris(e)"},{"en":"Pink","fr":"rose"},{"en":"Purple","fr":"violet(te)"}] },
+            { "header": "Appearance & Size", "items": [{"en":"Tall / Big","fr":"grand(e)"},{"en":"Small / Short","fr":"petit(e)"},{"en":"Beautiful","fr":"beau / belle"},{"en":"Pretty","fr":"joli(e)"},{"en":"Big / Fat","fr":"gros(se)"},{"en":"Slim / Thin","fr":"mince"},{"en":"Long / Wide","fr":"long(ue) / large"},{"en":"Strong","fr":"fort(e)"}] },
+            { "header": "Personality & Feelings", "items": [{"en":"Kind","fr":"gentil(le)"},{"en":"Mean","fr":"méchant(e)"},{"en":"Funny / Serious","fr":"drôle / sérieux(se)"},{"en":"Intelligent","fr":"intelligent(e)"},{"en":"Happy","fr":"content(e)"},{"en":"Sad / Tired","fr":"triste / fatigué(e)"},{"en":"Angry","fr":"fâché(e)"}] }
+          ]
+        },
+        {
+          "type": "vocab_grid",
+          "cols": 2,
+          "tables": [
+            { "header": "Everyday Objects", "items": [{"en":"Hot / Cold","fr":"chaud(e) / froid(e)"},{"en":"Dry / Wet","fr":"sec(sèche) / mouillé(e)"},{"en":"Full / Empty","fr":"plein(e) / vide"},{"en":"Clean / Dirty","fr":"propre / sale"},{"en":"Expensive / Cheap","fr":"cher(chère) / bon marché"}] },
+            { "header": "Qualities", "items": [{"en":"Good / Bad / Better","fr":"bon(ne) / mauvais(e) / meilleur(e)"},{"en":"New / Old","fr":"nouveau(elle) / ancien(ne)"},{"en":"True / Sure","fr":"vrai(e) / sûr(e)"},{"en":"First / Last","fr":"premier(ère) / dernier(ère)"},{"en":"All / Each","fr":"tout(e) / chaque"}] }
+          ]
+        }
+      ]
+    },
+    "adverbs": {
+      "sections": [
+        {
+          "type": "card",
+          "title": "Frequency (La Fréquence)",
+          "color": "gold",
+          "frequency_scale": [
+            { "en": "Never", "fr": "Jamais", "color": "#ef4444" },
+            { "en": "Rarely", "fr": "Rarement", "color": "#f97316" },
+            { "en": "Sometimes", "fr": "Parfois", "color": "#eab308" },
+            { "en": "Often", "fr": "Souvent", "color": "#3b82f6" },
+            { "en": "Usually", "fr": "D'habitude", "color": "#10b981" },
+            { "en": "Always", "fr": "Toujours", "color": "#059669" }
+          ]
+        },
+        {
+          "type": "vocab_grid",
+          "cols": 2,
+          "tables": [
+            { "header": "Location (Lieu)", "items": [{"en":"On / Under","fr":"Sur / Sous"},{"en":"In front / Behind","fr":"Devant / Derrière"},{"en":"Right / Left","fr":"À droite / À gauche"},{"en":"Inside / Outside","fr":"Dans / Dehors"},{"en":"Next to / Near","fr":"À côté de / Près de"},{"en":"Between","fr":"Entre"}] },
+            { "header": "Manner & Time", "items": [{"en":"Quickly / Slowly","fr":"rapidement / lentement"},{"en":"Well / Badly","fr":"bien / mal"},{"en":"Today / Tomorrow","fr":"aujourd'hui / demain"},{"en":"Yesterday / Now","fr":"hier / maintenant"},{"en":"Soon","fr":"bientôt"}] },
+            { "header": "Place & Opinion", "items": [{"en":"Here / There","fr":"ici / là"},{"en":"Everywhere / Nowhere","fr":"partout / nulle part"},{"en":"Perhaps / Probably","fr":"peut-être / probablement"},{"en":"Certainly","fr":"certainement"},{"en":"Honestly","fr":"franchement"}] },
+            { "header": "Degree (How Much)", "items": [{"en":"Very / Too","fr":"très / trop"},{"en":"Enough / Just","fr":"assez / juste"},{"en":"Many / A little","fr":"beaucoup / un peu"}], "note": { "variant": "gold", "text": "Adverbs of quantity + Noun must use <b>\"de / d'\"</b>. Ex: Beaucoup <b>d'</b>amis" } }
+          ]
+        }
+      ]
+    },
+    "vocabulary": {
+      "categories": [
+        {
+          "id": "fr-numbers",
+          "label": "Numbers",
+          "icon": "🔢",
+          "color": "blue",
+          "tables": [
+            { "header": "Numbers 0-20", "items": [{"en":"0","fr":"zéro"},{"en":"1","fr":"un(e)"},{"en":"2","fr":"deux"},{"en":"3","fr":"trois"},{"en":"4","fr":"quatre"},{"en":"5","fr":"cinq"},{"en":"6","fr":"six"},{"en":"7","fr":"sept"},{"en":"8","fr":"huit"},{"en":"9","fr":"neuf"},{"en":"10","fr":"dix"},{"en":"20","fr":"vingt"}] },
+            { "header": "Numbers 30+", "items": [{"en":"30","fr":"trente"},{"en":"40","fr":"quarante"},{"en":"50","fr":"cinquante"},{"en":"60","fr":"soixante"},{"en":"70","fr":"soixante-dix"},{"en":"80","fr":"quatre-vingts"},{"en":"90","fr":"quatre-vingt-dix"},{"en":"100","fr":"cent"},{"en":"1,000","fr":"mille"},{"en":"1,000,000","fr":"un million"}] }
+          ]
+        },
+        {
+          "id": "fr-time",
+          "label": "Time & Weather",
+          "icon": "☁️",
+          "color": "cyan",
+          "tables": [
+            { "header": "Days & Months", "items": [{"en":"Mon / Tue / Wed","fr":"lundi / mardi / mercredi"},{"en":"Thu / Fri / Sat","fr":"jeudi / vendredi / samedi"},{"en":"Sunday","fr":"dimanche"},{"en":"Jan / Feb / Mar","fr":"janvier / fév. / mars"},{"en":"Apr / May / Jun","fr":"avril / mai / juin"},{"en":"Jul / Aug / Sep","fr":"juil. / août / sept."},{"en":"Oct / Nov / Dec","fr":"oct. / nov. / déc."}] },
+            { "header": "Time Expressions", "items": [{"en":"Today / Yesterday","fr":"aujourd'hui / hier"},{"en":"Tomorrow","fr":"demain"},{"en":"Morning","fr":"le matin"},{"en":"Afternoon","fr":"l'après-midi"},{"en":"Evening / Night","fr":"le soir / la nuit"},{"en":"Noon / Midnight","fr":"midi / minuit"},{"en":"This week","fr":"cette semaine"}] },
+            { "header": "Weather (La Météo)", "items": [{"en":"It is sunny","fr":"Il fait beau"},{"en":"It is hot / cold","fr":"Il fait chaud / froid"},{"en":"It is raining","fr":"Il pleut"},{"en":"It is snowing","fr":"Il neige"},{"en":"It is windy","fr":"Il y a du vent"},{"en":"It is cloudy","fr":"Il y a des nuages"},{"en":"Storm / Fog","fr":"orage / brouillard"},{"en":"Spring / Summer","fr":"printemps / été"},{"en":"Autumn / Winter","fr":"automne / hiver"}] }
+          ]
+        },
+        {
+          "id": "fr-travel",
+          "label": "Travel & Nations",
+          "icon": "✈️",
+          "color": "green",
+          "tables": [
+            { "header": "Type 1: Double n (-ien → -ienne)", "items": [{"en":"Italian","fr":"Italien → Italienne"},{"en":"Canadian","fr":"Canadien → Canadienne"},{"en":"Vietnamese","fr":"Vietnamien → Vietnamienne"}] },
+            { "header": "Type 2: Standard Add -e", "items": [{"en":"American","fr":"Américain(e)"},{"en":"French","fr":"Français(e)"},{"en":"Spanish","fr":"Espagnol(e)"},{"en":"German","fr":"Allemand(e)"},{"en":"Chinese","fr":"Chinois(e)"},{"en":"Japanese","fr":"Japonais(e)"}] },
+            { "header": "Type 3: Irregulars & Invariable", "items": [{"en":"Turkish","fr":"Turc → Turque"},{"en":"Greek","fr":"Grec → Grecque"},{"en":"Belgian","fr":"Belge (Invariable)"},{"en":"Swiss","fr":"Suisse (Invariable)"},{"en":"Russian","fr":"Russe (Invariable)"}] },
+            { "header": "Travel & Transport", "items": [{"en":"Train / Subway","fr":"train / métro"},{"en":"Bus / Taxi","fr":"bus / taxi"},{"en":"Bicycle / Car","fr":"vélo / voiture"},{"en":"Airplane","fr":"avion"},{"en":"Ticket","fr":"billet"},{"en":"Passport","fr":"passeport"},{"en":"Airport / Hotel","fr":"aéroport / hôtel"},{"en":"Map","fr":"carte / plan"}] }
+          ]
+        },
+        {
+          "id": "fr-school",
+          "label": "School & Work",
+          "icon": "📚",
+          "color": "purple",
+          "tables": [
+            { "header": "School (École)", "items": [{"en":"Student","fr":"L'étudiant(e)"},{"en":"Teacher","fr":"Le professeur"},{"en":"Homework","fr":"Les devoirs"},{"en":"Exam","fr":"L'examen"},{"en":"Classroom","fr":"La salle de classe"},{"en":"Book","fr":"Le livre"}] },
+            { "header": "Work (Travail)", "items": [{"en":"Company","fr":"L'entreprise"},{"en":"Meeting","fr":"La réunion"},{"en":"Computer","fr":"L'ordinateur"},{"en":"Email","fr":"Le courriel"},{"en":"Office","fr":"Le bureau"},{"en":"Letter","fr":"La lettre"}] }
+          ]
+        },
+        {
+          "id": "fr-house",
+          "label": "House",
+          "icon": "🏠",
+          "color": "orange",
+          "tables": [
+            { "header": "Kitchen (Cuisine)", "items": [{"en":"Refrigerator","fr":"Le frigo"},{"en":"Stove","fr":"La cuisinière"},{"en":"Microwave","fr":"Le micro-ondes"},{"en":"Pot","fr":"La casserole"},{"en":"Pan","fr":"La poêle"},{"en":"Knife","fr":"Le couteau"},{"en":"Spoon","fr":"La cuillère"},{"en":"Fork","fr":"La fourchette"},{"en":"Plate","fr":"L'assiette (f)"}] },
+            { "header": "Bedroom (Chambre)", "items": [{"en":"Bed","fr":"Le lit"},{"en":"Pillow","fr":"L'oreiller (m)"},{"en":"Blanket","fr":"La couverture"},{"en":"Wardrobe","fr":"L'armoire (f)"},{"en":"Drawer","fr":"Le tiroir"},{"en":"Mirror","fr":"Le miroir"},{"en":"Nightstand","fr":"La table de nuit"},{"en":"Lamp","fr":"La lampe"},{"en":"Desk","fr":"Le bureau"}] },
+            { "header": "Bathroom (Salle de bain)", "items": [{"en":"Toilet","fr":"Les toilettes (f)"},{"en":"Sink","fr":"Le lavabo"},{"en":"Bathtub","fr":"La baignoire"},{"en":"Shower","fr":"La douche"},{"en":"Towel","fr":"La serviette"},{"en":"Soap","fr":"Le savon"},{"en":"Toothbrush","fr":"La brosse à dents"},{"en":"Shampoo","fr":"Le shampooing"}] },
+            { "header": "Living Room (Salon)", "items": [{"en":"Sofa","fr":"Le canapé"},{"en":"Armchair","fr":"Le fauteuil"},{"en":"Coffee table","fr":"La table basse"},{"en":"Television","fr":"La télévision"},{"en":"Fireplace","fr":"La cheminée"},{"en":"Bookshelf","fr":"L'étagère (f)"},{"en":"Curtains","fr":"Les rideaux (m)"},{"en":"Rug","fr":"Le tapis"},{"en":"Lamp","fr":"La lampe"}] },
+            { "header": "General House", "items": [{"en":"Door","fr":"La porte"},{"en":"Window","fr":"La fenêtre"},{"en":"Wall","fr":"Le mur"},{"en":"Floor","fr":"Le plancher"},{"en":"Ceiling","fr":"Le plafond"},{"en":"Staircase","fr":"L'escalier (m)"},{"en":"Hallway","fr":"Le couloir"},{"en":"Key","fr":"La clé"}] }
+          ]
+        },
+        {
+          "id": "fr-city",
+          "label": "City Places",
+          "icon": "🏙️",
+          "color": "blue",
+          "tables": [
+            { "header": "Shops (Magasins)", "items": [{"en":"Bakery","fr":"La boulangerie"},{"en":"Bookstore","fr":"La librairie"},{"en":"Butcher","fr":"La boucherie"},{"en":"Fishmonger","fr":"La poissonnerie"},{"en":"Pharmacy","fr":"La pharmacie"},{"en":"Florist","fr":"Le fleuriste"}] },
+            { "header": "Culture & Leisure", "items": [{"en":"Library","fr":"La bibliothèque"},{"en":"Museum","fr":"Le musée"},{"en":"Theater","fr":"Le théâtre"},{"en":"Park","fr":"Le parc"},{"en":"Cinema","fr":"Le cinéma"},{"en":"Café","fr":"Le café"}] },
+            { "header": "Public Services", "items": [{"en":"Hospital","fr":"L'hôpital (m)"},{"en":"Police Station","fr":"Le commissariat"},{"en":"Post Office","fr":"La poste"},{"en":"Bank","fr":"La banque"},{"en":"Town Hall","fr":"La mairie"}] }
+          ]
+        },
+        {
+          "id": "fr-family",
+          "label": "Family",
+          "icon": "👨‍👩‍👧",
+          "color": "pink",
+          "tables": [
+            { "header": "Family (Famille)", "items": [{"en":"Father / Mother","fr":"père / mère"},{"en":"Brother / Sister","fr":"frère / sœur"},{"en":"Son / Daughter","fr":"fils / fille"},{"en":"Grandfather / mother","fr":"grand-père / grand-mère"},{"en":"Uncle / Aunt","fr":"oncle / tante"},{"en":"Cousin","fr":"cousin(e)"},{"en":"Husband / Wife","fr":"mari / femme"}] }
+          ]
+        },
+        {
+          "id": "fr-professions",
+          "label": "Professions",
+          "icon": "💼",
+          "color": "cyan",
+          "tables": [
+            { "header": "Professions", "items": [{"en":"Doctor","fr":"médecin"},{"en":"Nurse","fr":"infirmier(ère)"},{"en":"Teacher","fr":"professeur"},{"en":"Engineer","fr":"ingénieur"},{"en":"Writer","fr":"écrivain"},{"en":"Chef","fr":"chef / cuisinier"},{"en":"Police","fr":"policier"},{"en":"Musician","fr":"musicien(ne)"}] }
+          ]
+        },
+        {
+          "id": "fr-body",
+          "label": "Body Parts",
+          "icon": "👤",
+          "color": "gold",
+          "tables": [
+            { "header": "Body Parts", "items": [{"en":"Head","fr":"tête"},{"en":"Eye / Nose / Mouth","fr":"œil / nez / bouche"},{"en":"Ear / Hair","fr":"oreille / cheveux"},{"en":"Hand / Arm","fr":"main / bras"},{"en":"Leg / Foot","fr":"jambe / pied"},{"en":"Heart / Back","fr":"cœur / dos"}] }
+          ],
+          "info_box": { "variant": "red", "title": "Expressing Pain", "body": "Structure: <b>Avoir + mal + à</b> (au, à la, à l', aux)<br><br><b>Headache:</b> j'ai mal à la tête<br><b>Stomach ache:</b> j'ai mal au ventre<br><b>Toothache:</b> j'ai mal aux dents" }
+        },
+        {
+          "id": "fr-clothing",
+          "label": "Clothing",
+          "icon": "👕",
+          "color": "red",
+          "tables": [
+            { "header": "Clothing", "items": [{"en":"Pants","fr":"pantalon"},{"en":"Shirt / T-shirt","fr":"chemise / t-shirt"},{"en":"Dress / Skirt","fr":"robe / jupe"},{"en":"Coat / Jacket","fr":"manteau / veste"},{"en":"Shoes / Socks","fr":"chaussures / chaussettes"},{"en":"Hat","fr":"chapeau"}] }
+          ]
+        },
+        {
+          "id": "fr-hobbies",
+          "label": "Hobbies",
+          "icon": "🎨",
+          "color": "red",
+          "tables": [
+            { "header": "Loisirs Créatifs (Creative)", "items": [{"en":"Reading","fr":"lire"},{"en":"Writing","fr":"écrire"},{"en":"Drawing","fr":"dessiner"},{"en":"Painting","fr":"peindre"},{"en":"Playing an instrument","fr":"jouer d'un instrument"},{"en":"Singing","fr":"chanter"},{"en":"Photography","fr":"la photographie"}] },
+            { "header": "Activités et Sports (Active)", "items": [{"en":"Swimming","fr":"nager"},{"en":"Cooking","fr":"cuisiner"},{"en":"Traveling","fr":"voyager"},{"en":"Watching movies","fr":"regarder des films"},{"en":"Listening to music","fr":"écouter de la musique"},{"en":"Gardening","fr":"jardiner"},{"en":"Playing video games","fr":"jouer aux jeux vidéo"}] }
+          ]
+        }
+      ]
+    },
+    "phrases": {
+      "tables": [
+        { "header": "Greetings & Politeness", "items": [{"en":"Hello / Good evening","fr":"Bonjour / Bonsoir"},{"en":"How are you?","fr":"Comment allez-vous?"},{"en":"I'm fine, thank you","fr":"Ça va bien, merci"},{"en":"Nice to meet you","fr":"Enchanté(e)"},{"en":"Goodbye / See you tomorrow","fr":"Au revoir / À demain"}] },
+        { "header": "Essential Questions", "items": [{"en":"What is your name?","fr":"Quel est votre nom?"},{"en":"How old are you?","fr":"Quel âge avez-vous?"},{"en":"Where are you from?","fr":"D'où venez-vous?"},{"en":"Do you speak English?","fr":"Parlez-vous anglais?"},{"en":"Can you help me?","fr":"Pouvez-vous m'aider?"},{"en":"What is this?","fr":"Qu'est-ce que c'est?"}] },
+        { "header": "Shopping & Dining", "items": [{"en":"How much does it cost?","fr":"Combien ça coûte?"},{"en":"I would like...","fr":"Je voudrais..."},{"en":"The menu, please","fr":"Le menu, s'il vous plaît"},{"en":"The bill, please","fr":"L'addition, s'il vous plaît"},{"en":"Do you accept cards?","fr":"Acceptez-vous les cartes?"}] },
+        { "header": "Travel & Directions", "items": [{"en":"Where is...?","fr":"Où est...?"},{"en":"Turn left / right","fr":"Tournez à gauche / droite"},{"en":"Straight ahead","fr":"Tout droit"},{"en":"How much is the ticket?","fr":"C'est combien le billet?"},{"en":"When does it leave?","fr":"À quelle heure ça part?"}] },
+        { "header": "Emergency & Help", "items": [{"en":"Help!","fr":"À l'aide!"},{"en":"Call the police!","fr":"Appelez la police!"},{"en":"I'm lost","fr":"Je suis perdu(e)"},{"en":"I need a doctor","fr":"J'ai besoin d'un médecin"},{"en":"I don't understand","fr":"Je ne comprends pas"}] },
+        { "header": "Daily Conversation", "items": [{"en":"What time is it?","fr":"Quelle heure est-il?"},{"en":"It's 3 o'clock","fr":"Il est 3 heures"},{"en":"What's the weather like?","fr":"Quel temps fait-il?"},{"en":"It's raining","fr":"Il pleut"},{"en":"Have a good day!","fr":"Bonne journée!"}] }
+      ]
+    }
+  }
+}

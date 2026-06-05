@@ -1,0 +1,563 @@
+{
+  "language": "japanese",
+  "tabs": {
+    "writing": {
+      "sections": [
+        {
+          "type": "hiragana_grid",
+          "title": "Hiragana",
+          "color": "blue",
+          "rows": [
+            ["あ","い","う","え","お"],
+            ["か","き","く","け","こ"],
+            ["さ","し","す","せ","そ"],
+            ["た","ち","つ","て","と"],
+            ["な","に","ぬ","ね","の"],
+            ["は","ひ","ふ","へ","ほ"],
+            ["ま","み","む","め","も"],
+            ["や","","ゆ","","よ"],
+            ["ら","り","る","れ","ろ"],
+            ["わ","","","","を"],
+            ["ん","","","",""]
+          ]
+        },
+        {
+          "type": "katakana_grid",
+          "title": "Katakana",
+          "color": "orange",
+          "rows": [
+            ["ア","イ","ウ","エ","オ"],
+            ["カ","キ","ク","ケ","コ"],
+            ["サ","シ","ス","セ","ソ"],
+            ["タ","チ","ツ","テ","ト"],
+            ["ナ","ニ","ヌ","ネ","ノ"],
+            ["ハ","ヒ","フ","ヘ","ホ"],
+            ["マ","ミ","ム","メ","モ"],
+            ["ヤ","","ユ","","ヨ"],
+            ["ラ","リ","ル","レ","ロ"],
+            ["ワ","","","","ヲ"],
+            ["ン","","","",""]
+          ]
+        },
+        {
+          "type": "card",
+          "title": "Essential Expressions",
+          "color": "green",
+          "items": [
+            { "en": "Good Morning", "jp": "おはようございます" },
+            { "en": "Hello", "jp": "こんにちは" },
+            { "en": "Good Evening", "jp": "こんばんは" },
+            { "en": "Thank You", "jp": "ありがとうございます" },
+            { "en": "Excuse Me / Sorry", "jp": "すみません" },
+            { "en": "Before Eating", "jp": "いただきます" }
+          ]
+        },
+        {
+          "type": "static_island",
+          "id": "particle-grid"
+        },
+        {
+          "type": "static_island",
+          "id": "kosoado-table"
+        },
+        {
+          "type": "static_island",
+          "id": "sentence-structure-block"
+        },
+        {
+          "type": "card",
+          "title": "Question Words (ぎもんし)",
+          "color": "cyan",
+          "items": [
+            { "en": "Who", "jp": "だれ ?", "example": "だれですか? (Who are you?)", "color": "blue" },
+            { "en": "Where", "jp": "どこ ?", "example": "どこに すんでいますか?", "color": "green" },
+            { "en": "When", "jp": "いつ ?", "example": "いつ いきますか?", "color": "orange" },
+            { "en": "Why", "jp": "なぜ ?", "example": "なぜですか?", "color": "red" },
+            { "en": "How", "jp": "どう ?", "example": "げんきですか? (How are you?)", "color": "purple" },
+            { "en": "How many", "jp": "いくつ ?", "example": "いくつありますか?", "color": "gold" },
+            { "en": "What", "jp": "なに ?", "example": "なにを たべていますか? (What are you eating?)", "color": "default", "fullWidth": true }
+          ]
+        },
+        {
+          "type": "grid",
+          "cols": 2,
+          "children": [
+            {
+              "type": "card",
+              "title": "Existence & Possession",
+              "color": "pink",
+              "info_boxes": [
+                { "variant": "green", "label": "Things (Objects)", "jp": "あります", "en": "For inanimate objects.", "example": "ほんがあります。 (There are books.)" },
+                { "variant": "red", "label": "People & Animals", "jp": "います", "en": "For living things.", "example": "いぬがいます。 (There is a dog.)" }
+              ]
+            },
+            {
+              "type": "card",
+              "title": "Obligation & Advice",
+              "color": "red",
+              "info_boxes": [
+                { "variant": "red", "label": "Must Do / Must Not", "jp": "～なければならない / ～てはいけない", "example": "べんきょうしなければなりません (Must study.)" },
+                { "variant": "gold", "label": "Should / Suggestion", "jp": "～ほうがいい / ～べき", "example": "はやく ねたほうがいい (You should sleep early.)" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "verbs": {
+      "sub_tabs": [
+        {
+          "id": "verb-uses",
+          "label": "Uses & Cases",
+          "sections": [
+            {
+              "type": "card",
+              "title": "When to use which form?",
+              "color": "cyan",
+              "info_boxes": [
+                { "variant": "blue", "label": "~ます (Masu Form)", "body": "<b>Use case:</b> Polite, everyday conversation. You use this with teachers, strangers, and coworkers.", "example": "たべます (I eat / I will eat)" },
+                { "variant": "green", "label": "Dictionary Form", "body": "<b>Use case:</b> Casual conversation (with friends), finding words in the dictionary, and as a base for advanced grammar.", "example": "たべる (I eat / I will eat)" },
+                { "variant": "gold", "label": "~て (Te Form)", "body": "<b>Use case:</b> The \"glue\" form. Used to connect actions, ask for favors (~てください), or express ongoing actions (~ています).", "example": "たべて (Eat and...)" },
+                { "variant": "red", "label": "~ない (Nai Form)", "body": "<b>Use case:</b> The casual negative. Used with friends to say you won't do something.", "example": "たべない (I don't eat)" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "verb-masu",
+          "label": "~masu Form",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Verb Tense Reference (Formal ~masu)",
+              "color": "gold",
+              "tense_grid": [
+                { "label": "Present (+)", "jp": "~ます", "example": "たべます (Eat)", "variant": "green" },
+                { "label": "Present (-)", "jp": "~ません", "example": "たべません (Don't eat)", "variant": "red" },
+                { "label": "Past (+)", "jp": "~ました", "example": "たべました (Ate)", "variant": "blue" },
+                { "label": "Past (-)", "jp": "~ませんでした", "example": "たべませんでした", "variant": "orange" }
+              ]
+            },
+            {
+              "type": "card",
+              "title": "Invitations & Proposals",
+              "color": "pink",
+              "info_boxes": [
+                { "variant": "purple", "label": "Let's...", "jp": "~ましょう", "example": "いきましょう (Let's go)" },
+                { "variant": "cyan", "label": "Won't you...?", "jp": "~ませんか", "example": "のみませんか (Won't you drink?)" },
+                { "variant": "gold", "label": "Shall I/we...?", "jp": "~ましょうか", "example": "てつだいましょうか (Shall I help?)" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "verb-te",
+          "label": "~te Form",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Making the ~て (Te) Form from ~ます",
+              "color": "pink",
+              "te_rules": [
+                { "header": "Group 1: U-Verbs (The Rule-Breakers)", "headerColor": "#60a5fa", "rules": [
+                  { "condition": "Before ~ます is い, ち, り (i, chi, ri)", "result": "→ って (tte)", "example": "かいます → かって" },
+                  { "condition": "Before ~ます is み, び, に (mi, bi, ni)", "result": "→ んで (nde)", "example": "のみます → のんで" },
+                  { "condition": "Before ~ます is き (ki)", "result": "→ いて (ite)", "example": "かきます → かいて" },
+                  { "condition": "Before ~ます is ぎ (gi)", "result": "→ いで (ide)", "example": "およぎます → およいで" },
+                  { "condition": "Before ~ます is し (shi)", "result": "→ して (shite)", "example": "はなします → はなして" }
+                ], "note": { "variant": "red", "text": "⚠️ Exception: いきます (To go) becomes いって (not いいて)." } },
+                { "header": "Group 2: Ru-Verbs (The Easy Ones)", "headerColor": "#10b981", "rules": [
+                  { "condition": "Just drop ~ます and add て", "result": "たべます → たべて (tabete)" },
+                  { "condition": "Just drop ~ます and add て", "result": "みます → みて (mite)" }
+                ] },
+                { "header": "Group 3: Irregular Verbs", "headerColor": "#fb923c", "rules": [
+                  { "condition": "To do (します)", "result": "→ して (shite)" },
+                  { "condition": "To come (きます)", "result": "→ きて (kite)" }
+                ] }
+              ]
+            },
+            {
+              "type": "card",
+              "title": "The ~て Power-Ups",
+              "color": "gold",
+              "info_boxes": [
+                { "variant": "blue", "label": "~ている (Ongoing Action / State)", "body": "1. Currently doing it. 2. A state resulting from a past action.", "jp": "たべて います", "example": "(I am eating right now)" },
+                { "variant": "green", "label": "~てある (Intentional State)", "body": "Shows a state that exists because someone intentionally did it in the past.", "jp": "かいて あります", "example": "(It has been written [by someone])" },
+                { "variant": "pink", "label": "~てください (Please do...)", "body": "The polite way to ask someone to do something.", "jp": "まって ください", "example": "(Please wait)" },
+                { "variant": "orange", "label": "~てから (After doing...)", "body": "Action A happens, and then Action B happens.", "jp": "たべて から、ねます", "example": "(After I eat, I will sleep)" },
+                { "variant": "cyan", "label": "~てもいいです (Permission)", "body": "Used to grant permission or ask \"Is it okay if I...?\"", "jp": "みても いいですか？", "example": "(May I look?)" },
+                { "variant": "red", "label": "~てはいけません (Prohibition)", "body": "A strong rule or prohibition. \"You must not do this.\"", "jp": "のんで は いけません", "example": "(You must not drink)" },
+                { "variant": "purple", "label": "~てしまう (Oops / Finished)", "body": "Shows you finished something completely OR did something by accident and regret it.", "jp": "わすれて しまいました", "example": "(I completely forgot / I accidentally forgot)", "fullWidth": true }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "verb-dict",
+          "label": "Dictionary Form",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Dictionary Form (Casual Present)",
+              "color": "purple",
+              "info_boxes": [
+                { "variant": "blue", "label": "Group 1: From ~ます to Dictionary", "body": "Change the 'i' sound before ~ます to an 'u' sound.", "examples": [{"ex":"のみます → のむ (nomu)"},{"ex":"かきます → かく (kaku)"}] },
+                { "variant": "green", "label": "Group 2: From ~ます to Dictionary", "body": "Drop ~ます and add る (ru).", "examples": [{"ex":"たべます → たべる (taberu)"},{"ex":"みます → みる (miru)"}] }
+              ],
+              "table": { "header": "Irregular Forms", "items": [{"en":"します (To do)","jp":"→ する (suru)"},{"en":"きます (To come)","jp":"→ くる (kuru)"}] }
+            },
+            {
+              "type": "card",
+              "title": "Nai Form (Casual Negative) — N4",
+              "color": "red",
+              "info_boxes": [
+                { "variant": "red", "label": "Group 1: U-Verbs", "body": "Change the 'u' ending to 'a' + ない.", "examples": [{"ex":"のむ → のまない"},{"ex":"かく → かかない"},{"ex":"はなす → はなさない"}] },
+                { "variant": "blue", "label": "Group 2: Ru-Verbs", "body": "Drop る and add ない.", "examples": [{"ex":"たべる → たべない"},{"ex":"みる → みない"}] },
+                { "variant": "orange", "label": "Irregulars", "body": "", "examples": [{"ex":"する → しない"},{"ex":"くる → こない"}] }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "verb-list",
+          "label": "Verb Dictionary",
+          "sections": [
+            {
+              "type": "vocab_grid",
+              "cols": 2,
+              "tables": [
+                { "header": "Movement & Transport", "headerColor": "#60a5fa", "items": [{"en":"To go","jp":"いきます"},{"en":"To come","jp":"きます"},{"en":"To return home","jp":"かえります"},{"en":"To walk","jp":"あるきます"},{"en":"To run","jp":"はしります"}] },
+                { "header": "Giving & Receiving", "headerColor": "#fb923c", "items": [{"en":"To give","jp":"あげます"},{"en":"To receive","jp":"もらいます"},{"en":"To lend","jp":"かします"},{"en":"To borrow","jp":"かります"},{"en":"To teach","jp":"おしえます"},{"en":"To learn","jp":"ならいます"}] },
+                { "header": "Daily Life", "headerColor": "#10b981", "items": [{"en":"To wake up","jp":"おきます"},{"en":"To sleep","jp":"ねます"},{"en":"To work","jp":"はたらきます"},{"en":"To study","jp":"べんきょうします"},{"en":"To take a break","jp":"やすみます"},{"en":"To end/finish","jp":"おわります"}] },
+                { "header": "Activities", "headerColor": "#c084fc", "items": [{"en":"To eat","jp":"たべます"},{"en":"To drink","jp":"のみます"},{"en":"To see/watch","jp":"みます"},{"en":"To listen/hear","jp":"ききます"},{"en":"To read","jp":"よみます"},{"en":"To write","jp":"かきます"},{"en":"To buy","jp":"かいます"}] },
+                { "header": "Social", "headerColor": "#f472b6", "items": [{"en":"To meet","jp":"あいます"},{"en":"To speak","jp":"はなします"},{"en":"To call","jp":"かけます"},{"en":"To take (photo)","jp":"とります"},{"en":"To send","jp":"おくります"},{"en":"To understand","jp":"わかります"}] },
+                { "header": "Existence", "headerColor": "#94a3b8", "items": [{"en":"To exist (thing)","jp":"あります"},{"en":"To exist (person)","jp":"います"},{"en":"To have/possess","jp":"あります"},{"en":"To take (time/money)","jp":"かかります"}] },
+                { "header": "Kitchen & Cooking", "headerColor": "#f87171", "items": [{"en":"To cook","jp":"りょうりします"},{"en":"To cut","jp":"きります"},{"en":"To boil","jp":"わかします"},{"en":"To fry","jp":"あげます"},{"en":"To bake/grill","jp":"やきます"},{"en":"To stir/mix","jp":"まぜます"}] },
+                { "header": "Household", "headerColor": "#818cf8", "items": [{"en":"To wash","jp":"あらいます"},{"en":"To clean","jp":"そうじします"},{"en":"To dry","jp":"かわかします"},{"en":"To fold","jp":"たたみます"},{"en":"To fix","jp":"なおします"},{"en":"To throw away","jp":"すてます"}] },
+                { "header": "Mental States", "headerColor": "#2dd4bf", "items": [{"en":"To hurt/ache","jp":"いたみます"},{"en":"To feel","jp":"かんじます"},{"en":"To think","jp":"おもいます"},{"en":"To remember","jp":"おぼえます"},{"en":"To forget","jp":"わすれます"},{"en":"To relax","jp":"りらっくすします"}] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "adjectives": {
+      "sections": [
+        {
+          "type": "card",
+          "title": "Possessive Pronouns (の)",
+          "color": "cyan",
+          "note_top": { "variant": "cyan", "text": "The Rule: Add <b>の (no)</b> to any person. It never changes, no matter what object follows it!" },
+          "tables": [
+            { "header": "Singular (One Person)", "items": [{"en":"My / Mine","jp":"私の (Watashi no)"},{"en":"Your / Yours","jp":"あなたの (Anata no)"},{"en":"His","jp":"彼の (Kare no)"},{"en":"Her / Hers","jp":"彼女の (Kanojo no)"},{"en":"Its","jp":"それの / その (Sore no / Sono)"}] },
+            { "header": "Plural (Multiple People)", "items": [{"en":"Our / Ours","jp":"私たちの (Watashitachi no)"},{"en":"Your (plural)","jp":"あなたたちの (Anatatachi no)"},{"en":"Their (General/Male)","jp":"彼らの (Karera no)"},{"en":"Their (Female)","jp":"彼女らの (Kanojora no)"},{"en":"Who's?","jp":"だれの？ (Dare no?)"}] }
+          ]
+        },
+        {
+          "type": "grid",
+          "cols": 2,
+          "children": [
+            { "type": "info_box", "variant": "gold", "label": "Modifying Nouns", "body": "<span style='color:#60a5fa;'>I-Adjectives:</span> Attach directly BEFORE the noun. (あたらしい くるま)<br><span style='color:#10b981;'>Na-Adjectives:</span> Add <b>な (na)</b> before the noun. (しずかな へや)" },
+            { "type": "info_box", "variant": "red", "label": "Negative Form (Present)", "body": "<b>I-Adjectives:</b> Drop い (i) add <b>くない (kunai)</b>. (たかくない)<br><b>Na-Adjectives:</b> Drop な (na) add <b>じゃない (janai)</b>. (げんき じゃない)" }
+          ]
+        },
+        {
+          "type": "vocab_grid",
+          "cols": 2,
+          "tables": [
+            { "header": "Colors (色 - Iro)", "items": [
+              {"sub":"I-Adjectives","en":"White","jp":"しろい"},{"en":"Black","jp":"くろい"},{"en":"Red","jp":"あかい"},{"en":"Blue","jp":"あおい"},{"en":"Yellow","jp":"きいろい"},{"en":"Brown","jp":"ちゃいろい"},
+              {"sub":"Nouns (takes の)","en":"Green","jp":"みどり"},{"en":"Purple","jp":"むらさき"},{"en":"Pink","jp":"ピンク"},{"en":"Gray","jp":"はいいろ"}
+            ] },
+            { "header": "Appearance & Size", "items": [
+              {"sub":"I-Adjectives","en":"Big / Large","jp":"おおきい"},{"en":"Small","jp":"ちいさい"},{"en":"Tall / High","jp":"たかい"},{"en":"Short (stature)","jp":"ひくい"},{"en":"Long","jp":"ながい"},{"en":"Short (length)","jp":"みじかい"},
+              {"sub":"Na-Adjectives","en":"Beautiful / Clean","jp":"きれい"},{"en":"Handsome","jp":"ハンサム"},{"en":"Quiet","jp":"しずか"}
+            ] },
+            { "header": "Personality", "items": [
+              {"sub":"I-Adjectives","en":"Gentle","jp":"やさしい"},{"en":"Funny","jp":"おもしろい"},{"en":"Strict","jp":"きびしい"},{"en":"Smart","jp":"あたまがいい"},
+              {"sub":"Na-Adjectives","en":"Kind","jp":"しんせつ"},{"en":"Serious","jp":"まじめ"},{"en":"Energetic","jp":"げんき"},{"en":"Skillful","jp":"じょうず"}
+            ] },
+            { "header": "Feelings", "items": [
+              {"sub":"I-Adjectives","en":"Happy","jp":"うれしい"},{"en":"Sad","jp":"かなしい"},{"en":"Lonely","jp":"さびしい"},{"en":"Scary","jp":"こわい"},
+              {"sub":"Na-Adjectives","en":"To Like","jp":"すき"},{"en":"To Hate","jp":"きらい"},{"en":"Important","jp":"たいせつ"},{"en":"Tough","jp":"たいへん"}
+            ] },
+            { "header": "Everyday Objects", "items": [
+              {"sub":"I-Adjectives","en":"Hot (object)","jp":"あつい"},{"en":"Cold (touch)","jp":"つめたい"},{"en":"New","jp":"あたらしい"},{"en":"Old","jp":"ふるい"},{"en":"Expensive","jp":"たかい"},{"en":"Cheap","jp":"やすい"},
+              {"sub":"Na-Adjectives","en":"Convenient","jp":"べんり"},{"en":"Inconvenient","jp":"ふべん"},{"en":"Easy","jp":"かんたん"}
+            ] },
+            { "header": "Sense & Taste", "items": [
+              {"sub":"I-Adjectives","en":"Delicious","jp":"おいしい"},{"en":"Disgusting","jp":"まずい"},{"en":"Sweet","jp":"あまい"},{"en":"Spicy","jp":"からい"},{"en":"Bitter","jp":"にがい"},{"en":"Sour","jp":"すっぱい"}
+            ] },
+            { "header": "Dimensions & Weather", "items": [
+              {"sub":"I-Adjectives","en":"Fast / Early","jp":"はやい"},{"en":"Slow / Late","jp":"おそい"},{"en":"Heavy","jp":"おもい"},{"en":"Light","jp":"かるい"},{"en":"Warm","jp":"あたたかい"},{"en":"Cool","jp":"すずしい"},{"en":"Painful","jp":"いたい"},{"en":"Good","jp":"いい"},{"en":"Bad","jp":"わるい"}
+            ] },
+            { "header": "Social Situation", "items": [
+              {"sub":"I-Adjectives","en":"Busy","jp":"いそがしい"},{"en":"Dangerous","jp":"あぶない"},
+              {"sub":"Na-Adjectives","en":"Free (time)","jp":"ひま"},{"en":"Famous","jp":"ゆうめい"},{"en":"Safe","jp":"あんぜん"},{"en":"Polite","jp":"ていねい"}
+            ] }
+          ]
+        }
+      ]
+    },
+    "adverbs": {
+      "sections": [
+        {
+          "type": "grid",
+          "cols": 2,
+          "children": [
+            {
+              "type": "card",
+              "title": "Frequency (Used with ~ます)",
+              "color": "green",
+              "items": [
+                { "en": "Always", "jp": "いつも" },
+                { "en": "Often / Well", "jp": "よく" },
+                { "en": "Sometimes", "jp": "ときどき" },
+                { "en": "Already", "jp": "もう" }
+              ]
+            },
+            {
+              "type": "card",
+              "title": "Frequency (Used with ~ません)",
+              "color": "red",
+              "items": [
+                { "en": "Not much", "jp": "あまり" },
+                { "en": "Never", "jp": "ぜんぜん" },
+                { "en": "Not yet", "jp": "まだ" }
+              ],
+              "note": "*Always requires negative verb ending"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "title": "Location Prepositions (位置)",
+          "color": "blue",
+          "items": [
+            { "en": "Above", "jp": "うえ" },
+            { "en": "Under", "jp": "した" },
+            { "en": "Front", "jp": "まえ" },
+            { "en": "Behind", "jp": "うしろ" },
+            { "en": "Right", "jp": "みぎ" },
+            { "en": "Left", "jp": "ひだり" },
+            { "en": "Inside", "jp": "なか" },
+            { "en": "Outside", "jp": "そと" },
+            { "en": "Next to", "jp": "となり" },
+            { "en": "Beside", "jp": "よこ" },
+            { "en": "Nearby", "jp": "ちかく" },
+            { "en": "Between", "jp": "あいだ" }
+          ]
+        }
+      ]
+    },
+    "vocabulary": {
+      "categories": [
+        {
+          "id": "jp-numbers",
+          "label": "Numbers",
+          "icon": "🔢",
+          "color": "blue",
+          "scale": [
+            { "value": "100,000,000", "jp": "億", "reading": "Oku" },
+            { "value": "10,000", "jp": "万", "reading": "Man" },
+            { "value": "1,000", "jp": "千", "reading": "Sen" },
+            { "value": "100", "jp": "百", "reading": "Hyaku" },
+            { "value": "10", "jp": "十", "reading": "Juu" }
+          ],
+          "tables": [
+            { "header": "Basics (1-10)", "items": [{"en":"1","jp":"いち"},{"en":"2","jp":"に"},{"en":"3","jp":"さん"},{"en":"4","jp":"よん/し"},{"en":"5","jp":"ご"},{"en":"6","jp":"ろく"},{"en":"7","jp":"なな/しち"},{"en":"8","jp":"はち"},{"en":"9","jp":"きゅう/く"},{"en":"10","jp":"じゅう"}] }
+          ],
+          "irregulars": [
+            { "label": "Tricky 100s (Hyaku)", "items": ["300: さんびゃく","600: ろっぴゃく","800: はっぴゃく"] },
+            { "label": "Tricky 1000s (Sen)", "items": ["3000: さんぜん","8000: はっせん"] }
+          ]
+        },
+        {
+          "id": "jp-time",
+          "label": "Time & Weather",
+          "icon": "⏰",
+          "color": "indigo",
+          "tables": [
+            { "header": "Days of Week", "items": [{"en":"Monday","jp":"げつようび"},{"en":"Tuesday","jp":"かようび"},{"en":"Wednesday","jp":"すいようび"},{"en":"Thursday","jp":"もくようび"},{"en":"Friday","jp":"きんようび"},{"en":"Saturday","jp":"どようび"},{"en":"Sunday","jp":"にちようび"}] },
+            { "header": "Months (月)", "items": [{"en":"January","jp":"いちがつ"},{"en":"February","jp":"にがつ"},{"en":"March","jp":"さんがつ"},{"en":"April","jp":"しがつ"},{"en":"July","jp":"しちがつ"},{"en":"September","jp":"くがつ"},{"en":"December","jp":"じゅうにがつ"}] },
+            { "header": "Days of Month (日)", "items": [{"en":"1st","jp":"ついたち"},{"en":"2nd","jp":"ふつか"},{"en":"3rd","jp":"みっか"},{"en":"4th","jp":"よっか"},{"en":"10th","jp":"とおか"},{"en":"20th","jp":"はつか"}] },
+            { "header": "Time Expressions", "items": [{"en":"Today","jp":"きょう"},{"en":"Yesterday","jp":"きのう"},{"en":"Tomorrow","jp":"あした"},{"en":"This week","jp":"こんしゅう"},{"en":"Last week","jp":"せんしゅう"},{"en":"Next week","jp":"らいしゅう"},{"en":"Every day","jp":"まいにち"}] },
+            { "header": "Weather", "items": [{"en":"Sunny","jp":"はれ"},{"en":"Cloudy","jp":"くもり"},{"en":"Rainy","jp":"あめ"},{"en":"Snowy","jp":"ゆき"}] }
+          ]
+        },
+        {
+          "id": "jp-travel",
+          "label": "Travel",
+          "icon": "✈️",
+          "color": "emerald",
+          "note": "Add 人 (jin) for nationality. Add 語 (go) for language.",
+          "tables": [
+            { "header": "Nationalities & Languages", "items": [{"en":"Japan","jp":"日本人 / 日本語"},{"en":"France","jp":"フランス人 / 語"},{"en":"USA (English)","jp":"アメリカ人 / 英語"},{"en":"Spain","jp":"スペイン人 / 語"},{"en":"China","jp":"中国人 / 中国語"},{"en":"Mexico","jp":"メキシコ人"}] },
+            { "header": "Directions", "items": [{"en":"North","jp":"きた"},{"en":"South","jp":"みなみ"},{"en":"East","jp":"ひがし"},{"en":"West","jp":"にし"}] },
+            { "header": "Travel Essentials", "items": [{"en":"Passport","jp":"パスポート"},{"en":"Airport","jp":"くうこう"},{"en":"Hotel","jp":"ホテル"},{"en":"Map","jp":"ちず"},{"en":"To Travel","jp":"りょこうします"},{"en":"To Reserve","jp":"よやくします"}] },
+            { "header": "Transportation (のりもの)", "items": [{"en":"Train","jp":"でんしゃ"},{"en":"Subway","jp":"ちかてつ"},{"en":"Bullet Train","jp":"しんかんせん"},{"en":"Bus / Taxi","jp":"バス / タクシー"},{"en":"Bicycle","jp":"じてんしゃ"},{"en":"Car","jp":"くるま"},{"en":"Airplane","jp":"ひこうき"}] }
+          ]
+        },
+        {
+          "id": "jp-places",
+          "label": "Places",
+          "icon": "🏙️",
+          "color": "green",
+          "tables": [
+            { "header": "Essential Services", "items": [{"en":"Post Office","jp":"ゆうびんきょく"},{"en":"Bank","jp":"ぎんこう"},{"en":"Hospital","jp":"びょういん"},{"en":"Police Box","jp":"こうばん"},{"en":"Police Station","jp":"けいさつしょ"},{"en":"City Hall","jp":"しやくしょ"},{"en":"Station","jp":"えき"},{"en":"Ticket","jp":"きっぷ"}] },
+            { "header": "Shops (屋 - ya)", "items": [{"en":"Bakery","jp":"パンや"},{"en":"Bookstore","jp":"ほんや"},{"en":"Florist","jp":"はなや"},{"en":"Butcher","jp":"にくや"},{"en":"Fishmonger","jp":"さかなや"},{"en":"Pharmacy","jp":"くすりや / やっきょく"}] },
+            { "header": "Culture & Leisure", "items": [{"en":"Library","jp":"としょかん"},{"en":"Museum","jp":"はくぶつかん"},{"en":"Art Museum","jp":"びじゅつかん"},{"en":"Aquarium","jp":"すいぞくかん"},{"en":"Zoo","jp":"どうぶつえん"},{"en":"Gymnasium","jp":"たいいくかん"}] },
+            { "header": "Modern City", "items": [{"en":"Convenience Store","jp":"コンビニ"},{"en":"Supermarket","jp":"スーパー"},{"en":"Dept. Store","jp":"デパート"},{"en":"Hotel","jp":"ホテル"},{"en":"Parking Lot","jp":"ちゅうしゃじょう"},{"en":"Gas Station","jp":"ガソリンスタンド"},{"en":"Shop / Store","jp":"みせ"}] }
+          ]
+        },
+        {
+          "id": "jp-house",
+          "label": "House",
+          "icon": "🏠",
+          "color": "pink",
+          "tables": [
+            { "header": "Kitchen (だいどころ)", "items": [{"en":"Refrigerator","jp":"れいぞうこ"},{"en":"Stove","jp":"こんろ"},{"en":"Microwave","jp":"でんしレンジ"},{"en":"Pot","jp":"なべ"},{"en":"Pan","jp":"フライパン"},{"en":"Knife","jp":"ほうちょう"},{"en":"Spoon","jp":"スプーン"},{"en":"Fork","jp":"フォーク"},{"en":"Plate","jp":"さら / おさら"},{"en":"Cup/Glass","jp":"コップ / グラス"}] },
+            { "header": "Living Room (いま)", "items": [{"en":"Sofa","jp":"ソファ"},{"en":"TV","jp":"テレビ"},{"en":"Table","jp":"テーブル"},{"en":"Chair","jp":"いす"},{"en":"Lamp","jp":"ランプ"},{"en":"Clock","jp":"とけい"},{"en":"Carpet","jp":"カーペット"},{"en":"Curtains","jp":"カーテン"},{"en":"Remote Control","jp":"リモコン"},{"en":"Bookshelf","jp":"ほんだな"}] },
+            { "header": "Bathroom (おふろば)", "items": [{"en":"Bathtub","jp":"おふろ"},{"en":"Shower","jp":"シャワー"},{"en":"Sink","jp":"せんめんだい"},{"en":"Toilet","jp":"トイレ / おてあらい"},{"en":"Towel","jp":"タオル"},{"en":"Soap","jp":"せっけん"},{"en":"Shampoo","jp":"シャンプー"},{"en":"Toothbrush","jp":"はぶらし"},{"en":"Mirror","jp":"かがみ"}] },
+            { "header": "Bedroom (しんしつ)", "items": [{"en":"Bed","jp":"ベッド"},{"en":"Pillow","jp":"まくら"},{"en":"Blanket","jp":"もうふ / ふとん"},{"en":"Wardrobe","jp":"たんす / クローゼット"},{"en":"Desk","jp":"つくえ"},{"en":"Dresser","jp":"ドレッサー"},{"en":"Nightstand","jp":"ナイトテーブル"},{"en":"Window","jp":"まど"},{"en":"Door","jp":"ドア / と"}] },
+            { "header": "General House (いえのなか)", "items": [{"en":"Door","jp":"ドア / と"},{"en":"Window","jp":"まど"},{"en":"Wall","jp":"かべ"},{"en":"Floor","jp":"ゆか"},{"en":"Ceiling","jp":"てんじょう"},{"en":"Staircase","jp":"かいだん"},{"en":"Hallway","jp":"ろうか"},{"en":"Picture Frame","jp":"がくぶち"},{"en":"Key","jp":"かぎ"},{"en":"Entrance","jp":"げんかん"}] }
+          ]
+        },
+        {
+          "id": "jp-school",
+          "label": "School & Work",
+          "icon": "📚",
+          "color": "purple",
+          "tables": [
+            { "header": "School (がっこう)", "items": [{"en":"Student","jp":"がくせい"},{"en":"Teacher","jp":"せんせい"},{"en":"Homework","jp":"しゅくだい"},{"en":"Exam","jp":"しけん"},{"en":"Classroom","jp":"きょうしつ"},{"en":"Book / Dictionary","jp":"ほん / じしょ"},{"en":"University","jp":"だいがく"}] },
+            { "header": "Work (しごと)", "items": [{"en":"Company","jp":"かいしゃ"},{"en":"Meeting","jp":"かいぎ"},{"en":"Telephone","jp":"でんわ"},{"en":"Computer","jp":"パソコン"},{"en":"Document","jp":"しりょう"},{"en":"Letter","jp":"てがみ"}] }
+          ]
+        },
+        {
+          "id": "jp-family",
+          "label": "Family",
+          "icon": "👨‍👩‍👧",
+          "color": "yellow",
+          "tables": [
+            { "header": "Family (かぞく)", "items": [{"en":"Father","jp":"おとうさん"},{"en":"Mother","jp":"おかあさん"},{"en":"Older Brother","jp":"おにいさん"},{"en":"Older Sister","jp":"おねえさん"},{"en":"Younger Brother","jp":"おとうと"},{"en":"Younger Sister","jp":"いもうと"},{"en":"Grandfather","jp":"おじいさん"},{"en":"Grandmother","jp":"おばあさん"},{"en":"Uncle / Aunt","jp":"おじさん / おばさん"},{"en":"Husband / Wife","jp":"だんなさん / おくさん"}] }
+          ]
+        },
+        {
+          "id": "jp-professions",
+          "label": "Professions",
+          "icon": "💼",
+          "color": "cyan",
+          "tables": [
+            { "header": "Professions (しごと)", "items": [{"en":"Teacher","jp":"せんせい"},{"en":"Student","jp":"がくせい"},{"en":"Office Worker","jp":"かいしゃいん"},{"en":"Doctor","jp":"いしゃ"},{"en":"Engineer","jp":"エンジニア"},{"en":"Nurse","jp":"かんごし"},{"en":"Police","jp":"けいさつ"},{"en":"Chef","jp":"りょうりにん"}] }
+          ]
+        },
+        {
+          "id": "jp-body",
+          "label": "Body Parts",
+          "icon": "👤",
+          "color": "red",
+          "tables": [
+            { "header": "Body Parts (からだ)", "items": [{"en":"Head","jp":"あたま"},{"en":"Face","jp":"かお"},{"en":"Eye / Ear","jp":"め / みみ"},{"en":"Nose / Mouth","jp":"はな / くち"},{"en":"Hand / Arm","jp":"て / うで"},{"en":"Leg / Foot","jp":"あし"}] }
+          ],
+          "info_box": { "variant": "red", "title": "Expressing Pain (いたい)", "body": "Structure: <b>[Body Part] + が + いたい</b> (ga itai)<br><br><b>Headache:</b> あたまがいたい<br><b>Stomach ache:</b> おなかがいたい<br><b>Sore throat:</b> のどがいたい<br><b>Toothache:</b> はがいたい" }
+        },
+        {
+          "id": "jp-clothing",
+          "label": "Clothing",
+          "icon": "👕",
+          "color": "orange",
+          "tables": [
+            { "header": "Clothing (いふく)", "items": [{"en":"Shirt / Sweater","jp":"シャツ / セーター"},{"en":"Coat / Jacket","jp":"コート / ジャケット"},{"en":"Pants / Skirt","jp":"ズボン / スカート"},{"en":"Shoes / Socks","jp":"くつ / くつした"},{"en":"Hat","jp":"ぼうし"}] }
+          ],
+          "info_box": { "variant": "blue", "title": "Verb Tip", "body": "Use <b>Kiru</b> for shirts, <b>Haku</b> for pants/shoes, and <b>Kaburu</b> for hats!" }
+        },
+        {
+          "id": "jp-hobbies",
+          "label": "Hobbies",
+          "icon": "🎨",
+          "color": "orange",
+          "tables": [
+            { "header": "Creative (クリエイティブ)", "items": [{"en":"Reading","jp":"どくしょ (読書)"},{"en":"Writing","jp":"かくこと (書くこと)"},{"en":"Drawing","jp":"えをかくこと (絵を描くこと)"},{"en":"Painting","jp":"あぶらえ (油絵)"},{"en":"Playing an instrument","jp":"がっきをひくこと"},{"en":"Singing","jp":"うたうこと (歌うこと)"},{"en":"Photography","jp":"しゃしん (写真)"}] },
+            { "header": "Activities (アクティビティ)", "items": [{"en":"Swimming","jp":"すいえい (水泳)"},{"en":"Cooking","jp":"りょうり (料理)"},{"en":"Traveling","jp":"りょこう (旅行)"},{"en":"Watching movies","jp":"えいがかんしょう"},{"en":"Listening to music","jp":"おんがくかんしょう"},{"en":"Gardening","jp":"えんげい (園芸)"},{"en":"Video games","jp":"ゲームをすること"}] }
+          ]
+        }
+      ]
+    },
+    "kanji": {
+      "lessons": [
+        { "lesson": 1, "title": "Pictographs 1", "chars": [
+          {"k":"山","r":"やま","m":"Mountain"},{"k":"川","r":"かわ","m":"River"},{"k":"田","r":"た","m":"Rice Field"},{"k":"日","r":"ひ / にち","m":"Sun/Day"},{"k":"月","r":"つき / げつ","m":"Moon/Month"},
+          {"k":"火","r":"ひ / か","m":"Fire"},{"k":"水","r":"みず / すい","m":"Water"},{"k":"木","r":"き / もく","m":"Tree"},{"k":"金","r":"かね / きん","m":"Gold/Money"},{"k":"土","r":"つち / ど","m":"Soil/Earth"}
+        ]},
+        { "lesson": 2, "title": "Numbers", "chars": [
+          {"k":"一","r":"いち","m":"One"},{"k":"二","r":"に","m":"Two"},{"k":"三","r":"さん","m":"Three"},{"k":"四","r":"よん / し","m":"Four"},{"k":"五","r":"ご","m":"Five"},
+          {"k":"六","r":"ろく","m":"Six"},{"k":"七","r":"なな / しち","m":"Seven"},{"k":"八","r":"はち","m":"Eight"},{"k":"九","r":"きゅう","m":"Nine"},{"k":"十","r":"じゅう","m":"Ten"}
+        ]},
+        { "lesson": 3, "title": "Numbers & Signs", "chars": [
+          {"k":"百","r":"ひゃく","m":"Hundred"},{"k":"千","r":"せん","m":"Thousand"},{"k":"万","r":"まん","m":"Ten Thousand"},{"k":"円","r":"えん","m":"Yen"},{"k":"年","r":"とし / ねん","m":"Year"},
+          {"k":"上","r":"うえ","m":"Up/Above"},{"k":"下","r":"した","m":"Down/Below"},{"k":"中","r":"なか","m":"Middle/Inside"},{"k":"半","r":"はん","m":"Half"},{"k":"分","r":"ふん / ぶん","m":"Minute/Part"}
+        ]},
+        { "lesson": 4, "title": "Pictographs 2", "chars": [
+          {"k":"人","r":"ひと / じん","m":"Person"},{"k":"子","r":"こ","m":"Child"},{"k":"女","r":"おんな","m":"Woman"},{"k":"男","r":"おとこ","m":"Man"},{"k":"目","r":"め","m":"Eye"},
+          {"k":"口","r":"くち","m":"Mouth"},{"k":"耳","r":"みみ","m":"Ear"},{"k":"手","r":"て","m":"Hand"},{"k":"足","r":"あし","m":"Leg/Foot"},{"k":"力","r":"ちから","m":"Power"}
+        ]},
+        { "lesson": 5, "title": "Pictographs 3", "chars": [
+          {"k":"父","r":"ちち","m":"Father"},{"k":"母","r":"はは","m":"Mother"},{"k":"先","r":"さき / せん","m":"Previous"},{"k":"生","r":"せい","m":"Life/Birth"},{"k":"学","r":"がく","m":"Study"},
+          {"k":"校","r":"こう","m":"School"},{"k":"友","r":"とも","m":"Friend"},{"k":"本","r":"ほん","m":"Book"},{"k":"毎","r":"まい","m":"Every"},{"k":"何","r":"なに / なん","m":"What"}
+        ]},
+        { "lesson": 6, "title": "Directions", "chars": [
+          {"k":"前","r":"まえ","m":"Front/Before"},{"k":"後","r":"あと / うしろ","m":"Back/After"},{"k":"外","r":"そと / がい","m":"Outside"},{"k":"左","r":"ひだり","m":"Left"},{"k":"右","r":"みぎ","m":"Right"},
+          {"k":"東","r":"ひがし","m":"East"},{"k":"西","r":"にし","m":"West"},{"k":"南","r":"みなみ","m":"South"},{"k":"北","r":"きた","m":"North"},{"k":"名","r":"な / めい","m":"Name"}
+        ]},
+        { "lesson": 7, "title": "Pictographs 4", "chars": [
+          {"k":"牛","r":"うし","m":"Cow"},{"k":"馬","r":"うま","m":"Horse"},{"k":"魚","r":"さかな","m":"Fish"},{"k":"貝","r":"かい","m":"Shellfish"},{"k":"雨","r":"あめ","m":"Rain"},
+          {"k":"天","r":"てん","m":"Heaven"},{"k":"気","r":"き","m":"Spirit"},{"k":"車","r":"くるま","m":"Car"},{"k":"門","r":"もん","m":"Gate"},{"k":"午","r":"ご","m":"Noon"}
+        ]},
+        { "lesson": 8, "title": "Adjectives", "chars": [
+          {"k":"大","r":"おお(きい)","m":"Big"},{"k":"小","r":"ちい(さい)","m":"Small"},{"k":"高","r":"たか(い)","m":"High/Exp"},{"k":"安","r":"やす(い)","m":"Cheap"},{"k":"新","r":"あたら(しい)","m":"New"},
+          {"k":"古","r":"ふる(い)","m":"Old"},{"k":"長","r":"なが(い)","m":"Long"},{"k":"多","r":"おお(い)","m":"Many"},{"k":"少","r":"すく(ない)","m":"Few"},{"k":"早","r":"はや(い)","m":"Early"}
+        ]},
+        { "lesson": 9, "title": "Verbs", "chars": [
+          {"k":"行","r":"い(く)","m":"Go"},{"k":"来","r":"く(る)","m":"Come"},{"k":"食","r":"た(べる)","m":"Eat"},{"k":"見","r":"み(る)","m":"See"},{"k":"入","r":"はい(る)","m":"Enter"},
+          {"k":"出","r":"で(る)","m":"Exit"},{"k":"立","r":"た(つ)","m":"Stand"},{"k":"書","r":"か(く)","m":"Write"},{"k":"言","r":"い(う)","m":"Say"},{"k":"飲","r":"の(む)","m":"Drink"}
+        ]},
+        { "lesson": 10, "title": "Combinations 1", "chars": [
+          {"k":"話","r":"はな(す)","m":"Speak"},{"k":"読","r":"よ(む)","m":"Read"},{"k":"語","r":"ご","m":"Language"},{"k":"間","r":"あいだ","m":"Between"},{"k":"聞","r":"き(く)","m":"Listen"},
+          {"k":"買","r":"か(う)","m":"Buy"},{"k":"休","r":"やす(む)","m":"Rest"},{"k":"時","r":"とき / じ","m":"Time"},{"k":"週","r":"しゅう","m":"Week"},{"k":"道","r":"みち","m":"Road"}
+        ]},
+        { "lesson": 11, "title": "Combinations 2", "chars": [
+          {"k":"今","r":"いま","m":"Now"},{"k":"会","r":"あ(う) / かい","m":"Meet"},{"k":"社","r":"しゃ","m":"Company"},{"k":"店","r":"みせ","m":"Shop"},{"k":"駅","r":"えき","m":"Station"},
+          {"k":"花","r":"はな","m":"Flower"},{"k":"国","r":"くに","m":"Country"},{"k":"白","r":"しろ","m":"White"},{"k":"空","r":"そら","m":"Sky"},{"k":"電","r":"でん","m":"Electricity"}
+        ]},
+        { "lesson": 12, "title": "Adjectives & Verbs", "chars": [
+          {"k":"明","r":"あか(るい)","m":"Bright"},{"k":"暗","r":"くら(い)","m":"Dark"},{"k":"広","r":"ひろ(い)","m":"Wide"},{"k":"近","r":"ちか(い)","m":"Near"},{"k":"遠","r":"とお(い)","m":"Far"},
+          {"k":"強","r":"つよ(い)","m":"Strong"},{"k":"弱","r":"よわ(い)","m":"Weak"},{"k":"重","r":"おも(い)","m":"Heavy"},{"k":"軽","r":"かる(い)","m":"Light"},{"k":"良","r":"よ(い)","m":"Good"}
+        ]},
+        { "lesson": 13, "title": "Action Verbs", "chars": [
+          {"k":"始","r":"はじ(める)","m":"To start"},{"k":"終","r":"お(わる)","m":"To end"},{"k":"使","r":"つか(う)","m":"To use"},{"k":"作","r":"つく(る)","m":"To make"},{"k":"持","r":"も(つ)","m":"To hold"},
+          {"k":"待","r":"ま(つ)","m":"To wait"},{"k":"開","r":"あ(ける)","m":"To open"},{"k":"閉","r":"し(める)","m":"To close"},{"k":"帰","r":"かえ(る)","m":"To return"},{"k":"思","r":"おも(う)","m":"To think"}
+        ]},
+        { "lesson": 14, "title": "Movement & Daily Life", "chars": [
+          {"k":"走","r":"はし(る)","m":"To run"},{"k":"歩","r":"ある(く)","m":"To walk"},{"k":"起","r":"お(きる)","m":"To wake up"},{"k":"寝","r":"ね(る)","m":"To sleep"},{"k":"働","r":"はたら(く)","m":"To work"},
+          {"k":"洗","r":"あら(う)","m":"To wash"},{"k":"借","r":"か(りる)","m":"To borrow"},{"k":"貸","r":"か(す)","m":"To lend"},{"k":"送","r":"おく(る)","m":"To send"},{"k":"教","r":"おし(える)","m":"To teach"}
+        ]},
+        { "lesson": 15, "title": "N4 Kanji — Daily Life", "chars": [
+          {"k":"習","r":"なら(う)","m":"To learn"},{"k":"忘","r":"わす(れる)","m":"To forget"},{"k":"住","r":"す(む)","m":"To reside"},{"k":"知","r":"し(る)","m":"To know"},{"k":"急","r":"いそ(ぐ)","m":"To hurry"},
+          {"k":"同","r":"おな(じ)","m":"Same"},{"k":"以","r":"い","m":"By means of"},{"k":"自","r":"じ / みずか","m":"Self"},{"k":"動","r":"うご(く)","m":"To move"},{"k":"体","r":"からだ","m":"Body"}
+        ]},
+        { "lesson": 16, "title": "N4 Kanji — Society", "chars": [
+          {"k":"医","r":"い","m":"Medicine"},{"k":"院","r":"いん","m":"Institution"},{"k":"英","r":"えい","m":"England/Excellent"},{"k":"駅","r":"えき","m":"Station"},{"k":"音","r":"おと / おん","m":"Sound"},
+          {"k":"科","r":"か","m":"Department"},{"k":"家","r":"いえ / か","m":"House/Expert"},{"k":"歌","r":"うた","m":"Song"},{"k":"夏","r":"なつ","m":"Summer"},{"k":"春","r":"はる","m":"Spring"}
+        ]},
+        { "lesson": 17, "title": "N4 Kanji — Nature & Time", "chars": [
+          {"k":"秋","r":"あき","m":"Autumn"},{"k":"冬","r":"ふゆ","m":"Winter"},{"k":"朝","r":"あさ","m":"Morning"},{"k":"昼","r":"ひる","m":"Noon/Daytime"},{"k":"夜","r":"よる","m":"Night"},
+          {"k":"週","r":"しゅう","m":"Week"},{"k":"毎","r":"まい","m":"Every"},{"k":"去","r":"きょ / さ(る)","m":"Past/To leave"},{"k":"次","r":"つぎ / じ","m":"Next"},{"k":"今","r":"いま / こん","m":"Now/This"}
+        ]},
+        { "lesson": 18, "title": "N4 Kanji — Actions", "chars": [
+          {"k":"上","r":"うえ / あ(げる)","m":"Up/Raise"},{"k":"下","r":"した / さ(げる)","m":"Down/Lower"},{"k":"入","r":"い(れる)","m":"To put in"},{"k":"出","r":"だ(す)","m":"To take out"},{"k":"切","r":"き(る)","m":"To cut"},
+          {"k":"引","r":"ひ(く)","m":"To pull"},{"k":"押","r":"お(す)","m":"To push"},{"k":"持","r":"も(つ)","m":"To hold"},{"k":"取","r":"と(る)","m":"To take"},{"k":"置","r":"お(く)","m":"To place"}
+        ]}
+      ]
+    }
+  }
+}

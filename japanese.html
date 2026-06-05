@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japanese Study Guide</title>
-    <script src="script.js"></script>
-    <script src="practicemodule.js"></script>
+    <script type="module" src="js/japanese.js"></script>
+    <script src="js/practicemodule.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
         <div class="header-content">
             <a href="index.html" class="back-link">← Back to Hub</a>
             <div class="header-title">
-                <span>🍙</span> 
+                <span>🍙</span>
                 <span>Japanese Study Guide</span>
             </div>
 
@@ -34,1289 +34,156 @@
                 <button class="tab-btn" onclick="switchTab('vocabulary')">Vocabulary</button>
                 <button class="tab-btn" onclick="switchTab('kanji')">Kanji</button>
                 <button class="tab-btn practice-tab-btn" onclick="switchTab('practice')">✏️ Practice</button>
+                <button class="tab-btn" onclick="switchTab('search')">🔍 Search</button>
             </nav>
         </div>
     </header>
 
     <main>
+
+        <!-- ── Writing tab ─────────────────────────────────────────── -->
         <div id="writing" class="tab-content active">
-         
-            <div class="grid-2">
-                <div class="card">
-                    <h3 class="card-title blue">✍️ Hiragana</h3>
-                    <div class="grid-5">
-                        <div class="grid-char">あ</div><div class="grid-char">い</div><div class="grid-char">う</div><div class="grid-char">え</div><div class="grid-char">お</div>
-                        <div class="grid-char">か</div><div class="grid-char">き</div><div class="grid-char">く</div><div class="grid-char">け</div><div class="grid-char">こ</div>
-                        <div class="grid-char">さ</div><div class="grid-char">し</div><div class="grid-char">す</div><div class="grid-char">せ</div><div class="grid-char">そ</div>
-                        <div class="grid-char">た</div><div class="grid-char">ち</div><div class="grid-char">つ</div><div class="grid-char">て</div><div class="grid-char">と</div>
-                        <div class="grid-char">な</div><div class="grid-char">に</div><div class="grid-char">ぬ</div><div class="grid-char">ね</div><div class="grid-char">の</div>
-                        <div class="grid-char">は</div><div class="grid-char">ひ</div><div class="grid-char">ふ</div><div class="grid-char">へ</div><div class="grid-char">ほ</div>
-                        <div class="grid-char">ま</div><div class="grid-char">み</div><div class="grid-char">む</div><div class="grid-char">め</div><div class="grid-char">も</div>
-                        <div class="grid-char">や</div><div class="grid-char empty"></div><div class="grid-char">ゆ</div><div class="grid-char empty"></div><div class="grid-char">よ</div>
-                        <div class="grid-char">ら</div><div class="grid-char">り</div><div class="grid-char">る</div><div class="grid-char">れ</div><div class="grid-char">ろ</div>
-                        <div class="grid-char">わ</div><div class="grid-char empty"></div><div class="grid-char empty"></div><div class="grid-char empty"></div><div class="grid-char">を</div>
-                        <div class="grid-char">ん</div>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <h3 class="card-title orange">✒️ Katakana</h3>
-                    <div class="grid-5">
-                        <div class="grid-char orange-bg">ア</div><div class="grid-char orange-bg">イ</div><div class="grid-char orange-bg">ウ</div><div class="grid-char orange-bg">エ</div><div class="grid-char orange-bg">オ</div>
-                        <div class="grid-char orange-bg">カ</div><div class="grid-char orange-bg">キ</div><div class="grid-char orange-bg">ク</div><div class="grid-char orange-bg">ケ</div><div class="grid-char orange-bg">コ</div>
-                        <div class="grid-char orange-bg">サ</div><div class="grid-char orange-bg">シ</div><div class="grid-char orange-bg">ス</div><div class="grid-char orange-bg">セ</div><div class="grid-char orange-bg">ソ</div>
-                        <div class="grid-char orange-bg">タ</div><div class="grid-char orange-bg">チ</div><div class="grid-char orange-bg">ツ</div><div class="grid-char orange-bg">テ</div><div class="grid-char orange-bg">ト</div>
-                        <div class="grid-char orange-bg">ナ</div><div class="grid-char orange-bg">ニ</div><div class="grid-char orange-bg">ヌ</div><div class="grid-char orange-bg">ネ</div><div class="grid-char orange-bg">ノ</div>
-                        <div class="grid-char orange-bg">ハ</div><div class="grid-char orange-bg">ヒ</div><div class="grid-char orange-bg">フ</div><div class="grid-char orange-bg">ヘ</div><div class="grid-char orange-bg">ホ</div>
-                        <div class="grid-char orange-bg">マ</div><div class="grid-char orange-bg">ミ</div><div class="grid-char orange-bg">ム</div><div class="grid-char orange-bg">メ</div><div class="grid-char orange-bg">モ</div>
-                        <div class="grid-char orange-bg">ヤ</div><div class="grid-char empty"></div><div class="grid-char orange-bg">ユ</div><div class="grid-char empty"></div><div class="grid-char orange-bg">ヨ</div>
-                        <div class="grid-char orange-bg">ラ</div><div class="grid-char orange-bg">リ</div><div class="grid-char orange-bg">ル</div><div class="grid-char orange-bg">レ</div><div class="grid-char orange-bg">ロ</div>
-                        <div class="grid-char orange-bg">ワ</div><div class="grid-char empty"></div><div class="grid-char empty"></div><div class="grid-char empty"></div><div class="grid-char orange-bg">ヲ</div>
-                        <div class="grid-char orange-bg">ン</div>
-                    </div>
+            <!-- Static island: Particles grid -->
+            <div id="particle-grid" class="card">
+                <h3 class="card-title blue">🔗 Particles (Core Grammar)</h3>
+                <div class="vocab-items" style="padding:0;">
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">は</span><span class="vocab-en">Topic Marker (wa)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">が</span><span class="vocab-en">Subject Marker (ga)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">を</span><span class="vocab-en">Direct Object (wo)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">に</span><span class="vocab-en">Time / Destination (ni)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">で</span><span class="vocab-en">Place of Action / Means (de)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">へ</span><span class="vocab-en">Direction (e)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">と</span><span class="vocab-en">With / And — Complete list (to)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">や</span><span class="vocab-en">And — Incomplete list (ya)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">の</span><span class="vocab-en">Possession 's (no)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">も</span><span class="vocab-en">Also / Too (mo)</span></div>
+                    <div class="vocab-item"><span class="vocab-jp" style="color:#60a5fa;font-size:1.25rem;">から / まで</span><span class="vocab-en">From / Until (kara/made)</span></div>
                 </div>
             </div>
 
-            <div class="grid-2">
-                <div class="card">
-                    <h3 class="card-title green">🎌 Essential Expressions</h3>
-                    <div class="grid-2" style="gap: 0.75rem;">
-                        <div class="info-box green" style="margin:0;"><p class="vocab-en" style="font-size:11px;">Good Morning</p><p class="vocab-jp" style="font-size:1.1rem;">おはようございます</p></div>
-                        <div class="info-box green" style="margin:0;"><p class="vocab-en" style="font-size:11px;">Hello</p><p class="vocab-jp" style="font-size:1.1rem;">こんにちは</p></div>
-                        <div class="info-box green" style="margin:0;"><p class="vocab-en" style="font-size:11px;">Good Evening</p><p class="vocab-jp" style="font-size:1.1rem;">こんばんは</p></div>
-                        <div class="info-box green" style="margin:0;"><p class="vocab-en" style="font-size:11px;">Thank You</p><p class="vocab-jp" style="font-size:1.1rem;">ありがとうございます</p></div>
-                        <div class="info-box green" style="margin:0;"><p class="vocab-en" style="font-size:11px;">Excuse Me / Sorry</p><p class="vocab-jp" style="font-size:1.1rem;">すみません</p></div>
-                        <div class="info-box green" style="margin:0;"><p class="vocab-en" style="font-size:11px;">Before Eating</p><p class="vocab-jp" style="font-size:1.1rem;">いただきます</p></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="card-title blue">🔗 Particles (Core Grammar)</h3>
-                    <div class="vocab-items" style="padding:0;">
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">は</span><span class="vocab-en">Topic Marker (wa)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">が</span><span class="vocab-en">Subject Marker (ga)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">を</span><span class="vocab-en">Direct Object (wo)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">に</span><span class="vocab-en">Time / Destination (ni)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">で</span><span class="vocab-en">Place of Action / Means (de)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">へ</span><span class="vocab-en">Direction (e)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">と</span><span class="vocab-en">With / And (Complete list) (to)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">や</span><span class="vocab-en">And (Incomplete list) (ya)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">の</span><span class="vocab-en">Possession 's (no)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">も</span><span class="vocab-en">Also / Too (mo)</span></div>
-                        <div class="vocab-item"><span class="vocab-jp text-xl" style="color:#60a5fa;">から / まで</span><span class="vocab-en">From / Until (kara/made)</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vocab-table">
-                <div class="vocab-header" style="color: #cbd5e1;">Demonstratives (こそあど)</div>
-                <div style="overflow-x: auto; padding: 1rem;">
-                    <table style="width: 100%; text-align: left; border-collapse: collapse; font-size: 14px;">
+            <!-- Static island: こそあど demonstrative table -->
+            <div id="kosoado-table" class="vocab-table">
+                <div class="vocab-header" style="color:#cbd5e1;">Demonstratives (こそあど)</div>
+                <div style="overflow-x:auto;padding:1rem;">
+                    <table style="width:100%;text-align:left;border-collapse:collapse;font-size:14px;">
                         <thead>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                                <th style="padding: 0.5rem; color: #94a3b8;">Category</th>
-                                <th style="padding: 0.5rem; color: #60a5fa;">KO (Near Me)</th>
-                                <th style="padding: 0.5rem; color: #fb923c;">SO (Near You)</th>
-                                <th style="padding: 0.5rem; color: #10b981;">A (Far)</th>
-                                <th style="padding: 0.5rem; color: #f87171;">DO (Which?)</th>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                                <th style="padding:0.5rem;color:#94a3b8;">Category</th>
+                                <th style="padding:0.5rem;color:#60a5fa;">KO (Near Me)</th>
+                                <th style="padding:0.5rem;color:#fb923c;">SO (Near You)</th>
+                                <th style="padding:0.5rem;color:#10b981;">A (Far)</th>
+                                <th style="padding:0.5rem;color:#f87171;">DO (Which?)</th>
                             </tr>
                         </thead>
-                        <tbody class="vocab-jp">
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 0.5rem; font-family:'Nunito',sans-serif; font-weight:normal;">Things (+Noun)</td>
-                                <td style="padding: 0.5rem;">この</td><td style="padding: 0.5rem;">その</td><td style="padding: 0.5rem;">あの</td><td style="padding: 0.5rem; color:#f87171;">どの</td>
+                        <tbody style="font-family:'Noto Sans JP',sans-serif;">
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:0.5rem;font-family:'Nunito',sans-serif;font-weight:normal;">Things (+Noun)</td>
+                                <td style="padding:0.5rem;">この</td>
+                                <td style="padding:0.5rem;">その</td>
+                                <td style="padding:0.5rem;">あの</td>
+                                <td style="padding:0.5rem;color:#f87171;">どの</td>
                             </tr>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 0.5rem; font-family:'Nunito',sans-serif; font-weight:normal;">Things</td>
-                                <td style="padding: 0.5rem;">これ</td><td style="padding: 0.5rem;">それ</td><td style="padding: 0.5rem;">あれ</td><td style="padding: 0.5rem; color:#f87171;">どれ</td>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:0.5rem;font-family:'Nunito',sans-serif;font-weight:normal;">Things</td>
+                                <td style="padding:0.5rem;">これ</td>
+                                <td style="padding:0.5rem;">それ</td>
+                                <td style="padding:0.5rem;">あれ</td>
+                                <td style="padding:0.5rem;color:#f87171;">どれ</td>
                             </tr>
-                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                                <td style="padding: 0.5rem; font-family:'Nunito',sans-serif; font-weight:normal;">Places</td>
-                                <td style="padding: 0.5rem;">ここ</td><td style="padding: 0.5rem;">そこ</td><td style="padding: 0.5rem;">あそこ</td><td style="padding: 0.5rem; color:#f87171;">どこ</td>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                                <td style="padding:0.5rem;font-family:'Nunito',sans-serif;font-weight:normal;">Places</td>
+                                <td style="padding:0.5rem;">ここ</td>
+                                <td style="padding:0.5rem;">そこ</td>
+                                <td style="padding:0.5rem;">あそこ</td>
+                                <td style="padding:0.5rem;color:#f87171;">どこ</td>
                             </tr>
                             <tr>
-                                <td style="padding: 0.5rem; font-family:'Nunito',sans-serif; font-weight:normal;">Direction</td>
-                                <td style="padding: 0.5rem;">こちら</td><td style="padding: 0.5rem;">そちら</td><td style="padding: 0.5rem;">あちら</td><td style="padding: 0.5rem; color:#f87171;">どちら</td>
+                                <td style="padding:0.5rem;font-family:'Nunito',sans-serif;font-weight:normal;">Direction</td>
+                                <td style="padding:0.5rem;">こちら</td>
+                                <td style="padding:0.5rem;">そちら</td>
+                                <td style="padding:0.5rem;">あちら</td>
+                                <td style="padding:0.5rem;color:#f87171;">どちら</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <div class="card">
+            <!-- Static island: Sentence structure block -->
+            <div id="sentence-structure-block" class="card">
                 <h3 class="card-title purple">Basic Sentence Structure</h3>
                 <div class="sentence-block">
-                    <div class="sentence-part"><p class="sentence-role">Time</p><p class="sentence-word">きのう</p></div>
+                    <div class="sentence-part">
+                        <p class="sentence-role">Time</p>
+                        <p class="sentence-word">きのう</p>
+                    </div>
                     <span class="sentence-plus">+</span>
-                    <div class="sentence-part"><p class="sentence-role">Topic</p><p class="sentence-word">わたしは</p></div>
+                    <div class="sentence-part">
+                        <p class="sentence-role">Topic</p>
+                        <p class="sentence-word">わたしは</p>
+                    </div>
                     <span class="sentence-plus">+</span>
-                    <div class="sentence-part"><p class="sentence-role">Place</p><p class="sentence-word">としょかんで</p></div>
+                    <div class="sentence-part">
+                        <p class="sentence-role">Place</p>
+                        <p class="sentence-word">としょかんで</p>
+                    </div>
                     <span class="sentence-plus">+</span>
-                    <div class="sentence-part"><p class="sentence-role">Object</p><p class="sentence-word">ほんを</p></div>
+                    <div class="sentence-part">
+                        <p class="sentence-role">Object</p>
+                        <p class="sentence-word">ほんを</p>
+                    </div>
                     <span class="sentence-plus">+</span>
-                    <div class="sentence-part"><p class="sentence-role">Verb</p><p class="sentence-word">よみました</p></div>
-                </div>
-                <p class="vocab-en" style="text-align: center; margin-top: 1rem; font-style: italic;">"Yesterday I read a book at the library."</p>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title cyan">Question Words (ぎもんし)</h3>
-                <div class="grid-2">
-                    <div class="info-box blue" style="margin:0;"><p class="accent-text">Who</p><p class="vocab-jp" style="font-size:1.25rem;">だれ ?</p><p class="vocab-en" style="font-size:11px; margin-top:0.25rem;">だれですか? (Who are you?)</p></div>
-                    <div class="info-box green" style="margin:0;"><p class="accent-text">Where</p><p class="vocab-jp" style="font-size:1.25rem;">どこ ?</p><p class="vocab-en" style="font-size:11px; margin-top:0.25rem;">どこに すんでいますか?</p></div>
-                    <div class="info-box orange" style="margin:0;"><p class="accent-text">When</p><p class="vocab-jp" style="font-size:1.25rem;">いつ ?</p><p class="vocab-en" style="font-size:11px; margin-top:0.25rem;">いつ いきますか?</p></div>
-                    <div class="info-box red" style="margin:0;"><p class="accent-text">Why</p><p class="vocab-jp" style="font-size:1.25rem;">なぜ ?</p><p class="vocab-en" style="font-size:11px; margin-top:0.25rem;">なぜですか?</p></div>
-                    <div class="info-box purple" style="margin:0;"><p class="accent-text">How</p><p class="vocab-jp" style="font-size:1.25rem;">どう ?</p><p class="vocab-en" style="font-size:11px; margin-top:0.25rem;">げんきですか? (How are you?)</p></div>
-                    <div class="info-box gold" style="margin:0;"><p class="accent-text">How many</p><p class="vocab-jp" style="font-size:1.25rem;">いくつ ?</p><p class="vocab-en" style="font-size:11px; margin-top:0.25rem;">いくつありますか?</p></div>
-                    <div class="info-box" style="margin:0; grid-column: 1 / -1;"><p class="accent-text">What</p><p class="vocab-jp" style="font-size:1.25rem;">なに ?</p><p class="vocab-en" style="font-size:11px; margin-top:0.25rem;">なにを たべていますか? (What are you eating?)</p></div>
-                </div>
-
-                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <h4 style="color:white; margin-bottom:1rem; font-size:14px;">Question Structures</h4>
-                    <div class="grid-2">
-                        <div class="info-box" style="margin:0;">
-                            <p class="accent-text">Yes/No Question</p>
-                            <p class="vocab-jp" style="font-size:1.1rem;">～ですか?</p>
-                            <p class="vocab-en" style="font-size:11px; margin-top:0.25rem;">こーひーですか? (Is it coffee?)</p>
-                        </div>
-                        <div class="info-box" style="margin:0;">
-                            <p class="accent-text">Open Question</p>
-                            <p class="vocab-jp" style="font-size:1.1rem;">[Question Word] + は?</p>
-                            <p class="vocab-en" style="font-size:11px; margin-top:0.25rem;">なまえは なんですか?</p>
-                        </div>
+                    <div class="sentence-part">
+                        <p class="sentence-role">Verb</p>
+                        <p class="sentence-word">よみました</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="grid-2">
-                <div class="card">
-                    <h3 class="card-title pink">Existence & Possession</h3>
-                    <div class="info-box green" style="margin-top: 0;">
-                        <p class="accent-text">Things (Objects)</p>
-                        <p class="vocab-jp" style="font-size: 1.5rem;">あります</p>
-                        <p class="vocab-en" style="font-size: 12px; margin-top: 0.25rem;">For inanimate objects.<br><i class="vocab-jp">ほんがあります。</i> (There are books.)</p>
-                    </div>
-                    <div class="info-box red">
-                        <p class="accent-text">People & Animals</p>
-                        <p class="vocab-jp" style="font-size: 1.5rem;">います</p>
-                        <p class="vocab-en" style="font-size: 12px; margin-top: 0.25rem;">For living things.<br><i class="vocab-jp">いぬがいます。</i> (There is a dog.)</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="card-title red">Obligation & Advice</h3>
-                    <div class="info-box red" style="margin-top: 0;">
-                        <p class="accent-text">Must Do / Must Not</p>
-                        <p class="vocab-jp" style="font-size: 1rem;">～なければならない / ～てはいけない</p>
-                        <p class="vocab-en" style="font-size: 12px; margin-top: 0.25rem;">べんきょうしなければなりません (Must study.)</p>
-                    </div>
-                    <div class="info-box gold">
-                        <p class="accent-text">Should / Suggestion</p>
-                        <p class="vocab-jp" style="font-size: 1rem;">～ほうがいい / ～べき</p>
-                        <p class="vocab-en" style="font-size: 12px; margin-top: 0.25rem;">はやく ねたほうがいい (You should sleep early.)</p>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="card">
-                <h3 class="card-title orange">🔢 Japanese Counters (助数詞)</h3>
-                <div class="vocab-table">
-                    <div style="overflow-x: auto;">
-                        <table style="width:100%; border-collapse:collapse; font-size:13px;">
-                            <thead>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
-                                    <th style="padding:0.6rem 0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase; font-size:11px; text-align:left;">Counter</th>
-                                    <th style="padding:0.6rem 0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase; font-size:11px; text-align:left;">Kana</th>
-                                    <th style="padding:0.6rem 0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase; font-size:11px; text-align:left;">Used For</th>
-                                    <th style="padding:0.6rem 0.75rem; color:#94a3b8; font-weight:800; text-transform:uppercase; font-size:11px; text-align:left;">Tips & Irregularities</th>
-                                </tr>
-                            </thead>
-                            <tbody class="vocab-jp" style="font-family:'Nunito',sans-serif;">
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~tsu</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">つ</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Generic objects (when unsure)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">Only up to 10. Uses Japanese readings: <em>Hitotsu, Futatsu, Mittsu…</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~nin</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">人</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">People</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">1 = <em>Hitori</em>, 2 = <em>Futari</em> (irregular). From 3: <em>Sannin, Yonin…</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~hon</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">本</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Long, cylindrical objects (bottles, pens, umbrellas)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">1,6,8,10 → "p": <em>Ippon, Roppon</em>. 3 → "b": <em>Sanbon</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~mai</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">枚</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Flat, thin objects (paper, tickets, shirts)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">Fully regular. <em>Ichimai, Nimai, Sanmai…</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~hiki</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">匹</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Small/medium animals (cats, dogs, fish)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">1,6,8,10 → "p": <em>Ippiki, Roppiki</em>. 3 → "b": <em>Sanbiki</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~kai</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">回</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Frequency (number of times)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">Glottal stop on 1,6,8,10: <em>Ikkai, Rokkai, Hakkai, Jikkai</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~dai</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">台</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Machines, vehicles, furniture (cars, TVs, beds)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">Fully regular. <em>Ichidai, Nidai, Sandai…</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~soku</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">足</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Pairs of footwear (shoes, socks)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">1,8,10 → glottal stop: <em>Issoku, Hassoku</em>. 3 → "z": <em>Sanzoku</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~tō</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">頭</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Large animals (horses, cattle, elephants)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">Glottal stop on 1,6,8,10: <em>Ittō, Rokutō, Hattō, Jittō</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~hai</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">杯</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Cups, bowls, glassfuls</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">1,6,8,10 → "p": <em>Ippai, Roppai</em>. 3 → "b": <em>Sanbai</em></td>
-                                </tr>
-                                <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~ko</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">個</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Small, round objects (eggs, apples)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">Glottal stop on 1,6,8,10: <em>Ikko, Rokko, Hakko, Jukko</em></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:0.6rem 0.75rem; font-weight:700; color:#fb923c;">~satsu</td>
-                                    <td style="padding:0.6rem 0.75rem; font-family:'Noto Sans JP',sans-serif; font-size:1.1rem;">冊</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#e2e8f0;">Bound volumes (books, notebooks, magazines)</td>
-                                    <td style="padding:0.6rem 0.75rem; color:#94a3b8;">Glottal stop on 1,8,10: <em>Issatsu, Hassatsu, Jissatsu</em></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="margin-top: 1.5rem;">
-                <h3 class="card-title purple">⚖️ Grammar Limits — dake / shika / mo</h3>
-                <div class="grid-3" style="margin-bottom: 1rem;">
-                    <div class="info-box gold" style="margin:0;">
-                        <p class="accent-text">だけ (dake) + Affirmative</p>
-                        <p class="vocab-jp" style="font-size:1.1rem;">〜だけ あります</p>
-                        <p class="vocab-en" style="font-size:12px; margin-top:0.5rem;">"Only / Just" — neutral fact.<br><em>Hitotsu dake arimasu.</em><br>(There is only one.)</p>
-                    </div>
-                    <div class="info-box red" style="margin:0;">
-                        <p class="accent-text">しか (shika) + Negative</p>
-                        <p class="vocab-jp" style="font-size:1.1rem;">〜しか ありません</p>
-                        <p class="vocab-en" style="font-size:12px; margin-top:0.5rem;">"Only / Nothing but" — implies insufficiency.<br><em>Hitotsu shika arimasen.</em><br>(There is only one — and that's not enough.)</p>
-                    </div>
-                    <div class="info-box" style="margin:0; border-left-color:#a855f7;">
-                        <p class="accent-text">Counter + も (mo) + Negative</p>
-                        <p class="vocab-jp" style="font-size:1.1rem;">〜も ありません</p>
-                        <p class="vocab-en" style="font-size:12px; margin-top:0.5rem;">"Not even one" — complete absence.<br><em>Ippon mo arimasen.</em><br>(There is not even a single one.)</p>
-                    </div>
-                </div>
-                <div class="info-box gold">
-                    <strong>Key difference:</strong> <span class="vocab-jp">だけ</span> is neutral ("I have only 3"). <span class="vocab-jp">しか</span> carries a feeling of "unfortunately only" or "not enough". <span class="vocab-jp">も</span> means there is literally zero.
-                </div>
+                <p class="vocab-en" style="text-align:center;margin-top:1rem;font-style:italic;">"Yesterday I read a book at the library."</p>
             </div>
 
         </div>
 
-        <div id="verbs" class="tab-content">
-            
-            <!-- Sub-Navigation for Verbs -->
-            <div class="inner-nav" style="display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px;">
-                <button class="inner-tab-btn active" onclick="openSubTab(event, 'verb-uses')">Uses & Cases</button>
-                <button class="inner-tab-btn" onclick="openSubTab(event, 'verb-masu')">~masu Form</button>
-                <button class="inner-tab-btn" onclick="openSubTab(event, 'verb-te')">~te Form</button>
-                <button class="inner-tab-btn" onclick="openSubTab(event, 'verb-dict')">Dictionary Form</button>
-                <button class="inner-tab-btn" onclick="openSubTab(event, 'verb-list')">Verb Dictionary</button>
-            </div>
+        <!-- ── Verbs tab ────────────────────────────────────────────── -->
+        <div id="verbs" class="tab-content"></div>
 
-            <div id="verb-uses" class="inner-tab-content" style="display: block;">
-                <div class="card">
-                    <h3 class="card-title cyan">When to use which form?</h3>
-                    
-                    <div class="grid-2">
-                        <div class="info-box blue" style="margin: 0;">
-                            <p class="accent-text">~ます (Masu Form)</p>
-                            <p class="vocab-en text-xs mt-1"><b>Use case:</b> Polite, everyday conversation. You use this with teachers, strangers, and coworkers.</p>
-                            <p class="vocab-en text-xs mt-1"><i>Example: たべます (I eat / I will eat)</i></p>
-                        </div>
-                        <div class="info-box green" style="margin: 0;">
-                            <p class="accent-text">Dictionary Form</p>
-                            <p class="vocab-en text-xs mt-1"><b>Use case:</b> Casual conversation (with friends), finding words in the dictionary, and as a base for advanced grammar.</p>
-                            <p class="vocab-en text-xs mt-1"><i>Example: たべる (I eat / I will eat)</i></p>
-                        </div>
-                        <div class="info-box gold" style="margin: 0;">
-                            <p class="accent-text">~て (Te Form)</p>
-                            <p class="vocab-en text-xs mt-1"><b>Use case:</b> The "glue" form. Used to connect actions, ask for favors (~てください), or express ongoing actions (~ています).</p>
-                            <p class="vocab-en text-xs mt-1"><i>Example: たべて (Eat and...)</i></p>
-                        </div>
-                        <div class="info-box red" style="margin: 0;">
-                            <p class="accent-text">~ない (Nai Form)</p>
-                            <p class="vocab-en text-xs mt-1"><b>Use case:</b> The casual negative. Used with friends to say you won't do something, or with ~でください to say "Please don't".</p>
-                            <p class="vocab-en text-xs mt-1"><i>Example: たべない (I don't eat)</i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- ── Adjectives tab ──────────────────────────────────────── -->
+        <div id="adjectives" class="tab-content"></div>
 
-            <div id="verb-masu" class="inner-tab-content" style="display: none;">
-                
-                <!-- Basic Tenses -->
-                <div class="card">
-                    <h3 class="card-title gold">Verb Tense Reference (Formal ~masu)</h3>
-                    <div class="grid-4">
-                        <div class="info-box green" style="margin:0;"><p class="accent-text">Present (+)</p><p class="vocab-jp text-lg">~ます</p><p class="vocab-en text-xs mt-1">たべます (Eat)</p></div>
-                        <div class="info-box red" style="margin:0;"><p class="accent-text">Present (-)</p><p class="vocab-jp text-lg">~ません</p><p class="vocab-en text-xs mt-1">たべません (Don't eat)</p></div>
-                        <div class="info-box blue" style="margin:0;"><p class="accent-text">Past (+)</p><p class="vocab-jp text-lg">~ました</p><p class="vocab-en text-xs mt-1">たべました (Ate)</p></div>
-                        <div class="info-box orange" style="margin:0;"><p class="accent-text">Past (-)</p><p class="vocab-jp text-lg">~ませんでした</p><p class="vocab-en text-xs mt-1">たべませんでした</p></div>
-                    </div>
-                    <p class="vocab-en" style="font-size:11px; margin-top:1rem; font-style:italic;">* Note: These endings apply to all Verb Groups in their formal polite form.</p>
-                </div>
+        <!-- ── Adverbs tab ──────────────────────────────────────────── -->
+        <div id="adverbs" class="tab-content"></div>
 
-                <div class="card" style="margin-top: 1.5rem;">
-                    <h3 class="card-title pink">Invitations & Proposals</h3>
-                    <p class="vocab-en" style="margin-bottom: 1rem;">Drop the <b>~ます</b> and add these endings to invite people to do things.</p>
-                    
-                    <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-                        <div class="info-box purple" style="margin: 0;">
-                            <p class="accent-text">Let's...</p>
-                            <p class="vocab-jp text-lg">~ましょう</p>
-                            <p class="vocab-en text-xs mt-1">いきましょう (Let's go)</p>
-                        </div>
-                        <div class="info-box cyan" style="margin: 0;">
-                            <p class="accent-text">Won't you...?</p>
-                            <p class="vocab-jp text-lg">~ませんか</p>
-                            <p class="vocab-en text-xs mt-1">のみませんか (Won't you drink?)</p>
-                        </div>
-                        <div class="info-box gold" style="margin: 0;">
-                            <p class="accent-text">Shall I/we...?</p>
-                            <p class="vocab-jp text-lg">~ましょうか</p>
-                            <p class="vocab-en text-xs mt-1">てつだいましょうか (Shall I help?)</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id="verb-te" class="inner-tab-content" style="display: none;">
-                
-                <div class="card">
-                    <h3 class="card-title pink">Making the ~て (Te) Form from ~ます</h3>
-                    <p class="vocab-en" style="margin-bottom: 1rem;">Drop the <b>~ます</b> and look at the syllable right before it to know which ending to use.</p>
-                    
-                    <div class="vocab-table">
-                        <div class="vocab-header" style="color: #60a5fa;">Group 1: U-Verbs (The Rule-Breakers)</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>い, ち, り</b> (i, chi, ri)</span><span class="vocab-jp">→ <b>って</b> (tte) <i>*かいます → かって</i></span></div>
-                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>み, び, に</b> (mi, bi, ni)</span><span class="vocab-jp">→ <b>んで</b> (nde) <i>*のみます → のんで</i></span></div>
-                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>き</b> (ki)</span><span class="vocab-jp">→ <b>いて</b> (ite) <i>*かきます → かいて</i></span></div>
-                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>ぎ</b> (gi)</span><span class="vocab-jp">→ <b>いで</b> (ide) <i>*およぎます → およいで</i></span></div>
-                            <div class="vocab-item"><span class="vocab-en">Before ~ます is <b>し</b> (shi)</span><span class="vocab-jp">→ <b>して</b> (shite) <i>*はなします → はなして</i></span></div>
-                        </div>
-                        <div class="info-box red" style="margin: 0.5rem; padding: 0.5rem;">
-                            <p class="vocab-en" style="font-size: 12px;"><b>⚠️ The One Exception:</b> いきます (To go) becomes <b>いって</b> (not いいて).</p>
-                        </div>
-                    </div>
-
-                    <div class="vocab-table" style="margin-top: 1rem;">
-                        <div class="vocab-header" style="color: #10b981;">Group 2: Ru-Verbs (The Easy Ones)</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">Just drop ~ます and add <b>て</b></span><span class="vocab-jp">たべます → <b>たべて</b> (tabete)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Just drop ~ます and add <b>て</b></span><span class="vocab-jp">みます → <b>みて</b> (mite)</span></div>
-                        </div>
-                    </div>
-
-                    <div class="vocab-table" style="margin-top: 1rem;">
-                        <div class="vocab-header" style="color: #fb923c;">Group 3: Irregular Verbs</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">To do (します)</span><span class="vocab-jp">→ <b>して</b> (shite)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">To come (きます)</span><span class="vocab-jp">→ <b>きて</b> (kite)</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Advanced ~TE Form Usages (Mega Grid) -->
-                <div class="card" style="margin-top: 1.5rem;">
-                    <h3 class="card-title gold">Why we need it: The ~て Power-Ups</h3>
-                    <p class="vocab-en" style="margin-bottom: 1rem;">The ~て form is "glue." You attach these helper words to it to create advanced grammar.</p>
-                    
-                    <div class="grid-2">
-                        <!-- Ongoing State / Action -->
-                        <div class="info-box blue" style="margin: 0;">
-                            <p class="accent-text">~ている (Ongoing Action / State)</p>
-                            <p class="vocab-en text-xs mt-1">1. Currently doing it. <br>2. A state resulting from a past action (e.g., being married).</p>
-                            <p class="vocab-jp text-sm mt-1">たべて います</p>
-                            <p class="vocab-en text-xs"><i>(I am eating right now)</i></p>
-                        </div>
-                        
-                        <!-- Intentional State -->
-                        <div class="info-box green" style="margin: 0;">
-                            <p class="accent-text">~てある (Intentional State)</p>
-                            <p class="vocab-en text-xs mt-1">Shows a state that exists because <b>someone intentionally did it</b> in the past (e.g., the window has been opened).</p>
-                            <p class="vocab-jp text-sm mt-1">かいて あります</p>
-                            <p class="vocab-en text-xs"><i>(It has been written [by someone])</i></p>
-                        </div>
-
-                        <!-- Requests -->
-                        <div class="info-box pink" style="margin: 0;">
-                            <p class="accent-text">~てください (Please do...)</p>
-                            <p class="vocab-en text-xs mt-1">The polite way to ask someone to do something.</p>
-                            <p class="vocab-jp text-sm mt-1">まって ください</p>
-                            <p class="vocab-en text-xs"><i>(Please wait)</i></p>
-                        </div>
-
-                        <!-- Sequence -->
-                        <div class="info-box orange" style="margin: 0;">
-                            <p class="accent-text">~てから (After doing...)</p>
-                            <p class="vocab-en text-xs mt-1">Used to say "Action A happens, <b>and then</b> Action B happens."</p>
-                            <p class="vocab-jp text-sm mt-1">たべて から、ねます</p>
-                            <p class="vocab-en text-xs"><i>(After I eat, I will sleep)</i></p>
-                        </div>
-
-                        <!-- Permission -->
-                        <div class="info-box cyan" style="margin: 0;">
-                            <p class="accent-text">~てもいいです (Permission)</p>
-                            <p class="vocab-en text-xs mt-1">Used to grant permission or ask "Is it okay if I...?"</p>
-                            <p class="vocab-jp text-sm mt-1">みても いいですか？</p>
-                            <p class="vocab-en text-xs"><i>(May I look?)</i></p>
-                        </div>
-
-                        <!-- Prohibition -->
-                        <div class="info-box red" style="margin: 0;">
-                            <p class="accent-text">~てはいけません (Prohibition)</p>
-                            <p class="vocab-en text-xs mt-1">A strong rule or prohibition. "You must not do this."</p>
-                            <p class="vocab-jp text-sm mt-1">のんで は いけません</p>
-                            <p class="vocab-en text-xs"><i>(You must not drink)</i></p>
-                        </div>
-
-                        <!-- Regret / Completion -->
-                        <div class="info-box purple" style="margin: 0; grid-column: 1 / -1;">
-                            <p class="accent-text">~てしまう / ~てしまいます (Oops / Finished)</p>
-                            <p class="vocab-en text-xs mt-1">Shows that you finished something completely, OR that you did something by accident and regret it.</p>
-                            <p class="vocab-jp text-sm mt-1">わすれて しまいました</p>
-                            <p class="vocab-en text-xs"><i>(I completely forgot / I accidentally forgot)</i></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="verb-dict" class="inner-tab-content" style="display: none;">
-                <div class="card">
-                    <h3 class="card-title purple">Dictionary Form (Casual Present)</h3>
-                    <p class="vocab-en" style="margin-bottom: 1rem;">This is the "original" form of the verb before you make it polite.</p>
-                    
-                    <div class="grid-2">
-                        <div class="info-box blue" style="margin: 0;">
-                            <p class="accent-text">From ~ます to Dictionary</p>
-                            <p class="vocab-en text-xs mt-1"><b>Group 1:</b> Change the 'i' sound before ~ます to an 'u' sound.</p>
-                            <p class="vocab-en text-xs mt-1"><i>のみます → のむ (nomu)</i></p>
-                            <p class="vocab-en text-xs mt-1"><i>かきます → かく (kaku)</i></p>
-                        </div>
-                        <div class="info-box green" style="margin: 0;">
-                            <p class="accent-text">From ~ます to Dictionary</p>
-                            <p class="vocab-en text-xs mt-1"><b>Group 2:</b> Drop ~ます and add る (ru).</p>
-                            <p class="vocab-en text-xs mt-1"><i>たべます → たべる (taberu)</i></p>
-                            <p class="vocab-en text-xs mt-1"><i>みます → みる (miru)</i></p>
-                        </div>
-                    </div>
-
-                    <div class="vocab-table" style="margin-top: 1rem;">
-                        <div class="vocab-header" style="color: #fb923c;">Irregulars</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">します (To do)</span><span class="vocab-jp">→ <b>する</b> (suru)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">きます (To come)</span><span class="vocab-jp">→ <b>くる</b> (kuru)</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. VERB DICTIONARY (Existing List) -->
-            <div id="verb-list" class="inner-tab-content" style="display: none;">
-                <h3 class="card-title" style="margin-top: 1rem;">Full Verb List</h3>
-                <div class="grid-2">
-                    <div class="vocab-table"><div class="vocab-header" style="color: #60a5fa;">Movement & Transport</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To go</span><span class="vocab-jp">いきます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To come</span><span class="vocab-jp">きます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To return home</span><span class="vocab-jp">かえります</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To walk</span><span class="vocab-jp">あるきます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To run</span><span class="vocab-jp">はしります</span></div>
-                    </div></div>
-
-                    <div class="vocab-table"><div class="vocab-header" style="color: #fb923c;">Giving & Receiving</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To give</span><span class="vocab-jp">あげます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To receive</span><span class="vocab-jp">もらいます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To lend</span><span class="vocab-jp">かします</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To borrow</span><span class="vocab-jp">かります</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To teach</span><span class="vocab-jp">おしえます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To learn</span><span class="vocab-jp">ならいます</span></div>
-                    </div></div>
-
-                    <div class="vocab-table"><div class="vocab-header" style="color: #10b981;">Daily Life</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To wake up</span><span class="vocab-jp">おきます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To sleep</span><span class="vocab-jp">ねます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To work</span><span class="vocab-jp">はたらきます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To study</span><span class="vocab-jp">べんきょうします</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To take a break</span><span class="vocab-jp">やすみます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To end/finish</span><span class="vocab-jp">おわります</span></div>
-                    </div></div>
-
-                    <div class="vocab-table"><div class="vocab-header" style="color: #c084fc;">Activities</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To eat</span><span class="vocab-jp">たべます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To drink</span><span class="vocab-jp">のみます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To see/watch</span><span class="vocab-jp">みます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To listen/hear</span><span class="vocab-jp">ききます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To read</span><span class="vocab-jp">よみます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To write</span><span class="vocab-jp">かきます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To buy</span><span class="vocab-jp">かいます</span></div>
-                    </div></div>
-
-                    <div class="vocab-table"><div class="vocab-header" style="color: #f472b6;">Social</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To meet</span><span class="vocab-jp">あいます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To speak</span><span class="vocab-jp">はなします</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To call</span><span class="vocab-jp">かけます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To take (photo)</span><span class="vocab-jp">とります</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To send</span><span class="vocab-jp">おくります</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To understand</span><span class="vocab-jp">わかります</span></div>
-                    </div></div>
-
-                    <div class="vocab-table"><div class="vocab-header" style="color: #94a3b8;">Existence</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To exist (thing)</span><span class="vocab-jp">あります</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To exist (person)</span><span class="vocab-jp">います</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To have/possess</span><span class="vocab-jp">あります</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To take (time/money)</span><span class="vocab-jp">かかります</span></div>
-                    </div></div>
-
-                    <div class="vocab-table"><div class="vocab-header" style="color: #f87171;">Kitchen & Cooking</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To cook</span><span class="vocab-jp">りょうりします</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To cut</span><span class="vocab-jp">きります</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To boil</span><span class="vocab-jp">わかします</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To fry</span><span class="vocab-jp">あげます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To bake/grill</span><span class="vocab-jp">やきます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To stir/mix</span><span class="vocab-jp">まぜます</span></div>
-                    </div></div>
-
-                    <div class="vocab-table"><div class="vocab-header" style="color: #818cf8;">Household</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To wash</span><span class="vocab-jp">あらいます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To clean</span><span class="vocab-jp">そうじします</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To dry</span><span class="vocab-jp">かわかします</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To fold</span><span class="vocab-jp">たたみます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To fix</span><span class="vocab-jp">なおします</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To throw away</span><span class="vocab-jp">すてます</span></div>
-                    </div></div>
-
-                    <div class="vocab-table"><div class="vocab-header" style="color: #2dd4bf;">Mental States</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">To hurt/ache</span><span class="vocab-jp">いたみます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To feel</span><span class="vocab-jp">かんじます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To think</span><span class="vocab-jp">おもいます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To remember</span><span class="vocab-jp">おぼえます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To forget</span><span class="vocab-jp">わすれます</span></div>
-                        <div class="vocab-item"><span class="vocab-en">To relax</span><span class="vocab-jp">りらっくすします</span></div>
-                    </div></div>
-                </div>
-            </div>   
-        </div>
-
-        <div id="adjectives" class="tab-content">
-            <div class="card">
-                <div class="card-title cyan">
-                    <span class="jp-font">の</span> Possessive Pronouns
-                </div>
-                
-                <div class="info-box" style="border-left-color: #22d3ee; background: rgba(34, 211, 238, 0.05); margin-bottom: 1.5rem;">
-                    <div class="accent-text" style="color: #22d3ee;">The Rule</div>
-                    To say "Mine," "Yours," or "His," just add <strong>の (no)</strong> to any person. It never changes, no matter what object follows it!
-                </div>
-
-                <div class="grid-2">
-                    <!-- Singular Section -->
-                    <div class="vocab-table">
-                        <div class="vocab-header">Singular (One Person)</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item">
-                                <span class="vocab-en">My / Mine</span>
-                                <span class="vocab-jp">私の <small>(Watashi no)</small></span>
-                            </div>
-                            <div class="vocab-item">
-                                <span class="vocab-en">Your / Yours</span>
-                                <span class="vocab-jp">あなたの <small>(Anata no)</small></span>
-                            </div>
-                            <div class="vocab-item">
-                                <span class="vocab-en">His</span>
-                                <span class="vocab-jp">彼の <small>(Kare no)</small></span>
-                            </div>
-                            <div class="vocab-item">
-                                <span class="vocab-en">Her / Hers</span>
-                                <span class="vocab-jp">彼女の <small>(Kanojo no)</small></span>
-                            </div>
-                            <div class="vocab-item">
-                                <span class="vocab-en">Its</span>
-                                <span class="vocab-jp">それの / その <small>(Sore no / Sono)</small></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Plural Section -->
-                    <div class="vocab-table">
-                        <div class="vocab-header">Plural (Multiple People)</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item">
-                                <span class="vocab-en">Our / Ours</span>
-                                <span class="vocab-jp">私たちの <small>(Watashitachi no)</small></span>
-                            </div>
-                            <div class="vocab-item">
-                                <span class="vocab-en">Your (plural)</span>
-                                <span class="vocab-jp">あなたたちの <small>(Anatatachi no)</small></span>
-                            </div>
-                            <div class="vocab-item">
-                                <span class="vocab-en">Their (General/Male)</span>
-                                <span class="vocab-jp">彼らの <small>(Karera no)</small></span>
-                            </div>
-                            <div class="vocab-item">
-                                <span class="vocab-en">Their (Female)</span>
-                                <span class="vocab-jp">彼女らの <small>(Kanojora no)</small></span>
-                            </div>
-                            <div class="vocab-item">
-                                <span class="vocab-en">Who's?</span>
-                                <span class="vocab-jp">だれの？ <small>(Dare no?)</small></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-box gold" style="margin-top: 1rem;">
-                    <strong>Quick Tip:</strong> In Japanese, if it's already obvious who you're talking about, they often leave the possessive out entirely to keep it "clean." 
-                </div>
-            </div>
-            
-            <div class="grid-2" style="margin-bottom: 1.5rem;">
-                <!-- Modifying Nouns Section -->
-                <div class="info-box gold" style="margin: 0;">
-                    <p class="accent-text">Modifying Nouns</p>
-                    <p class="vocab-en" style="font-size: 13px;">
-                        <span style="color:#60a5fa;">I-Adjectives:</span> Attach directly BEFORE the noun. 
-                        <br><i>(あたらしい くるま)</i>
-                    </p>
-                    <p class="vocab-en" style="font-size: 13px; margin-top: 0.5rem;">
-                        <span style="color:#10b981;">Na-Adjectives:</span> Add <b>な (na)</b> before the noun. 
-                        <br><i>(しずかな へや)</i>
-                    </p>
-                </div>
-
-                <!-- Negative Form Section -->
-                <div class="info-box red" style="margin: 0;">
-                    <p class="accent-text">Negative Form (Present)</p>
-                    <p class="vocab-en" style="font-size: 13px;">
-                        <b>I-Adjectives:</b> Drop い (i) add <b>くない (kunai)</b>. 
-                        <br><i>(たかくない)</i>
-                    </p>
-                    <p class="vocab-en" style="font-size: 13px; margin-top: 0.5rem;">
-                        <b>Na-Adjectives:</b> Drop な (na) add <b>じゃない (janai)</b>. 
-                        <br><i>(げんき じゃない)</i>
-                    </p>
-                </div>
-            </div>
-
-            <div class="grid-2" style="margin-bottom: 1.5rem;">
-                <div class="vocab-table"><div class="vocab-header">Colors (色 - Iro)</div><div class="vocab-items">
-                    <div class="vocab-item" style="border-bottom:none;"><span class="accent-text" style="color:#60a5fa;">I-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">White</span><span class="vocab-jp">しろい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Black</span><span class="vocab-jp">くろい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Red</span><span class="vocab-jp" style="color:#ef4444;">あかい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Blue</span><span class="vocab-jp" style="color:#3b82f6;">あおい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Yellow</span><span class="vocab-jp" style="color:#facc15;">きいろい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Brown</span><span class="vocab-jp" style="color:#b45309;">ちゃいろい</span></div>
-                    <div class="vocab-item" style="border-bottom:none; margin-top:0.5rem;"><span class="accent-text" style="color:#10b981;">Nouns (takes の)</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Green</span><span class="vocab-jp" style="color:#10b981;">みどり</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Purple</span><span class="vocab-jp" style="color:#a855f7;">むらさき</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Pink</span><span class="vocab-jp" style="color:#ec4899;">ピンク</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Gray</span><span class="vocab-jp" style="color:#94a3b8;">はいいろ</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header">Appearance & Size</div><div class="vocab-items">
-                    <div class="vocab-item" style="border-bottom:none;"><span class="accent-text" style="color:#60a5fa;">I-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Big / Large</span><span class="vocab-jp">おおきい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Small</span><span class="vocab-jp">ちいさい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Tall / High</span><span class="vocab-jp">たかい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Short (stature)</span><span class="vocab-jp">ひくい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Long</span><span class="vocab-jp">ながい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Short (length)</span><span class="vocab-jp">みじかい</span></div>
-                    <div class="vocab-item" style="border-bottom:none; margin-top:0.5rem;"><span class="accent-text" style="color:#10b981;">Na-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Beautiful / Clean</span><span class="vocab-jp">きれい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Handsome</span><span class="vocab-jp">ハンサム</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Quiet</span><span class="vocab-jp">しずか</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header">Personality</div><div class="vocab-items">
-                    <div class="vocab-item" style="border-bottom:none;"><span class="accent-text" style="color:#60a5fa;">I-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Gentle</span><span class="vocab-jp">やさしい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Funny</span><span class="vocab-jp">おもしろい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Strict</span><span class="vocab-jp">きびしい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Smart</span><span class="vocab-jp">あたまがいい</span></div>
-                    <div class="vocab-item" style="border-bottom:none; margin-top:0.5rem;"><span class="accent-text" style="color:#10b981;">Na-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Kind</span><span class="vocab-jp">しんせつ</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Serious</span><span class="vocab-jp">まじめ</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Energetic</span><span class="vocab-jp">げんき</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Skillful</span><span class="vocab-jp">じょうず</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header">Feelings</div><div class="vocab-items">
-                    <div class="vocab-item" style="border-bottom:none;"><span class="accent-text" style="color:#60a5fa;">I-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Happy</span><span class="vocab-jp">うれしい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Sad</span><span class="vocab-jp">かなしい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Lonely</span><span class="vocab-jp">さびしい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Scary</span><span class="vocab-jp">こわい</span></div>
-                    <div class="vocab-item" style="border-bottom:none; margin-top:0.5rem;"><span class="accent-text" style="color:#10b981;">Na-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To Like</span><span class="vocab-jp">すき</span></div>
-                    <div class="vocab-item"><span class="vocab-en">To Hate</span><span class="vocab-jp">きらい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Important</span><span class="vocab-jp">たいせつ</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Tough</span><span class="vocab-jp">たいへん</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header">Everyday Objects</div><div class="vocab-items">
-                    <div class="vocab-item" style="border-bottom:none;"><span class="accent-text" style="color:#60a5fa;">I-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Hot (object)</span><span class="vocab-jp">あつい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Cold (touch)</span><span class="vocab-jp">つめたい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">New</span><span class="vocab-jp">あたらしい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Old</span><span class="vocab-jp">ふるい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Expensive</span><span class="vocab-jp">たかい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Cheap</span><span class="vocab-jp">やすい</span></div>
-                    <div class="vocab-item" style="border-bottom:none; margin-top:0.5rem;"><span class="accent-text" style="color:#10b981;">Na-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Convenient</span><span class="vocab-jp">べんり</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Inconvenient</span><span class="vocab-jp">ふべん</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Easy</span><span class="vocab-jp">かんたん</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header">Sense & Taste</div><div class="vocab-items">
-                    <div class="vocab-item" style="border-bottom:none;"><span class="accent-text" style="color:#60a5fa;">I-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Delicious</span><span class="vocab-jp">おいしい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Disgusting</span><span class="vocab-jp">まずい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Sweet</span><span class="vocab-jp">あまい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Spicy</span><span class="vocab-jp">からい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Bitter</span><span class="vocab-jp">にがい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Sour</span><span class="vocab-jp">すっぱい</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header">Dimensions & Weather</div><div class="vocab-items">
-                    <div class="vocab-item" style="border-bottom:none;"><span class="accent-text" style="color:#60a5fa;">I-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Fast / Early</span><span class="vocab-jp">はやい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Slow / Late</span><span class="vocab-jp">おそい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Heavy</span><span class="vocab-jp">おもい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Light</span><span class="vocab-jp">かるい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Warm</span><span class="vocab-jp">あたたかい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Cool</span><span class="vocab-jp">すずしい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Painful</span><span class="vocab-jp">いたい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Good</span><span class="vocab-jp">いい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Bad</span><span class="vocab-jp">わるい</span></div>
-                </div></div>
-
-                <div class="vocab-table"><div class="vocab-header">Social Situation</div><div class="vocab-items">
-                    <div class="vocab-item" style="border-bottom:none;"><span class="accent-text" style="color:#60a5fa;">I-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Busy</span><span class="vocab-jp">いそがしい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Dangerous</span><span class="vocab-jp">あぶない</span></div>
-                    <div class="vocab-item" style="border-bottom:none; margin-top:0.5rem;"><span class="accent-text" style="color:#10b981;">Na-Adjectives</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Free (time)</span><span class="vocab-jp">ひま</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Famous</span><span class="vocab-jp">ゆうめい</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Safe</span><span class="vocab-jp">あんぜん</span></div>
-                    <div class="vocab-item"><span class="vocab-en">Polite</span><span class="vocab-jp">ていねい</span></div>
-                </div></div>
-            </div>
-        </div>
-
-        <div id="adverbs" class="tab-content">
-            <div class="grid-2">
-                <div class="card">
-                    <h3 class="card-title green">Frequency (Used with ~ます)</h3>
-                    <div class="grid-2" style="gap: 1rem;">
-                        <div class="info-box green" style="margin: 0;"><p class="accent-text">Always</p><p class="vocab-jp text-lg">いつも</p></div>
-                        <div class="info-box green" style="margin: 0;"><p class="accent-text">Often / Well</p><p class="vocab-jp text-lg">よく</p></div>
-                        <div class="info-box green" style="margin: 0;"><p class="accent-text">Sometimes</p><p class="vocab-jp text-lg">ときどき</p></div>
-                        <div class="info-box green" style="margin: 0;"><p class="accent-text">Already</p><p class="vocab-jp text-lg">もう</p></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3 class="card-title red">Frequency (Used with ~ません)</h3>
-                    <div class="grid-2" style="gap: 1rem;">
-                        <div class="info-box red" style="margin: 0;"><p class="accent-text">Not much</p><p class="vocab-jp text-lg">あまり</p></div>
-                        <div class="info-box red" style="margin: 0;"><p class="accent-text">Never</p><p class="vocab-jp text-lg">ぜんぜん</p></div>
-                        <div class="info-box red" style="margin: 0;"><p class="accent-text">Not yet</p><p class="vocab-jp text-lg">まだ</p></div>
-                        <div class="info-box red" style="margin: 0; background:transparent; border:none; display:flex; align-items:center;"><p class="vocab-en" style="font-size:11px; font-style:italic;">*Always requires negative verb ending</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="card-title blue">Location Prepositions (位置)</h3>
-                <div class="grid-2">
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Above</p><p class="vocab-jp">うえ</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Under</p><p class="vocab-jp">した</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Front</p><p class="vocab-jp">まえ</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Behind</p><p class="vocab-jp">うしろ</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Right</p><p class="vocab-jp">みぎ</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Left</p><p class="vocab-jp">ひだり</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Inside</p><p class="vocab-jp">なか</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Outside</p><p class="vocab-jp">そと</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Next to</p><p class="vocab-jp">となり</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Beside</p><p class="vocab-jp">よこ</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Nearby</p><p class="vocab-jp">ちかく</p></div>
-                    <div class="info-box" style="margin:0;"><p class="accent-text">Between</p><p class="vocab-jp">あいだ</p></div>
-                </div>
-            </div>
-        </div>
-
+        <!-- ── Vocabulary tab ──────────────────────────────────────── -->
         <div id="vocabulary" class="tab-content">
             <div class="vocab-menu">
-                <button class="vocab-btn blue" onclick="showVocabCategory('jp-numbers')"><span class="icon">🔢</span> Numbers</button>
-                <button class="vocab-btn indigo" onclick="showVocabCategory('jp-time')"><span class="icon">⏰</span> Time & Weather</button>
-                <button class="vocab-btn emerald" onclick="showVocabCategory('jp-travel')"><span class="icon">✈️</span> Travel</button>
-                <button class="vocab-btn green" onclick="showVocabCategory('jp-places')"><span class="icon">🏙️</span> Places</button>
-                <button class="vocab-btn pink" onclick="showVocabCategory('jp-house')"><span class="icon">🏠</span> House</button>
-                <button class="vocab-btn purple" onclick="showVocabCategory('jp-school')"><span class="icon">📚</span> School & Work</button>
-                <button class="vocab-btn yellow" onclick="showVocabCategory('jp-family')"><span class="icon">👨‍👩‍👧</span> Family</button>
-                <button class="vocab-btn cyan" onclick="showVocabCategory('jp-professions')"><span class="icon">💼</span> Professions</button>
-                <button class="vocab-btn red" onclick="showVocabCategory('jp-body')"><span class="icon">👤</span> Body Parts</button>
-                <button class="vocab-btn orange" onclick="showVocabCategory('jp-clothing')"><span class="icon">👕</span> Clothing</button>
-                <button class="vocab-btn orange" onclick="showVocabCategory('jp-hobbies')"><span class="icon">🎨</span> Hobbies</button>
+                <!-- Populated by japanese.js -->
             </div>
 
-            <!-- Mobile-only: compact "← Topics / Active category" bar (shown after a button is clicked) -->
             <div id="vocab-picker-bar" class="vocab-picker-bar" style="display:none;">
                 <button class="vocab-back-btn" onclick="showVocabMenu()">← Topics</button>
                 <span class="vocab-picker-label"></span>
             </div>
 
-            <div id="vocab-tables">
-                
-                <div id="jp-numbers" class="vocab-category" style="display: none;">
-                    <div class="card" style="grid-column: 1 / -1;">
-                        <h3 class="card-title blue">Number Scale (Big to Small)</h3>
-                        <p class="vocab-en" style="font-size: 12px; margin-bottom: 1rem; font-style: italic;">Note: Japanese groups numbers by 4 zeros (Man), not 3!</p>
-                        <div class="grid-5" style="gap: 1rem;">
-                            <div class="info-box blue" style="margin:0; text-align:center;"><p class="accent-text">100,000,000</p><p class="vocab-jp text-2xl">億</p><p class="vocab-en text-xs">Oku</p></div>
-                            <div class="info-box blue" style="margin:0; text-align:center;"><p class="accent-text">10,000</p><p class="vocab-jp text-2xl">万</p><p class="vocab-en text-xs">Man</p></div>
-                            <div class="info-box blue" style="margin:0; text-align:center;"><p class="accent-text">1,000</p><p class="vocab-jp text-2xl">千</p><p class="vocab-en text-xs">Sen</p></div>
-                            <div class="info-box blue" style="margin:0; text-align:center;"><p class="accent-text">100</p><p class="vocab-jp text-2xl">百</p><p class="vocab-en text-xs">Hyaku</p></div>
-                            <div class="info-box blue" style="margin:0; text-align:center;"><p class="accent-text">10</p><p class="vocab-jp text-2xl">十</p><p class="vocab-en text-xs">Juu</p></div>
-                        </div>
-                    </div>
-                    <div class="vocab-items" style="color: #3b82f6;">Basics (1-10)</div>
-                    <div class="grid-2 vocab-table">
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">1</span><span class="vocab-jp">いち</span></div>
-                            <div class="vocab-item"><span class="vocab-en">2</span><span class="vocab-jp">に</span></div>
-                            <div class="vocab-item"><span class="vocab-en">3</span><span class="vocab-jp">さん</span></div>
-                            <div class="vocab-item"><span class="vocab-en">4</span><span class="vocab-jp">よん/し</span></div>
-                            <div class="vocab-item"><span class="vocab-en">5</span><span class="vocab-jp">ご</span></div>
-                            <div class="vocab-item"><span class="vocab-en">6</span><span class="vocab-jp">ろく</span></div>
-                            <div class="vocab-item"><span class="vocab-en">7</span><span class="vocab-jp">なな/しち</span></div>
-                            <div class="vocab-item"><span class="vocab-en">8</span><span class="vocab-jp">はち</span></div>
-                            <div class="vocab-item"><span class="vocab-en">9</span><span class="vocab-jp">きゅう/く</span></div>
-                            <div class="vocab-item"><span class="vocab-en">10</span><span class="vocab-jp">じゅう</span></div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title red">Irregular Sounds!</h3>
-                            <div class="info-box red" style="margin:0; margin-bottom:1rem;"><p class="accent-text">Tricky 100s (Hyaku)</p>
-                                <p class="vocab-en text-sm mt-1">300: <span class="vocab-jp text-white">さんびゃく</span> | 600: <span class="vocab-jp text-white">ろっぴゃく</span> | 800: <span class="vocab-jp text-white">はっぴゃく</span></p>
-                            </div>
-                            <div class="info-box gold" style="margin:0;"><p class="accent-text">Tricky 1000s (Sen)</p>
-                                <p class="vocab-en text-sm mt-1">3000: <span class="vocab-jp text-white">さんぜん</span> | 8000: <span class="vocab-jp text-white">はっせん</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="jp-time" class="grid-3 vocab-category" style="display: none;">
-                    <div class="vocab-table"><div class="vocab-header">Days of Week</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Monday</span><span class="vocab-jp">げつようび</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Tuesday</span><span class="vocab-jp">かようび</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Wednesday</span><span class="vocab-jp">すいようび</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Thursday</span><span class="vocab-jp">もくようび</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Friday</span><span class="vocab-jp">きんようび</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Saturday</span><span class="vocab-jp">どようび</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Sunday</span><span class="vocab-jp">にちようび</span></div>
-                    </div></div>
-                    <div class="vocab-table"><div class="vocab-header">Months (月)</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">January</span><span class="vocab-jp">いちがつ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">February</span><span class="vocab-jp">にがつ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">March</span><span class="vocab-jp">さんがつ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">April</span><span class="vocab-jp">しがつ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">July</span><span class="vocab-jp">しちがつ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">September</span><span class="vocab-jp">くがつ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">December</span><span class="vocab-jp">じゅうにがつ</span></div>
-                    </div></div>
-                    <div class="vocab-table"><div class="vocab-header">Days of Month (日)</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">1st</span><span class="vocab-jp">ついたち</span></div>
-                        <div class="vocab-item"><span class="vocab-en">2nd</span><span class="vocab-jp">ふつか</span></div>
-                        <div class="vocab-item"><span class="vocab-en">3rd</span><span class="vocab-jp">みっか</span></div>
-                        <div class="vocab-item"><span class="vocab-en">4th</span><span class="vocab-jp">よっか</span></div>
-                        <div class="vocab-item"><span class="vocab-en">10th</span><span class="vocab-jp">とおか</span></div>
-                        <div class="vocab-item"><span class="vocab-en">20th</span><span class="vocab-jp">はつか</span></div>
-                    </div></div>
-                    <div class="vocab-table"><div class="vocab-header">Time Expressions</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Today</span><span class="vocab-jp" style="color:#60a5fa;">きょう</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Yesterday</span><span class="vocab-jp">きのう</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Tomorrow</span><span class="vocab-jp">あした</span></div>
-                        <div class="vocab-item"><span class="vocab-en">This week</span><span class="vocab-jp" style="color:#60a5fa;">こんしゅう</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Last week</span><span class="vocab-jp">せんしゅう</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Next week</span><span class="vocab-jp">らいしゅう</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Every day</span><span class="vocab-jp">まいにち</span></div>
-                    </div></div>
-                    <div class="vocab-table"><div class="vocab-header">Weather</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Sunny</span><span class="vocab-jp" style="color:#facc15;">はれ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Cloudy</span><span class="vocab-jp" style="color:#94a3b8;">くもり</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Rainy</span><span class="vocab-jp" style="color:#3b82f6;">あめ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Snowy</span><span class="vocab-jp" style="color:#bae6fd;">ゆき</span></div>
-                    </div></div>
-                </div>
-
-                <div id="jp-travel" class="vocab-category" style="display: none;">
-                    <div class="card" style="grid-column: 1 / -1;">
-                        <h3 class="card-title indigo">Nationalities & Languages</h3>
-                        <p class="vocab-en" style="font-size: 13px;">Add <b class="vocab-jp text-white">人 (jin)</b> to country for nationality. Add <b class="vocab-jp text-white">語 (go)</b> for language.</p>
-                        <div class="grid-2" style="margin-top: 1rem;">
-                            <div class="info-box indigo" style="margin:0;"><p class="accent-text">Japan</p><p class="vocab-jp">日本人 / 日本語</p></div>
-                            <div class="info-box indigo" style="margin:0;"><p class="accent-text">France</p><p class="vocab-jp">フランス人 / 語</p></div>
-                            <div class="info-box indigo" style="margin:0;"><p class="accent-text">USA (English)</p><p class="vocab-jp">アメリカ人 / 英語</p></div>
-                            <div class="info-box indigo" style="margin:0;"><p class="accent-text">Spain</p><p class="vocab-jp">スペイン人 / 語</p></div>
-                            <div class="info-box indigo" style="margin:0;"><p class="accent-text">China</p><p class="vocab-jp">中国人 / 中国語</p></div>
-                            <div class="info-box indigo" style="margin:0;"><p class="accent-text">Mexico</p><p class="vocab-jp">メキシコ人</p></div>
-                        </div>
-                    </div>
-                    <div class="grid-3">
-                        <div class="vocab-table"><div class="vocab-header">Directions</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">North</span><span class="vocab-jp">きた</span></div>
-                                <div class="vocab-item"><span class="vocab-en">South</span><span class="vocab-jp">みなみ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">East</span><span class="vocab-jp">ひがし</span></div>
-                                <div class="vocab-item"><span class="vocab-en">West</span><span class="vocab-jp">にし</span></div>
-                            </div>
-                        </div>
-                        <div class="vocab-table"><div class="vocab-header">Travel Essentials</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">Passport</span><span class="vocab-jp">パスポート</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Airport</span><span class="vocab-jp">くうこう</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Hotel</span><span class="vocab-jp">ホテル</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Map</span><span class="vocab-jp">ちず</span></div>
-                            <div class="vocab-item"><span class="vocab-en">To Travel</span><span class="vocab-jp">りょこうします</span></div>
-                            <div class="vocab-item"><span class="vocab-en">To Reserve</span><span class="vocab-jp">よやくします</span></div>
-                        </div>
-                        </div>
-                        <div class="vocab-table"><div class="vocab-header">Transportation (のりもの)</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">Train</span><span class="vocab-jp">でんしゃ</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Subway</span><span class="vocab-jp">ちかてつ</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Bullet Train</span><span class="vocab-jp">しんかんせん</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Bus / Taxi</span><span class="vocab-jp">バス / タクシー</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Bicycle</span><span class="vocab-jp">じてんしゃ</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Car</span><span class="vocab-jp">くるま</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Airplane</span><span class="vocab-jp">ひこうき</span></div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="jp-places" class="vocab-category" style="display: none;">
-                    <div class="vocab-table" style="margin-bottom: 1.5rem; border-left-color: #ec4899;">
-                        <div class="vocab-header" style="color: #ec4899;">Essential Services</div>
-                        <div class="vocab-items" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0 20px;">
-                            <div class="vocab-item"><span class="vocab-en">Post Office</span><span class="vocab-fr jp-font">ゆうびんきょく</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Bank</span><span class="vocab-fr jp-font">ぎんこう</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Hospital</span><span class="vocab-fr jp-font">びょういん</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Police Box</span><span class="vocab-fr jp-font">こうばん</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Police Station</span><span class="vocab-fr jp-font">けいさつしょ</span></div>
-                            <div class="vocab-item"><span class="vocab-en">City Hall</span><span class="vocab-fr jp-font">しやくしょ</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Station</span><span class="vocab-fr jp-font">えき</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Ticket</span><span class="vocab-fr jp-font">きっぷ</span></div>
-                        </div>
-                    </div>
-
-                    <div class="vocab-grid grid-3" style="gap: 1.5rem;">
-                        <div class="vocab-table">
-                            <div class="vocab-header" style="color: #eab308;">Shops (屋 - ya)</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">Bakery</span><span class="vocab-fr jp-font">パンや</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Bookstore</span><span class="vocab-fr jp-font">ほんや</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Florist</span><span class="vocab-fr jp-font">はなや</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Butcher</span><span class="vocab-fr jp-font">にくや</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Fishmonger</span><span class="vocab-fr jp-font">さかなや</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Pharmacy</span><span class="vocab-fr jp-font">くすりや / やっきょく</span></div>
-                            </div>
-                        </div>
-
-                        <div class="vocab-table">
-                            <div class="vocab-header" style="color: #22c55e;">Culture & Leisure</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">Library</span><span class="vocab-fr jp-font">としょかん</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Museum</span><span class="vocab-fr jp-font">はくぶつかん</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Art Museum</span><span class="vocab-fr jp-font">びじゅつかん</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Aquarium</span><span class="vocab-fr jp-font">すいぞくかん</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Zoo</span><span class="vocab-fr jp-font">どうぶつえん</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Gymnasium</span><span class="vocab-fr jp-font">たいいくかん</span></div>
-                            </div>
-                        </div>
-
-                        <div class="vocab-table">
-                            <div class="vocab-header" style="color: #3b82f6;">Modern City</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">Convenience Store</span><span class="vocab-fr jp-font">コンビニ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Supermarket</span><span class="vocab-fr jp-font">スーパー</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Dept. Store</span><span class="vocab-fr jp-font">デパート</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Hotel</span><span class="vocab-fr jp-font">ホテル</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Parking Lot</span><span class="vocab-fr jp-font">ちゅうしゃじょう</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Gas Station</span><span class="vocab-fr jp-font">ガソリンスタンド</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Shop / Store</span><span class="vocab-fr jp-font">みせ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Groceries</span><span class="vocab-fr jp-font">かいもの</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="jp-house" class="vocab-category" style="display: none;">
-                    <div class="vocab-grid grid-2" style="gap: 1.5rem;">
-                        
-                        <div class="vocab-table">
-                            <div class="vocab-header" style="color: #f87171;">Kitchen (だいどころ)</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">Refrigerator</span><span class="vocab-fr jp-font">れいぞうこ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Stove</span><span class="vocab-fr jp-font">こんろ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Microwave</span><span class="vocab-fr jp-font">でんしレンジ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Pot</span><span class="vocab-fr jp-font">なべ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Pan</span><span class="vocab-fr jp-font">フライパン</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Knife</span><span class="vocab-fr jp-font">ほうちょう</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Spoon</span><span class="vocab-fr jp-font">スプーン</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Fork</span><span class="vocab-fr jp-font">フォーク</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Plate</span><span class="vocab-fr jp-font">さら / おさら</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Cup/Glass</span><span class="vocab-fr jp-font">コップ / グラス</span></div>
-                            </div>
-                        </div>
-
-                        <div class="vocab-table">
-                            <div class="vocab-header" style="color: #f472b6;">Living Room (いま)</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">Sofa</span><span class="vocab-fr jp-font">ソファ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">TV</span><span class="vocab-fr jp-font">テレビ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Table</span><span class="vocab-fr jp-font">テーブル</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Chair</span><span class="vocab-fr jp-font">いす</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Lamp</span><span class="vocab-fr jp-font">ランプ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Clock</span><span class="vocab-fr jp-font">とけい</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Carpet</span><span class="vocab-fr jp-font">カーペット</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Curtains</span><span class="vocab-fr jp-font">カーテン</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Remote Control</span><span class="vocab-fr jp-font">リモコン</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Bookshelf</span><span class="vocab-fr jp-font">ほんだな</span></div>
-                            </div>
-                        </div>
-
-                        <div class="vocab-table">
-                            <div class="vocab-header" style="color: #c084fc;">Bathroom (おふろば)</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">Bathtub</span><span class="vocab-fr jp-font">おふろ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Shower</span><span class="vocab-fr jp-font">シャワー</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Sink</span><span class="vocab-fr jp-font">せんめんだい</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Toilet</span><span class="vocab-fr jp-font">トイレ / おてあらい</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Towel</span><span class="vocab-fr jp-font">タオル</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Soap</span><span class="vocab-fr jp-font">せっけん</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Shampoo</span><span class="vocab-fr jp-font">シャンプー</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Toothbrush</span><span class="vocab-fr jp-font">はぶらし</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Mirror</span><span class="vocab-fr jp-font">かがみ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Scale</span><span class="vocab-fr jp-font">たいじゅうけい</span></div>
-                            </div>
-                        </div>
-
-                        <div class="vocab-table">
-                            <div class="vocab-header" style="color: #818cf8;">Bedroom (しんしつ)</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">Bed</span><span class="vocab-fr jp-font">ベッド</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Pillow</span><span class="vocab-fr jp-font">まくら</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Blanket</span><span class="vocab-fr jp-font">もうふ / ふとん</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Wardrobe</span><span class="vocab-fr jp-font">たんす / クローゼット</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Desk</span><span class="vocab-fr jp-font">つくえ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Dresser</span><span class="vocab-fr jp-font">ドレッサー</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Nightstand</span><span class="vocab-fr jp-font">ナイトテーブル</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Window</span><span class="vocab-fr jp-font">まど</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Door</span><span class="vocab-fr jp-font">ドア / と</span></div>
-                            </div>
-                        </div>
-
-                        <div class="vocab-table">
-                            <div class="vocab-header" style="color: #fb923c;">Dining Room (しょくどう)</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">Dining Table</span><span class="vocab-fr jp-font">しょくたく</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Chair</span><span class="vocab-fr jp-font">いす</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Plate/Dish</span><span class="vocab-fr jp-font">おさら</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Glass</span><span class="vocab-fr jp-font">グラス</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Cup</span><span class="vocab-fr jp-font">カップ / コップ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Bottle</span><span class="vocab-fr jp-font">びん / ボトル</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Napkin</span><span class="vocab-fr jp-font">ナプキン</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Tablecloth</span><span class="vocab-fr jp-font">テーブルクロス</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Candlestick</span><span class="vocab-fr jp-font">しょくだい</span></div>
-                            </div>
-                        </div>
-
-                        <div class="vocab-table">
-                            <div class="vocab-header" style="color: #60a5fa;">General House (いえのなか)</div>
-                            <div class="vocab-items">
-                                <div class="vocab-item"><span class="vocab-en">Door</span><span class="vocab-fr jp-font">ドア / と</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Window</span><span class="vocab-fr jp-font">まど</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Wall</span><span class="vocab-fr jp-font">かべ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Floor</span><span class="vocab-fr jp-font">ゆか</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Ceiling</span><span class="vocab-fr jp-font">てんじょう</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Staircase</span><span class="vocab-fr jp-font">かいだん</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Hallway</span><span class="vocab-fr jp-font">ろうか</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Picture Frame</span><span class="vocab-fr jp-font">がくぶち</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Key</span><span class="vocab-fr jp-font">かぎ</span></div>
-                                <div class="vocab-item"><span class="vocab-en">Entrance</span><span class="vocab-fr jp-font">げんかん</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="jp-school" class="grid-2 vocab-category" style="display: none;">
-                    <div class="vocab-table"><div class="vocab-header">School (がっこう)</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Student</span><span class="vocab-jp">がくせい</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Teacher</span><span class="vocab-jp">せんせい</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Homework</span><span class="vocab-jp">しゅくだい</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Exam</span><span class="vocab-jp">しけん</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Classroom</span><span class="vocab-jp">きょうしつ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Book / Dictionary</span><span class="vocab-jp">ほん / じしょ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">University</span><span class="vocab-jp">だいがく</span></div>
-                    </div></div>
-                    <div class="vocab-table"><div class="vocab-header">Work (しごと)</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Company</span><span class="vocab-jp">かいしゃ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Meeting</span><span class="vocab-jp">かいぎ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Telephone</span><span class="vocab-jp">でんわ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Computer</span><span class="vocab-jp">パソコン</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Document</span><span class="vocab-jp">しりょう</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Letter</span><span class="vocab-jp">てがみ</span></div>
-                    </div></div>
-                </div>
-
-                <div id="jp-family" class="grid-2 vocab-category" style="display: none;">
-                    <div class="vocab-table"><div class="vocab-header">Family (かぞく)</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Father</span><span class="vocab-jp">おとうさん</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Mother</span><span class="vocab-jp">おかあさん</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Older Brother</span><span class="vocab-jp">おにいさん</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Older Sister</span><span class="vocab-jp">おねえさん</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Younger Brother</span><span class="vocab-jp">おとうと</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Younger Sister</span><span class="vocab-jp">いもうと</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Grandfather</span><span class="vocab-jp">おじいさん</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Grandmother</span><span class="vocab-jp">おばあさん</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Uncle / Aunt</span><span class="vocab-jp">おじさん / おばさん</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Husband / Wife</span><span class="vocab-jp">だんなさん / おくさん</span></div>
-                    </div></div>
-                </div>
-
-                <div id="jp-professions" class="grid-2 vocab-category" style="display: none;">
-                    <div class="vocab-table"><div class="vocab-header">Professions (しごと)</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Teacher</span><span class="vocab-jp">せんせい</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Student</span><span class="vocab-jp">がくせい</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Office Worker</span><span class="vocab-jp">かいしゃいん</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Doctor</span><span class="vocab-jp">いしゃ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Engineer</span><span class="vocab-jp">エンジニア</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Nurse</span><span class="vocab-jp">かんごし</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Police</span><span class="vocab-jp">けいさつ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Chef</span><span class="vocab-jp">りょうりにん</span></div>
-                    </div></div>
-                </div>
-
-                <div id="jp-body" class="grid-2 vocab-category" style="display: none;">
-                    <div class="vocab-table"><div class="vocab-header">Body Parts (からだ)</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Head</span><span class="vocab-jp">あたま</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Face</span><span class="vocab-jp">かお</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Eye / Ear</span><span class="vocab-jp">め / みみ</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Nose / Mouth</span><span class="vocab-jp">はな / くち</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Hand / Arm</span><span class="vocab-jp">て / うで</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Leg / Foot</span><span class="vocab-jp">あし</span></div>
-                    </div></div>
-                    <div class="card">
-                        <h3 class="card-title red">Expressing Pain (いたい)</h3>
-                        <div class="info-box red" style="margin: 0; padding: 0.5rem;">
-                            <p class="vocab-en" style="font-size: 13px;">Structure: <b>[Body Part] + が + いたい</b> (ga itai)</p>
-                            <br>
-                            <p class="vocab-en" style="font-size: 13px;"><b>Headache:</b> あたまがいたい</p>
-                            <p class="vocab-en" style="font-size: 13px;"><b>Stomach ache:</b> おなかがいたい</p>
-                            <p class="vocab-en" style="font-size: 13px;"><b>Sore throat:</b> のどがいたい</p>
-                            <p class="vocab-en" style="font-size: 13px;"><b>Toothache:</b> はがいたい</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="jp-clothing" class="grid-2 vocab-category" style="display: none;">
-                    <div class="vocab-table"><div class="vocab-header">Clothing (いふく)</div><div class="vocab-items">
-                        <div class="vocab-item"><span class="vocab-en">Shirt / Sweater</span><span class="vocab-jp">シャツ / セーター</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Coat / Jacket</span><span class="vocab-jp">コート / ジャケット</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Pants / Skirt</span><span class="vocab-jp">ズボン / スカート</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Shoes / Socks</span><span class="vocab-jp">くつ / くつした</span></div>
-                        <div class="vocab-item"><span class="vocab-en">Hat</span><span class="vocab-jp">ぼうし</span></div>
-                        <div class="info-box blue" style="margin-bottom: 0;">
-                            <p class="accent-text">Verb Tip</p>
-                            <p class="vocab-en" style="font-size: 11px;">Use <b>Kiru</b> for shirts, <b>Haku</b> for pants/shoes, and <b>Kaburu</b> for hats!</p>
-                        </div>
-                    </div></div>
-                </div>
-
-                <div id="jp-hobbies" class="vocab-grid vocab-category grid-2" style="display: none;">
-                    <div class="vocab-table">
-                        <div class="vocab-header" style="color: #f472b6;">Creative (クリエイティブ)</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">Reading</span><span class="vocab-fr jp-font">どくしょ (読書)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Writing</span><span class="vocab-fr jp-font">かくこと (書くこと)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Drawing</span><span class="vocab-fr jp-font">えをかくこと (絵を描くこと)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Painting</span><span class="vocab-fr jp-font">あぶらえ (油絵)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Playing an instrument</span><span class="vocab-fr jp-font">がっきをひくこと</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Singing</span><span class="vocab-fr jp-font">うたうこと (歌うこと)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Photography</span><span class="vocab-fr jp-font">しゃしん (写真)</span></div>
-                        </div>
-                    </div>
-
-                    <div class="vocab-table">
-                        <div class="vocab-header" style="color: #ec4899;">Activities (アクティビティ)</div>
-                        <div class="vocab-items">
-                            <div class="vocab-item"><span class="vocab-en">Swimming</span><span class="vocab-fr jp-font">すいえい (水泳)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Cooking</span><span class="vocab-fr jp-font">りょうり (料理)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Traveling</span><span class="vocab-fr jp-font">りょこう (旅行)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Watching movies</span><span class="vocab-fr jp-font">えいがかんしょう</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Listening to music</span><span class="vocab-fr jp-font">おんがくかんしょう</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Gardening</span><span class="vocab-fr jp-font">えんげい (園芸)</span></div>
-                            <div class="vocab-item"><span class="vocab-en">Video games</span><span class="vocab-fr jp-font">ゲームをすること</span></div>
-                        </div>
-                    </div>
-                </div> 
-                
-            </div>
+            <div id="vocab-tables"></div>
         </div>
 
+        <!-- ── Kanji tab ────────────────────────────────────────────── -->
         <div id="kanji" class="tab-content">
             <div class="kanji-intro">
                 <div>
                     <h2>Kanji Master List</h2>
-                    <p>Lessons 1–15 · 150 characters</p>
+                    <p>Lessons 1–18 · 180 characters · N5–N4</p>
                 </div>
                 <div class="kanji-watermark">漢</div>
             </div>
-
-            <div id="kanji-container"></div>
+            <!-- Lessons injected by japanese.js initKanjiTab() -->
         </div>
 
-        <!-- ==================== PRACTICE TAB ==================== -->
-        <div id="practice" class="tab-content">
+        <!-- ── Search tab ───────────────────────────────────────────── -->
+        <div id="search" class="tab-content"></div>
 
+        <!-- ── Practice tab ─────────────────────────────────────────── -->
+        <div id="practice" class="tab-content">
             <div id="practice-home">
                 <div class="practice-intro">
                     <div class="practice-intro-icon">✏️</div>
@@ -1325,7 +192,6 @@
                 </div>
                 <div id="practice-topic-grid" class="practice-topic-grid"></div>
             </div>
-
             <div id="practice-quiz-view" style="display:none;">
                 <div class="practice-quiz-header">
                     <button class="practice-back-btn" onclick="backToPracticeHome()">← Topics</button>
@@ -1342,7 +208,6 @@
                 </div>
                 <div id="quiz-question-area"></div>
             </div>
-
             <div id="practice-results-view" style="display:none;">
                 <div class="practice-results-card">
                     <div id="results-emoji" class="results-emoji"></div>
@@ -1355,12 +220,12 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
     </main>
 
     <footer>
-        <p>Japanese Study Guide — Study Hub Pro</p>
+        <p>Japanese Study Guide — Study Hub</p>
     </footer>
 </body>
 </html>

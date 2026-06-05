@@ -10,6 +10,7 @@ This repository is designed to organize learning materials, vocabulary, and prac
 
 - French study content and exercises
 - Japanese study content and exercises
+- Data-driven hybrid study guides in `files/`
 - Simple layout for quick access to resources
 
 ## Getting Started
