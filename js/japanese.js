@@ -453,12 +453,18 @@ function buildInfoBoxNode(ib) {
   if (bodyText) {
     const p = document.createElement('p');
     p.style.fontSize = '13px';
-    p.innerHTML = bodyText
-      .replace(/<(?!\/?(?:b|em|i|strong|br)\b)[^>]*>/gi, '')
-      .replace(/javascript:/gi, '');
+    p.innerHTML = sanitizeBasicHTML(bodyText);
     box.appendChild(p);
   }
   return box;
+}
+
+function sanitizeBasicHTML(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/<\s*(\/?\s*)(b|em|i|strong|br)\b[^>]*>/gi, '<$1$2>')
+    .replace(/<(?!\/?(?:b|em|i|strong|br)\b)[^>]*>/gi, '')
+    .replace(/javascript:/gi, '');
 }
 
 function showFatalError(msg) {

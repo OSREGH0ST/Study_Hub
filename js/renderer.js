@@ -300,6 +300,29 @@ function renderCard(section) {
     }
   }
 
+  // frequency_scale inside card
+  if (Array.isArray(section.frequency_scale)) {
+    const labelRow = el('div');
+    labelRow.style.cssText = 'display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase;font-weight:bold;color:#94a3b8;margin-bottom:0.5rem;';
+    append(labelRow, el('span', '', 'Never'), el('span', '', 'Always'));
+    card.appendChild(labelRow);
+
+    const bar = el('div');
+    bar.style.cssText = 'height:0.5rem;background:linear-gradient(to right,#ef4444,#f59e0b,#10b981);border-radius:1rem;margin-bottom:1.5rem;';
+    card.appendChild(bar);
+
+    const grid = el('div', 'grid-4');
+    section.frequency_scale.forEach(item => {
+      const box = el('div', 'info-box');
+      box.style.cssText = 'margin:0;border-left-color:' + (item.color || '#60a5fa');
+      const accent = el('p', 'accent-text', item.en);
+      const fr = el('p', 'vocab-fr', item.fr);
+      append(box, accent, fr);
+      grid.appendChild(box);
+    });
+    card.appendChild(grid);
+  }
+
   // info_box (single, on vocab cards like body parts pain)
   if (section.info_box && !Array.isArray(section.info_box)) {
     card.appendChild(renderRawInfoBox(section.info_box));
@@ -628,8 +651,9 @@ function renderKanaGrid(section, isKatakana) {
 
 function sanitizeBasicHTML(str) {
   if (typeof str !== 'string') return '';
-  // Allow only safe inline tags
+  // Allow only safe inline tags with no attributes.
   return str
+    .replace(/<\s*(\/?\s*)(b|em|i|strong|br)\b[^>]*>/gi, '<$1$2>')
     .replace(/<(?!\/?(?:b|em|i|strong|br)\b)[^>]*>/gi, '')
     .replace(/javascript:/gi, '');
 }

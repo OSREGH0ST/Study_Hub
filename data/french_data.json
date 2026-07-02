@@ -149,6 +149,60 @@
             { "variant": "gold", "label": "Indirect Object (COI) — replaces à + noun", "fr": "me, te, lui, nous, vous, leur", "example": "Je lui parle. (I speak to him/her.)" }
           ],
           "note": { "variant": "red", "text": "Placement: Object pronoun goes BEFORE the conjugated verb. In negation: Je ne le vois pas." }
+        },
+        {
+          "type": "card",
+          "title": "Pronouns y / en",
+          "color": "cyan",
+          "info_boxes": [
+            { "variant": "blue", "label": "y", "body": "Replaces à + place or location. Use to avoid repeating a place.", "example": "J'y vais. (I am going there.)" },
+            { "variant": "gold", "label": "en", "body": "Replaces de + noun, quantities, or partitive phrases.", "example": "J'en veux. (I want some.)" },
+            { "variant": "green", "label": "Quantity with en", "body": "When you keep a quantity, en comes before the verb.", "example": "J'en ai trois. (I have three of them.)" }
+          ],
+          "note": { "variant": "green", "text": "In negation, y and en stay before the verb: Je n'y vais pas. Je n'en veux pas." }
+        },
+        {
+          "type": "card",
+          "title": "Comparative / Superlative",
+          "color": "pink",
+          "info_boxes": [
+            { "variant": "blue", "label": "Comparative of superiority", "body": "Use plus ... que to compare two things.", "example": "Elle est plus grande que moi." },
+            { "variant": "gold", "label": "Comparative of inferiority", "body": "Use moins ... que.", "example": "Il est moins rapide que toi." },
+            { "variant": "purple", "label": "Comparative of equality", "body": "Use aussi ... que to show equality.", "example": "Il est aussi intelligent que son frère." },
+            { "variant": "green", "label": "Superlative", "body": "Use le/la/les plus or moins to show the extreme degree.", "example": "C'est la plus belle maison." }
+          ]
+        },
+        {
+          "type": "card",
+          "title": "Relative Pronouns",
+          "color": "purple",
+          "info_boxes": [
+            { "variant": "blue", "label": "Qui", "body": "Used for the subject of the relative clause.", "example": "La fille qui parle est française." },
+            { "variant": "gold", "label": "Que", "body": "Used for the object of the relative clause.", "example": "Le livre que je lis est bon." },
+            { "variant": "green", "label": "Dont", "body": "Replaces de + noun in the relative clause.", "example": "Le garçon dont je parle est ici." },
+            { "variant": "red", "label": "Où", "body": "Used for place or time.", "example": "La ville où j'habite est belle." },
+            { "variant": "pink", "label": "Note", "body": "Relative pronouns connect two clauses and provide extra information about a noun.", "example": "C'est le film que j'ai vu hier." }
+          ]
+        },
+        {
+          "type": "card",
+          "title": "Passive Voice",
+          "color": "red",
+          "subtitle": "Use être + past participle",
+          "info_boxes": [
+            { "variant": "blue", "label": "Form", "body": "The past participle agrees with the subject in gender and number.", "example": "Le livre est lu par Marie." },
+            { "variant": "gold", "label": "Usage", "body": "Use for emphasis on the action or the receiver of the action.", "example": "La lettre est écrite par Paul." }
+          ]
+        },
+        {
+          "type": "card",
+          "title": "Advanced Negation",
+          "color": "blue",
+          "info_boxes": [
+            { "variant": "blue", "label": "Ne ... jamais / plus / rien", "body": "These add nuance: never, no longer, nothing.", "example": "Je ne mange jamais de viande. Je n'en mange plus. Je ne vois rien." },
+            { "variant": "gold", "label": "Ne ... personne / aucun", "body": "Used with people or none/any.", "example": "Je ne vois personne. Je n'ai aucun problème." },
+            { "variant": "green", "label": "Structure", "body": "Most advanced negations still use ne + verb + second negative element.", "example": "Il n'a invité personne. (He invited no one.)" }
+          ]
         }
       ]
     },
@@ -341,6 +395,122 @@
           ]
         },
         {
+          "id": "tab-conditionnel",
+          "label": "Conditionnel",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Conditionnel Présent",
+              "color": "gold",
+              "subtitle": "Use to express polite requests, wishes, or hypotheticals.",
+              "conjugation_tables": [
+                {
+                  "header": "Parler",
+                  "headerColor": "#60a5fa",
+                  "rows": [
+                    { "pronoun": "je", "form": "parlerais" },
+                    { "pronoun": "tu", "form": "parlerais" },
+                    { "pronoun": "il/elle", "form": "parlerait" },
+                    { "pronoun": "nous", "form": "parlerions" },
+                    { "pronoun": "vous", "form": "parleriez" },
+                    { "pronoun": "ils/elles", "form": "parleraient" }
+                  ]
+                }
+              ],
+              "info_boxes": [
+                { "variant": "blue", "label": "Formation", "body": "Use the future stem + imparfait endings. This is the polite hypothetical form.", "example": "Je parlerais si j'avais le temps. (I would speak if I had time.)" },
+                { "variant": "gold", "label": "Usage", "body": "Use for polite requests, wishes, or actions that depend on a condition.", "example": "Je voudrais un café. (I would like a coffee.)" }
+              ],
+              "note": { "variant": "green", "text": "Common structure: si + imparfait, then conditionnel présent. Example: Si j'étais riche, j'achèterais une maison." }
+            },
+            {
+              "type": "card",
+              "title": "Conditionnel Passé",
+              "color": "purple",
+              "subtitle": "Used for past hypothetical or regret.",
+              "info_boxes": [
+                { "variant": "gold", "label": "Form", "body": "Use conditional avoir or être + past participle.", "example": "J'aurais mangé si j'avais eu faim. (I would have eaten if I had been hungry.)" },
+                { "variant": "blue", "label": "Meaning", "body": "Expresses what would have happened in the past under a different condition.", "example": "Elle serait venue si elle avait su. (She would have come if she had known.)" }
+              ],
+              "note": { "variant": "red", "text": "The auxiliary verb is chosen the same way as in passé composé: avoir or être." }
+            }
+          ]
+        },
+        {
+          "id": "tab-subjonctif",
+          "label": "Subjonctif",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Subjonctif Présent",
+              "color": "green",
+              "subtitle": "Used after necessity, emotion, doubt, or will.",
+              "info_boxes": [
+                { "variant": "blue", "label": "Trigger expressions", "body": "After expressions like il faut que, je veux que, je doute que.", "example": "Il faut que tu viennes. (You must come.)" },
+                { "variant": "gold", "label": "Common verbs", "body": "Used with vouloir, souhaiter, craindre, regretter, être content que.", "example": "Je souhaite que tu sois ici. (I wish that you were here.)" }
+              ],
+              "note": { "variant": "pink", "text": "The subjunctive is not a tense of time; it expresses attitude, desire, doubt, or necessity." }
+            },
+            {
+              "type": "card",
+              "title": "Subjonctif Passé",
+              "color": "blue",
+              "subtitle": "Used for past actions after subjunctive triggers.",
+              "info_boxes": [
+                { "variant": "gold", "label": "Form", "body": "Use the present subjunctive of avoir or être + past participle.", "example": "Je suis content que tu aies réussi. (I am happy that you succeeded.)" },
+                { "variant": "blue", "label": "Example", "body": "Use when the action is completed in a subordinate clause after a subjunctive trigger.", "example": "Je doute qu'il ait fini. (I doubt that he finished.)" }
+              ],
+              "note": { "variant": "red", "text": "Remember: the auxiliary is in subjunctive present, not indicative." }
+            }
+          ]
+        },
+        {
+          "id": "tab-imperatif",
+          "label": "L'Impératif",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Imperative Forms",
+              "color": "red",
+              "subtitle": "Give commands, invitations, or instructions.",
+              "conjugation_tables": [
+                {
+                  "header": "Parler",
+                  "headerColor": "#f97316",
+                  "rows": [
+                    { "pronoun": "(tu)", "form": "parle" },
+                    { "pronoun": "(nous)", "form": "parlons" },
+                    { "pronoun": "(vous)", "form": "parlez" }
+                  ]
+                }
+              ],
+              "info_boxes": [
+                { "variant": "gold", "label": "Tip", "body": "No subject is used in the imperative. Use tu, nous or vous only to show who is addressed.", "example": "Va à l'école. (Go to school.)" },
+                { "variant": "blue", "label": "-ER verbs", "body": "For tu form of -er verbs, drop the final 's' unless it is followed by y or en.", "example": "Mange ! / Va !" },
+                { "variant": "green", "label": "Negative form", "body": "Use ne ... pas around the verb in negative commands.", "example": "Ne parle pas ! (Don't speak!)" }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tab-passif",
+          "label": "Voix Passive",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Passive Voice",
+              "color": "blue",
+              "subtitle": "Use être + past participle to focus on the receiver of the action.",
+              "info_boxes": [
+                { "variant": "blue", "label": "Form", "body": "Subject + être + past participle + par + agent (optional).", "example": "Le gâteau est mangé par les enfants. (The cake is eaten by the children.)" },
+                { "variant": "gold", "label": "Agreement", "body": "The past participle agrees with the subject in gender and number.", "example": "La lettre est écrite. Les lettres sont écrites." },
+                { "variant": "green", "label": "When to use it", "body": "Use passive voice when the doer is unknown, unimportant, or when the receiver is the main focus.", "example": "Cette maison a été construite en 1900. (This house was built in 1900.)" }
+              ],
+              "note": { "variant": "red", "text": "If the agent is not needed, you can leave out 'par ...'." }
+            }
+          ]
+        },
+        {
           "id": "tab-dict",
           "label": "Verb Dictionary",
           "sections": [
@@ -385,6 +555,18 @@
           "note_bottom": { "variant": "red", "text": "⚠️ The \"Vowel Rule\": If a feminine noun starts with a vowel (like <em>amie</em>), you <strong>must</strong> use the masculine form: <strong>Mon amie</strong> (not Ma amie)." }
         },
         {
+          "type": "card",
+          "title": "Adjective Placement & Meaning",
+          "color": "purple",
+          "subtitle": "Learn how position changes meaning and when adjectives come before or after the noun.",
+          "info_boxes": [
+            { "variant": "blue", "label": "Standard position", "body": "Most adjectives follow the noun: un livre intéressant, une femme intelligente.", "example": "Une voiture rouge." },
+            { "variant": "gold", "label": "Before noun", "body": "Some adjectives come before the noun and often change meaning: grand homme vs homme grand.", "example": "Un grand homme (a great man) vs un homme grand (a tall man)." },
+            { "variant": "green", "label": "Common pre-nominal adjectives", "body": "Adjectives like beau, nouveau, vieux, bon, mauvais often precede the noun.", "example": "Un bon repas, une nouvelle idée, un vieux château." }
+          ],
+          "note": { "variant": "red", "text": "Adjective position is a high-level skill in French: it affects nuance, register, and meaning." }
+        },
+        {
           "type": "static_island",
           "id": "bags-placement"
         },
@@ -421,6 +603,18 @@
             { "en": "Usually", "fr": "D'habitude", "color": "#10b981" },
             { "en": "Always", "fr": "Toujours", "color": "#059669" }
           ]
+        },
+        {
+          "type": "card",
+          "title": "Adverb Formation & Placement",
+          "color": "purple",
+          "subtitle": "Master how French adverbs are built and where they sit in real sentences.",
+          "info_boxes": [
+            { "variant": "blue", "label": "From adjectives", "body": "Most adverbs are formed from adjectives by adding -ment. If the adjective ends in -ant or -ent, use -amment or -emment.", "example": "rapide → rapidement, patient → patiemment" },
+            { "variant": "gold", "label": "Position", "body": "Place manner adverbs after the verb or between auxiliary and past participle in compound tenses.", "example": "Elle parle doucement. Elle a rapidement fini." },
+            { "variant": "green", "label": "Nuance", "body": "Learn the difference between bon (adjective) and bien (adverb), or rapide and rapidement for more natural phrasing.", "example": "Il est bon. Il travaille bien." }
+          ],
+          "note": { "variant": "red", "text": "Advanced speakers use adverbs to refine tone, rhythm, and register in French." }
         },
         {
           "type": "vocab_grid",

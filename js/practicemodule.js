@@ -69,12 +69,26 @@ function initPractice() {
     const lang = document.body.dataset.lang;
     const topics = lang === 'jp' ? JAPANESE_PRACTICE_TOPICS : FRENCH_PRACTICE_TOPICS;
 
-    grid.innerHTML = topics.map(t => `
-        <button class="practice-topic-card" onclick="startPractice('${t.id}')" style="--tc:${t.color}">
-            <span class="ptc-icon">${t.icon}</span>
-            <span class="ptc-label">${t.label}</span>
-        </button>
-    `).join('');
+    grid.innerHTML = '';
+    topics.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = 'practice-topic-card';
+        btn.style.setProperty('--tc', t.color);
+        btn.type = 'button';
+        btn.addEventListener('click', () => startPractice(t.id));
+
+        const icon = document.createElement('span');
+        icon.className = 'ptc-icon';
+        icon.textContent = t.icon;
+
+        const label = document.createElement('span');
+        label.className = 'ptc-label';
+        label.textContent = t.label;
+
+        btn.appendChild(icon);
+        btn.appendChild(label);
+        grid.appendChild(btn);
+    });
 }
 
 /* --- START A QUIZ --- */
@@ -170,20 +184,56 @@ function _renderQuestion() {
     const q = questions[current];
     const total = questions.length;
     document.getElementById('practice-quiz-progress').textContent = `${current + 1} / ${total}`;
-    document.getElementById('quiz-question-area').innerHTML = `
-        <div class="quiz-card">
-            <p class="quiz-q-label">Question ${current + 1} <span style="opacity:.5">of ${total}</span></p>
-            <p class="quiz-q-text">${q.q}</p>
-            <div class="quiz-options">
-                ${q.opts.map((opt, i) => `
-                    <button class="quiz-opt-btn" id="qopt-${i}" onclick="selectAnswer(${i})">${opt}</button>
-                `).join('')}
-            </div>
-            <div id="quiz-feedback" class="quiz-feedback" style="display:none;"></div>
-            <button id="quiz-next-btn" class="quiz-next-btn" onclick="nextQuestion()" style="display:none;">
-                ${current + 1 < total ? 'Next Question →' : 'See Results 🏁'}
-            </button>
-        </div>`;
+
+    const area = document.getElementById('quiz-question-area');
+    area.innerHTML = '';
+
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+
+    const label = document.createElement('p');
+    label.className = 'quiz-q-label';
+    label.textContent = `Question ${current + 1} `;
+    const labelMeta = document.createElement('span');
+    labelMeta.style.opacity = '.5';
+    labelMeta.textContent = `of ${total}`;
+    label.appendChild(labelMeta);
+    card.appendChild(label);
+
+    const questionText = document.createElement('p');
+    questionText.className = 'quiz-q-text';
+    questionText.textContent = q.q;
+    card.appendChild(questionText);
+
+    const optionsWrap = document.createElement('div');
+    optionsWrap.className = 'quiz-options';
+    q.opts.forEach((opt, i) => {
+        const optBtn = document.createElement('button');
+        optBtn.className = 'quiz-opt-btn';
+        optBtn.id = `qopt-${i}`;
+        optBtn.type = 'button';
+        optBtn.textContent = opt;
+        optBtn.addEventListener('click', () => selectAnswer(i));
+        optionsWrap.appendChild(optBtn);
+    });
+    card.appendChild(optionsWrap);
+
+    const feedback = document.createElement('div');
+    feedback.id = 'quiz-feedback';
+    feedback.className = 'quiz-feedback';
+    feedback.style.display = 'none';
+    card.appendChild(feedback);
+
+    const nextBtn = document.createElement('button');
+    nextBtn.id = 'quiz-next-btn';
+    nextBtn.className = 'quiz-next-btn';
+    nextBtn.type = 'button';
+    nextBtn.style.display = 'none';
+    nextBtn.textContent = current + 1 < total ? 'Next Question →' : 'See Results 🏁';
+    nextBtn.addEventListener('click', nextQuestion);
+    card.appendChild(nextBtn);
+
+    area.appendChild(card);
     quizState.answered = false;
 }
 
@@ -208,7 +258,20 @@ function selectAnswer(idx) {
     const fb = document.getElementById('quiz-feedback');
     fb.style.display = 'flex';
     fb.className = `quiz-feedback ${isRight ? 'fb-correct' : 'fb-wrong'}`;
-    fb.innerHTML = `<span>${isRight ? '✅ Correct!' : `❌ The answer is: <strong>${q.opts[correct]}</strong>`}${q.tip ? ` — ${q.tip}` : ''}</span>`;
+    fb.innerHTML = '';
+    const message = document.createElement('span');
+    if (isRight) {
+        message.textContent = '✅ Correct!';
+    } else {
+        message.textContent = '❌ The answer is: ';
+        const strong = document.createElement('strong');
+        strong.textContent = q.opts[correct];
+        message.appendChild(strong);
+    }
+    if (q.tip) {
+        message.appendChild(document.createTextNode(' — ' + q.tip));
+    }
+    fb.appendChild(message);
     document.getElementById('quiz-next-btn').style.display = 'block';
 }
 
@@ -233,16 +296,36 @@ function _showResults() {
     document.getElementById('results-title').textContent = title;
     document.getElementById('results-score').textContent = `${score} / ${total} correct · ${pct}%`;
 
-    document.getElementById('results-breakdown').innerHTML = quizState.questions.map((q, i) => {
+    const breakdown = document.getElementById('results-breakdown');
+    breakdown.innerHTML = '';
+    quizState.questions.forEach((q, i) => {
         const a = quizState.answers[i];
-        return `<div class="rb-item ${a.isRight ? 'rb-right' : 'rb-wrong'}">
-            <span class="rb-icon">${a.isRight ? '✅' : '❌'}</span>
-            <div class="rb-text">
-                <p class="rb-q">${q.q}</p>
-                ${!a.isRight ? `<p class="rb-ans">Answer: ${q.opts[a.correct]}</p>` : ''}
-            </div>
-        </div>`;
-    }).join('');
+        const item = document.createElement('div');
+        item.className = `rb-item ${a.isRight ? 'rb-right' : 'rb-wrong'}`;
+
+        const icon = document.createElement('span');
+        icon.className = 'rb-icon';
+        icon.textContent = a.isRight ? '✅' : '❌';
+
+        const text = document.createElement('div');
+        text.className = 'rb-text';
+
+        const qel = document.createElement('p');
+        qel.className = 'rb-q';
+        qel.textContent = q.q;
+        text.appendChild(qel);
+
+        if (!a.isRight) {
+            const ans = document.createElement('p');
+            ans.className = 'rb-ans';
+            ans.textContent = `Answer: ${q.opts[a.correct]}`;
+            text.appendChild(ans);
+        }
+
+        item.appendChild(icon);
+        item.appendChild(text);
+        breakdown.appendChild(item);
+    });
 }
 
 function retryQuiz() { startPractice(quizState.topic.id); }

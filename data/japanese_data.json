@@ -202,7 +202,7 @@
               "color": "purple",
               "info_boxes": [
                 { "variant": "blue", "label": "Group 1: From ~ます to Dictionary", "body": "Change the 'i' sound before ~ます to an 'u' sound.", "examples": [{"ex":"のみます → のむ (nomu)"},{"ex":"かきます → かく (kaku)"}] },
-                { "variant": "green", "label": "Group 2: From ~ます to Dictionary", "body": "Drop ~ます and add る (ru).", "examples": [{"ex":"たべます → たべる (taberu)"},{"ex":"みます → みる (miru)"}] }
+                { "variant": "green", "label": "Group 2: From ~ます to Dictionary", "body": "Drop る and add ない.", "examples": [{"ex":"たべます → たべる (taberu)"},{"ex":"みます → みる (miru)"}] }
               ],
               "table": { "header": "Irregular Forms", "items": [{"en":"します (To do)","jp":"→ する (suru)"},{"en":"きます (To come)","jp":"→ くる (kuru)"}] }
             },
@@ -215,6 +215,130 @@
                 { "variant": "blue", "label": "Group 2: Ru-Verbs", "body": "Drop る and add ない.", "examples": [{"ex":"たべる → たべない"},{"ex":"みる → みない"}] },
                 { "variant": "orange", "label": "Irregulars", "body": "", "examples": [{"ex":"する → しない"},{"ex":"くる → こない"}] }
               ]
+            }
+          ]
+        },
+        {
+          "id": "verb-potential",
+          "label": "Potential",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Potential Form",
+              "color": "blue",
+              "subtitle": "Express ability or possibility.",
+              "info_boxes": [
+                { "variant": "blue", "label": "Formation", "body": "For Ru-verbs drop る and add られる. For U-verbs change the final u-sound to e-sound + る.", "example": "たべる → たべられる, のむ → のめる" },
+                { "variant": "gold", "label": "Usage", "body": "Means 'can' or 'be able to'. Use it for ability or potential actions.", "example": "にほんごがはなせます。 (I can speak Japanese.)" },
+                { "variant": "green", "label": "Tip", "body": "Potential verbs are often used with が to mark the ability subject.", "example": "くるまがうんてんできます。 (I can drive a car.)" }
+              ],
+              "note": { "variant": "pink", "text": "Potential verbs are sometimes translated as 'can' or 'is possible to.'" }
+            }
+          ]
+        },
+        {
+          "id": "verb-passive",
+          "label": "Passive",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Passive Form",
+              "color": "red",
+              "subtitle": "Used to express something done to the subject.",
+              "info_boxes": [
+                { "variant": "blue", "label": "Formation", "body": "For Ru-verbs replace る with られる. For U-verbs change the final u-sound to a-sound + れる.", "example": "たべる → たべられる, のむ → のまれる" },
+                { "variant": "gold", "label": "Usage", "body": "Use when the subject receives an action, or to express an unpleasant event or indirect experience.", "example": "わたしはせんせいにほめられました。 (I was praised by the teacher.)" },
+                { "variant": "green", "label": "Passive feeling", "body": "Often used to describe something bad happening to you or when you are affected by an action.", "example": "ともだちにでんわをじゃまされました。 (My friend disturbed my phone call.)" }
+              ],
+              "note": { "variant": "pink", "text": "Japanese passive can mean 'be made to' or 'be affected by', not only passive voice." }
+            }
+          ]
+        },
+        {
+          "id": "verb-causative",
+          "label": "Causative",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Causative Form",
+              "color": "purple",
+              "subtitle": "Used to say 'let someone do' or 'make someone do'.",
+              "info_boxes": [
+                { "variant": "blue", "label": "Formation", "body": "For Ru-verbs replace る with させる. For U-verbs change the final u-sound to a-sound + せる.", "example": "たべる → たべさせる, のむ → のませる" },
+                { "variant": "gold", "label": "Usage", "body": "Use when making or allowing someone else to do something.", "example": "こどもにやさいをたべさせました。 (I made the child eat vegetables.)" },
+                { "variant": "green", "label": "Meaning", "body": "The causative can mean either 'let someone do' or 'make someone do', depending on context.", "example": "せんせいはがくせいにかんじをかかせました。 (The teacher made the student write kanji.)" }
+              ],
+              "note": { "variant": "pink", "text": "With a direct object + person, add に after the person who is being allowed or forced." }
+            }
+          ]
+        },
+        {
+          "id": "verb-conditionals",
+          "label": "Conditionals",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Conditional Patterns",
+              "color": "cyan",
+              "info_boxes": [
+                { "variant": "blue", "label": "と", "body": "Use for natural or inevitable results, usually with facts or repeated events.", "example": "おかねをだすと、すぐにかえます。 (If you pay, you can buy it immediately.)" },
+                { "variant": "gold", "label": "ば", "body": "Used for general conditional statements and polite hypothetical situations.", "example": "いけば、あえます。 (If you go, you can meet.)" },
+                { "variant": "green", "label": "たら", "body": "Used for hypothetical situations, past conditions, or future 'when/if' statements.", "example": "あめがふったら、いきません。 (If it rains, I won't go.)" },
+                { "variant": "red", "label": "なら", "body": "Used when the condition is based on a topic or assumption.", "example": "いくなら、はやくしゅっぱつしたほうがいい。 (If you're going, you should leave early.)" }
+              ],
+              "note": { "variant": "pink", "text": "Use たら for past or completed conditions, and ば/to for more general or habitual conditions." }
+            }
+          ]
+        },
+        {
+          "id": "verb-desire",
+          "label": "Desire",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Desire Expressions",
+              "color": "pink",
+              "info_boxes": [
+                { "variant": "blue", "label": "～たい", "body": "Express your own desire to do something. Do not use it to express someone else's desire.", "example": "にほんへいきたい。 (I want to go to Japan.)" },
+                { "variant": "gold", "label": "がほしい", "body": "Express desire for a thing or object.", "example": "あたらしいかばんがほしい。 (I want a new bag.)" },
+                { "variant": "green", "label": "～てほしい", "body": "Express that you want someone else to do something for you.", "example": "てつだってほしいです。 (I want you to help.)" }
+              ],
+              "note": { "variant": "purple", "text": "To express someone else’s desire, use ほしがる, not ～たい." }
+            }
+          ]
+        },
+        {
+          "id": "verb-giving",
+          "label": "Giving & Receiving",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Giving / Receiving Verbs",
+              "color": "gold",
+              "info_boxes": [
+                { "variant": "blue", "label": "～てあげる", "body": "Used when you do something for someone else.", "example": "ともだちにほんをあげました。 (I gave my friend a book.)" },
+                { "variant": "green", "label": "～てくれる", "body": "Used when someone does something for you.", "example": "せんせいがおしえてくれました。 (The teacher taught me.)" },
+                { "variant": "red", "label": "～てもらう", "body": "Used when you receive the favor of someone doing something.", "example": "ともだちにてつだってもらいました。 (I had my friend help me.)" }
+              ],
+              "note": { "variant": "pink", "text": "The difference is about perspective: あげる = giving from your view, くれる = receiving from your view, もらう = receiving with gratitude." }
+            }
+          ]
+        },
+        {
+          "id": "verb-keigo",
+          "label": "Keigo",
+          "sections": [
+            {
+              "type": "card",
+              "title": "Honorific & Humble Speech",
+              "color": "purple",
+              "subtitle": "Used for polite conversation and formal situations.",
+              "info_boxes": [
+                { "variant": "blue", "label": "Respectful (そんけいご)", "body": "Use when speaking about someone else politely.", "example": "せんせいがいらっしゃいました。 (The teacher arrived.)" },
+                { "variant": "gold", "label": "Humble (けんじょうご)", "body": "Use to lower yourself or your group respectfully.", "example": "わたしがまいります。 (I will go.)" },
+                { "variant": "green", "label": "Polite (ていねいご)", "body": "Use ます/です form for general politeness.", "example": "たべます。 (I eat.)" }
+              ],
+              "note": { "variant": "pink", "text": "Keigo has three levels: polite, honorific, and humble. Use the right style for customers, teachers, or formal settings." }
             }
           ]
         },
@@ -249,8 +373,8 @@
           "color": "cyan",
           "note_top": { "variant": "cyan", "text": "The Rule: Add <b>の (no)</b> to any person. It never changes, no matter what object follows it!" },
           "tables": [
-            { "header": "Singular (One Person)", "items": [{"en":"My / Mine","jp":"私の (Watashi no)"},{"en":"Your / Yours","jp":"あなたの (Anata no)"},{"en":"His","jp":"彼の (Kare no)"},{"en":"Her / Hers","jp":"彼女の (Kanojo no)"},{"en":"Its","jp":"それの / その (Sore no / Sono)"}] },
-            { "header": "Plural (Multiple People)", "items": [{"en":"Our / Ours","jp":"私たちの (Watashitachi no)"},{"en":"Your (plural)","jp":"あなたたちの (Anatatachi no)"},{"en":"Their (General/Male)","jp":"彼らの (Karera no)"},{"en":"Their (Female)","jp":"彼女らの (Kanojora no)"},{"en":"Who's?","jp":"だれの？ (Dare no?)"}] }
+            { "header": "Singular (One Person)", "items": [{"en":"My / Mine","jp":"わたしの (Watashi no)"},{"en":"Your / Yours","jp":"あなたの (Anata no)"},{"en":"His","jp":"かれの (Kare no)"},{"en":"Her / Hers","jp":"かのjoの (Kanojo no)"},{"en":"Its","jp":"それの / その (Sore no / Sono)"}] },
+            { "header": "Plural (Multiple People)", "items": [{"en":"Our / Ours","jp":"わたしたちの (Watashitachi no)"},{"en":"Your (plural)","jp":"あなたたちの (Anatatachi no)"},{"en":"Their (General/Male)","jp":"かれらの (Karera no)"},{"en":"Their (Female)","jp":"かのじょらの (Kanojora no)"},{"en":"Who's?","jp":"だれの？ (Dare no?)"}] }
           ]
         },
         {
@@ -262,10 +386,22 @@
           ]
         },
         {
+          "type": "card",
+          "title": "Adjective Conjugation & Adverbial Forms",
+          "color": "purple",
+          "subtitle": "From descriptive forms to adverbs, te-forms, past tense, and nuance.",
+          "info_boxes": [
+            { "variant": "blue", "label": "I-Adjective adverb", "body": "Change い to く to use the adjective as an adverb.", "example": "はやい → はやく (quickly), うるさい → うるさく" },
+            { "variant": "gold", "label": "Na-Adjective adverb", "body": "Replace な with に to make an adverbial form.", "example": "しずかな → しずかに (quietly), げんきな → げんきに" },
+            { "variant": "green", "label": "Te-form & past", "body": "I-adjectives use くて for connection and かった for past tense. Na-adjectives use で and だった.", "example": "あたらしくて、あつかった。/ しずかで、しずかだった。" }
+          ],
+          "note": { "variant": "red", "text": "Advanced Japanese adjective use often appears in compound sentences and polite descriptions." }
+        },
+        {
           "type": "vocab_grid",
           "cols": 2,
           "tables": [
-            { "header": "Colors (色 - Iro)", "items": [
+            { "header": "Colors (いろ - Iro)", "items": [
               {"sub":"I-Adjectives","en":"White","jp":"しろい"},{"en":"Black","jp":"くろい"},{"en":"Red","jp":"あかい"},{"en":"Blue","jp":"あおい"},{"en":"Yellow","jp":"きいろい"},{"en":"Brown","jp":"ちゃいろい"},
               {"sub":"Nouns (takes の)","en":"Green","jp":"みどり"},{"en":"Purple","jp":"むらさき"},{"en":"Pink","jp":"ピンク"},{"en":"Gray","jp":"はいいろ"}
             ] },
@@ -331,7 +467,20 @@
         },
         {
           "type": "card",
-          "title": "Location Prepositions (位置)",
+          "title": "Adverb Placement & Intensity",
+          "color": "purple",
+          "subtitle": "Use adverbs in natural positions and choose the right degree.",
+          "items": [
+            { "en": "Put manner adverbs before the verb.", "jp": "ゆっくり あるきます。" },
+            { "en": "Put frequency adverbs before the verb.", "jp": "よく にほんごをべんきょうします。" },
+            { "en": "Use すごく / とても before adjectives.", "jp": "きょうは すごく あついです。" },
+            { "en": "Use あまり / ぜんぜん with negative verbs.", "jp": "あまり たべません。 / ぜんぜん わかりません。" }
+          ],
+          "note": { "variant": "red", "text": "Upper-level Japanese relies on adverb position and nuance words to express subtle meaning." }
+        },
+        {
+          "type": "card",
+          "title": "Location Prepositions (いち)",
           "color": "blue",
           "items": [
             { "en": "Above", "jp": "うえ" },
@@ -358,11 +507,11 @@
           "icon": "🔢",
           "color": "blue",
           "scale": [
-            { "value": "100,000,000", "jp": "億", "reading": "Oku" },
-            { "value": "10,000", "jp": "万", "reading": "Man" },
-            { "value": "1,000", "jp": "千", "reading": "Sen" },
-            { "value": "100", "jp": "百", "reading": "Hyaku" },
-            { "value": "10", "jp": "十", "reading": "Juu" }
+            { "value": "100,000,000", "jp": "おく", "reading": "Oku" },
+            { "value": "10,000", "jp": "まん", "reading": "Man" },
+            { "value": "1,000", "jp": "せん", "reading": "Sen" },
+            { "value": "100", "jp": "ひゃく", "reading": "Hyaku" },
+            { "value": "10", "jp": "じゅう", "reading": "Juu" }
           ],
           "tables": [
             { "header": "Basics (1-10)", "items": [{"en":"1","jp":"いち"},{"en":"2","jp":"に"},{"en":"3","jp":"さん"},{"en":"4","jp":"よん/し"},{"en":"5","jp":"ご"},{"en":"6","jp":"ろく"},{"en":"7","jp":"なな/しち"},{"en":"8","jp":"はち"},{"en":"9","jp":"きゅう/く"},{"en":"10","jp":"じゅう"}] }
@@ -379,8 +528,8 @@
           "color": "indigo",
           "tables": [
             { "header": "Days of Week", "items": [{"en":"Monday","jp":"げつようび"},{"en":"Tuesday","jp":"かようび"},{"en":"Wednesday","jp":"すいようび"},{"en":"Thursday","jp":"もくようび"},{"en":"Friday","jp":"きんようび"},{"en":"Saturday","jp":"どようび"},{"en":"Sunday","jp":"にちようび"}] },
-            { "header": "Months (月)", "items": [{"en":"January","jp":"いちがつ"},{"en":"February","jp":"にがつ"},{"en":"March","jp":"さんがつ"},{"en":"April","jp":"しがつ"},{"en":"July","jp":"しちがつ"},{"en":"September","jp":"くがつ"},{"en":"December","jp":"じゅうにがつ"}] },
-            { "header": "Days of Month (日)", "items": [{"en":"1st","jp":"ついたち"},{"en":"2nd","jp":"ふつか"},{"en":"3rd","jp":"みっか"},{"en":"4th","jp":"よっか"},{"en":"10th","jp":"とおか"},{"en":"20th","jp":"はつか"}] },
+            { "header": "Months (つき)", "items": [{"en":"January","jp":"いちがつ"},{"en":"February","jp":"にがつ"},{"en":"March","jp":"さんがつ"},{"en":"April","jp":"しがつ"},{"en":"July","jp":"しちがつ"},{"en":"September","jp":"くがつ"},{"en":"December","jp":"じゅうにがつ"}] },
+            { "header": "Days of Month (ひ)", "items": [{"en":"1st","jp":"ついたち"},{"en":"2nd","jp":"ふつか"},{"en":"3rd","jp":"みっか"},{"en":"4th","jp":"よっか"},{"en":"10th","jp":"とおか"},{"en":"20th","jp":"はつか"}] },
             { "header": "Time Expressions", "items": [{"en":"Today","jp":"きょう"},{"en":"Yesterday","jp":"きのう"},{"en":"Tomorrow","jp":"あした"},{"en":"This week","jp":"こんしゅう"},{"en":"Last week","jp":"せんしゅう"},{"en":"Next week","jp":"らいしゅう"},{"en":"Every day","jp":"まいにち"}] },
             { "header": "Weather", "items": [{"en":"Sunny","jp":"はれ"},{"en":"Cloudy","jp":"くもり"},{"en":"Rainy","jp":"あめ"},{"en":"Snowy","jp":"ゆき"}] }
           ]
@@ -390,9 +539,9 @@
           "label": "Travel",
           "icon": "✈️",
           "color": "emerald",
-          "note": "Add 人 (jin) for nationality. Add 語 (go) for language.",
+          "note": "Add ひと (jin) for nationality. Add ご (go) for language.",
           "tables": [
-            { "header": "Nationalities & Languages", "items": [{"en":"Japan","jp":"日本人 / 日本語"},{"en":"France","jp":"フランス人 / 語"},{"en":"USA (English)","jp":"アメリカ人 / 英語"},{"en":"Spain","jp":"スペイン人 / 語"},{"en":"China","jp":"中国人 / 中国語"},{"en":"Mexico","jp":"メキシコ人"}] },
+            { "header": "Nationalities & Languages", "items": [{"en":"Japan","jp":"にほんじん / にほんご"},{"en":"France","jp":"フランスじん / ご"},{"en":"USA (English)","jp":"アメリカじん / えいご"},{"en":"Spain","jp":"スペインじん / ご"},{"en":"China","jp":"ちゅうごくじん / ちゅうごくご"},{"en":"Mexico","jp":"メキシコじん"}] },
             { "header": "Directions", "items": [{"en":"North","jp":"きた"},{"en":"South","jp":"みなみ"},{"en":"East","jp":"ひがし"},{"en":"West","jp":"にし"}] },
             { "header": "Travel Essentials", "items": [{"en":"Passport","jp":"パスポート"},{"en":"Airport","jp":"くうこう"},{"en":"Hotel","jp":"ホテル"},{"en":"Map","jp":"ちず"},{"en":"To Travel","jp":"りょこうします"},{"en":"To Reserve","jp":"よやくします"}] },
             { "header": "Transportation (のりもの)", "items": [{"en":"Train","jp":"でんしゃ"},{"en":"Subway","jp":"ちかてつ"},{"en":"Bullet Train","jp":"しんかんせん"},{"en":"Bus / Taxi","jp":"バス / タクシー"},{"en":"Bicycle","jp":"じてんしゃ"},{"en":"Car","jp":"くるま"},{"en":"Airplane","jp":"ひこうき"}] }
@@ -405,7 +554,7 @@
           "color": "green",
           "tables": [
             { "header": "Essential Services", "items": [{"en":"Post Office","jp":"ゆうびんきょく"},{"en":"Bank","jp":"ぎんこう"},{"en":"Hospital","jp":"びょういん"},{"en":"Police Box","jp":"こうばん"},{"en":"Police Station","jp":"けいさつしょ"},{"en":"City Hall","jp":"しやくしょ"},{"en":"Station","jp":"えき"},{"en":"Ticket","jp":"きっぷ"}] },
-            { "header": "Shops (屋 - ya)", "items": [{"en":"Bakery","jp":"パンや"},{"en":"Bookstore","jp":"ほんや"},{"en":"Florist","jp":"はなや"},{"en":"Butcher","jp":"にくや"},{"en":"Fishmonger","jp":"さかなや"},{"en":"Pharmacy","jp":"くすりや / やっきょく"}] },
+            { "header": "Shops (や - ya)", "items": [{"en":"Bakery","jp":"パンや"},{"en":"Bookstore","jp":"ほんや"},{"en":"Florist","jp":"はなや"},{"en":"Butcher","jp":"にくや"},{"en":"Fishmonger","jp":"さかなや"},{"en":"Pharmacy","jp":"くすりや / やっきょく"}] },
             { "header": "Culture & Leisure", "items": [{"en":"Library","jp":"としょかん"},{"en":"Museum","jp":"はくぶつかん"},{"en":"Art Museum","jp":"びじゅつかん"},{"en":"Aquarium","jp":"すいぞくかん"},{"en":"Zoo","jp":"どうぶつえん"},{"en":"Gymnasium","jp":"たいいくかん"}] },
             { "header": "Modern City", "items": [{"en":"Convenience Store","jp":"コンビニ"},{"en":"Supermarket","jp":"スーパー"},{"en":"Dept. Store","jp":"デパート"},{"en":"Hotel","jp":"ホテル"},{"en":"Parking Lot","jp":"ちゅうしゃじょう"},{"en":"Gas Station","jp":"ガソリンスタンド"},{"en":"Shop / Store","jp":"みせ"}] }
           ]
@@ -477,8 +626,8 @@
           "icon": "🎨",
           "color": "orange",
           "tables": [
-            { "header": "Creative (クリエイティブ)", "items": [{"en":"Reading","jp":"どくしょ (読書)"},{"en":"Writing","jp":"かくこと (書くこと)"},{"en":"Drawing","jp":"えをかくこと (絵を描くこと)"},{"en":"Painting","jp":"あぶらえ (油絵)"},{"en":"Playing an instrument","jp":"がっきをひくこと"},{"en":"Singing","jp":"うたうこと (歌うこと)"},{"en":"Photography","jp":"しゃしん (写真)"}] },
-            { "header": "Activities (アクティビティ)", "items": [{"en":"Swimming","jp":"すいえい (水泳)"},{"en":"Cooking","jp":"りょうり (料理)"},{"en":"Traveling","jp":"りょこう (旅行)"},{"en":"Watching movies","jp":"えいがかんしょう"},{"en":"Listening to music","jp":"おんがくかんしょう"},{"en":"Gardening","jp":"えんげい (園芸)"},{"en":"Video games","jp":"ゲームをすること"}] }
+            { "header": "Creative (クリエイティブ)", "items": [{"en":"Reading","jp":"どくしょ"},{"en":"Writing","jp":"かくこと"},{"en":"Drawing","jp":"えをかくこと"},{"en":"Painting","jp":"あぶらえ"},{"en":"Playing an instrument","jp":"がっきをひくこと"},{"en":"Singing","jp":"うたうこと"},{"en":"Photography","jp":"しゃしん"}] },
+            { "header": "Activities (アクティビティ)", "items": [{"en":"Swimming","jp":"すいえい"},{"en":"Cooking","jp":"りょうり"},{"en":"Traveling","jp":"りょこう"},{"en":"Watching movies","jp":"えいがかんしょう"},{"en":"Listening to music","jp":"おんがくかんしょう"},{"en":"Gardening","jp":"えんげい"},{"en":"Video games","jp":"ゲームをすること"}] }
           ]
         }
       ]
