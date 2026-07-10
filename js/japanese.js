@@ -284,7 +284,7 @@ function initSearchTab() {
   const subtitle = document.createElement('p');
   subtitle.className = 'vocab-en';
   subtitle.style.cssText = 'font-size:13px;margin-bottom:1rem;';
-  subtitle.textContent = 'Look up any Japanese word using the free dictionary API. Try romaji like "sushi" or hiragana like "たべる".';
+  subtitle.textContent = 'Look up any Japanese word with a Gemini-powered dictionary response. Try romaji like "sushi" or hiragana like "たべる".';
   wrapper.appendChild(subtitle);
 
   const inputRow = document.createElement('div');
@@ -316,7 +316,7 @@ function initSearchTab() {
     if (!q) return;
     renderLoading(results);
     try {
-      const data = await searchJapanese(q);
+      const data = await searchJapanese(q, 'The user is studying Japanese vocabulary and wants a short dictionary-style result.');
       renderSearchResult(data, results);
     } catch (err) {
       if (err instanceof DictionaryError) {

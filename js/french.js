@@ -189,7 +189,7 @@ function initSearchTab() {
   const subtitle = document.createElement('p');
   subtitle.className = 'vocab-en';
   subtitle.style.cssText = 'font-size:13px;margin-bottom:1rem;';
-  subtitle.textContent = 'Look up any French word using the free dictionary API.';
+  subtitle.textContent = 'Look up any French word with a Gemini-powered dictionary response.';
   wrapper.appendChild(subtitle);
 
   // Input row
@@ -224,7 +224,7 @@ function initSearchTab() {
     if (!q) return;
     renderLoading(results);
     try {
-      const data = await searchFrench(q);
+      const data = await searchFrench(q, 'The user is studying French vocabulary and wants a short dictionary-style result.');
       renderSearchResult(data, results);
     } catch (err) {
       if (err instanceof DictionaryError) {
